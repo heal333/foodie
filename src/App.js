@@ -5,10 +5,8 @@ import Meals from "./components/Meals/Meals";
 const App = () => {
   return (
     <Fragment>
-      <Header />
-      <main>
-        <Meals />
-      </main>
+      <Header/>
+      <Meals/>
     </Fragment>
   );
 };
