@@ -2,8 +2,10 @@
 
 * {
   box-sizing: border-box;
+  --primaryTheme:#92320c;
+  --buttonTheme: #4d1601;
+  --counterTheme: green;
 }
-
 html {
   font-family: 'Noto Sans JP', sans-serif;
 }
