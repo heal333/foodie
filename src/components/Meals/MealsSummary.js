@@ -2,10 +2,11 @@ import classes from "./MealsSummary.module.css";
 const MealsSummary = () => {
   return (
     <section className={classes.summary}>
-      <h2>DeliciousFood</h2>
+      <h2>foodie</h2>
       <p>
-        Choose your favorite meal from our broad selection of available meals
-        and enjoy a delicious lunch or dinner at home.
+        Experience the convenience of ordering your favorite meals from the
+        comfort of your home, with just a few clicks on our user-friendly food
+        ordering website
       </p>
       <p>
         All our meals are cooked with high-quality ingredients, just-in-time and

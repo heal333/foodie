@@ -1,3 +1,7 @@
+#cartItems{
+  background-color: gray;
+}
+
 .cart-item {
     display: flex;
     justify-content: space-between;

@@ -14,3 +14,9 @@ body {
   margin: 0;
   background-color: #3f3f3f;
 }
+#cartItems{
+  padding: 10px;
+  /* background-image: linear-gradient(to top, white,rgba(58, 58, 58, 0.22)); */
+  background-color: white;
+  border-radius: 14px 14px 0px 0px;
+}

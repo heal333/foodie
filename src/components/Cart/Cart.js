@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useState,useContext } from "react";
 import classes from "./Cart.module.css";
 import Modal from "../UI/Modal";
 import CartContext from "../../store/cart-context";
 import CartItem from "./CartItem";
+import Checkout from "./Checkout";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
   const hasItems = cartCtx.items.length > 0;
+  const [isCheckout,setIsCheckout]=useState(false)
 
   const cartItemRemoveHandler = (id)=>{
     cartCtx.removeItem(id);
@@ -14,7 +16,7 @@ const Cart = (props) => {
     cartCtx.addItem(item)
   };
   const cartItems = (
-    <ul className={classes["cart-items"]}>
+    <ul className={classes["cart-items"]} id="cartItems">
       {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
@@ -27,7 +29,17 @@ const Cart = (props) => {
       ))}
     </ul>
   );
-  console.log(cartCtx);
+
+  const orderHandler=()=>{
+    setIsCheckout(true);
+  }
+
+  const modalActions=      <div className={classes.actions}>
+  <button className={classes["button--alt"]} onClick={props.onClose}>
+    close
+  </button>
+  {hasItems && <button className={classes.button} onClick={orderHandler}>order</button>}
+</div>
   return (
     <Modal onClose={props.onClose}>
       {cartItems}
@@ -35,12 +47,9 @@ const Cart = (props) => {
         <span>Total amount</span>
         <span>{`₹${cartCtx.totalAmount.toFixed(2)}`}</span>
       </div>
-      <div className={classes.actions}>
-        <button className={classes["button--alt"]} onClick={props.onClose}>
-          close
-        </button>
-        {hasItems && <button className={classes.button}>order</button>}
-      </div>
+      {isCheckout && <Checkout onCancel={props.onClose}/>}
+      {!isCheckout && modalActions }
+
     </Modal>
   );
 };
