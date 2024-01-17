@@ -1,12 +1,12 @@
-import { useRef, useState } from "react";
+import { useRef} from "react";
 import classes from "./MealItemForm.module.css";
 import Input from "../UI/Input";
 const MealItemForm = (props) => {
   const amountInputRef = useRef();
 
   const submitHandler = (event) => {
-    event.preventDefault();
-    const enteredAmountNumber = +amountInputRef.current.value;
+    event.preventDefault();//to prevent auto reloading the page after submiting
+    const enteredAmountNumber = +amountInputRef.current.value;//used addition sign to convert string to integer
     props.onAddToCart(enteredAmountNumber);
   };
   

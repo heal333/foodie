@@ -4,6 +4,8 @@ import MealItemForm from "./MealItemForm";
 import CartContext from "../../store/cart-context";
 const MealItem = (props) => {
   const cartCtx = useContext(CartContext);
+
+  //this function will add meal items to the cart from the meals list
   const addToCartHandler = (amount) => {
     cartCtx.addItem({
       id: props.id,
@@ -12,6 +14,7 @@ const MealItem = (props) => {
       price: props.price,
     });
   };
+
   return (
     <li className={classes.meal}>
       <div>
