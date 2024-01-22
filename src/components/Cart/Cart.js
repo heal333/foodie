@@ -12,27 +12,15 @@ const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
+  console.log(cartCtx)
 
   const cartItemRemoveHandler = (id) => {
     cartCtx.removeItem(id);
   };
   const cartItemAddHandler = (item) => {
-    cartCtx.addItem(item);
+    cartCtx.incrementItem(item);
   };
-  const cartItems = (
-    <ul className={classes["cart-items"]} id="cartItems">
-      {cartCtx.items.map((item) => (
-        <CartItem
-          key={item.id}
-          name={item.name}
-          amount={item.amount}
-          price={item.price}
-          onRemove={cartItemRemoveHandler.bind(null, item.id)}
-          onAdd={cartItemAddHandler.bind(null, item)}
-        ></CartItem>
-      ))}
-    </ul>
-  );
+
 
   
   //to enable checkout form after clicking submiting
@@ -50,6 +38,7 @@ const Cart = (props) => {
         body: JSON.stringify({
           user: userData,
           ordredItems: cartCtx.items,
+	  date: new Date,
         }),
       }
     );
@@ -69,6 +58,23 @@ const Cart = (props) => {
   //   );
   // };
   // //clearOrderDatabase();
+
+
+  //jsx for each item in the cart
+  const cartItems = (
+    <ul className={classes["cart-items"]} id="cartItems">
+      {cartCtx.items.map((item) => (
+        <CartItem
+          key={item.id}
+          name={item.name}
+          amount={item.amount}
+          price={item.price}
+          onRemove={cartItemRemoveHandler.bind(null, item.id)}
+          onAdd={cartItemAddHandler.bind(null, item)}
+        ></CartItem>
+      ))}
+    </ul>
+  );
 
 
   //to render order and close button in the cart modal

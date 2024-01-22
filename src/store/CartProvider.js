@@ -8,6 +8,7 @@ const defaultCartState = {
 };
 
 const cartReducer = (state, action) => {
+  //to add an item to the cart
   if (action.type === "ADD") {
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
@@ -36,6 +37,21 @@ const cartReducer = (state, action) => {
     };
   }
 
+  //to increase amount of an item by one and updating the price in the cart
+  if (action.type === "INCREMENT") {
+    const itemIndex = state.items.findIndex(
+      (item) => item.id === action.item.id
+    );
+    const updatedCart = [...state.items];
+    updatedCart[itemIndex].amount += 1;
+
+    return {
+      items: updatedCart,
+      totalAmount: state.totalAmount + action.item.price,
+    };
+  }
+
+  //to remove an item from the cart
   if (action.type === "REMOVE") {
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.id
@@ -55,32 +71,39 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
     };
   }
-  if (action.type==="CLEAR"){
-    return defaultCartState;
 
+  //to clear the cart
+  if (action.type === "CLEAR") {
+    return defaultCartState;
   }
   return defaultCartState;
 };
+
+
 const CartProvider = (props) => {
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
     defaultCartState
   );
+
   const addItemToCartHandler = (item) => {
     dispatchCartAction({ type: "ADD", item: item });
   };
   const removeItemFromCartHandler = (id) => {
     dispatchCartAction({ type: "REMOVE", id: id });
   };
+  const incrementCartItemHandler = (item) => {
+    dispatchCartAction({ type: "INCREMENT", item: item });
+  };
 
-  const clearCartHandler = ()=>{
-    dispatchCartAction({type: "CLEAR"})
-
-  }
+  const clearCartHandler = () => {
+    dispatchCartAction({ type: "CLEAR" });
+  };
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
+    incrementItem: incrementCartItemHandler,
     removeItem: removeItemFromCartHandler,
     clearCart: clearCartHandler,
   };
