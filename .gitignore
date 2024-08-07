@@ -12,8 +12,7 @@ node_modules
 config.env
 dist
 dist-ssr
-.parcel-cache
-FRONTEND/.parcel-cache
+*.parcel-cache
 *.local
 *.env
 

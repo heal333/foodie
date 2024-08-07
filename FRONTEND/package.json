@@ -1,10 +1,13 @@
 {
-    "name": "namastereact",
+    "name": "foodie",
     "version": "1.0.0",
     "main": "App.js",
+    "homepage": "https://heal333.github.io/foodie",
+    "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "parcel index.html"
+        "dev": "parcel index.html",
+        "deploy": "gh-pages -d dist"
     },
     "author": "",
     "license": "ISC",
@@ -14,6 +17,7 @@
         "react-dom": "^18.3.1"
     },
     "devDependencies": {
+        "gh-pages": "^6.1.1",
         "parcel": "^2.12.0",
         "process": "^0.11.10"
     }

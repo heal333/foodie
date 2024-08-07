@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const Body = () => {
     const getRes = async () => {
         try {
-            let response = await fetch("http://localhost:3000");
+            let response = await fetch("https://foodie-orcx.onrender.com");
             setData(await response.json());
         } catch (err) {
             console.log(err);
