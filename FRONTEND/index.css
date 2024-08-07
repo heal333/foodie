@@ -1,0 +1,109 @@
+* {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    --headerBackground: white;
+    --bodyBackground: rgb(230, 230, 230);
+    --cardBackground: white;
+    --textColor: black;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: var(--textColor);
+    background-color: var(--headerBackground);
+}
+.logo {
+    font-size: 2rem;
+    font-family: monospace;
+    font-weight: bold;
+}
+.navItems {
+    display: flex;
+    list-style-type: none;
+    margin: 0 1rem 0 1rem;
+}
+.navItems li {
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    white-space: nowrap;
+}
+
+.body {
+    margin-top: 5rem;
+    background-color: var(--bodyBackground);
+}
+.foodContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.foodCard {
+    background-color: var(--cardBackground);
+    color: var(--textColor);
+    min-width: 15rem;
+    width: 15rem;
+    height: 20rem;
+    margin: 1.5rem;
+    border-radius: 7px;
+}
+.foodCard:hover {
+    scale: 1.1;
+    box-shadow: 1rem 1rem 2rem gray;
+    transition: 0.3s;
+    .storeImg {
+        scale: 1.05;
+        transition: 0.3s;
+    }
+}
+.foodCard:not(:hover) {
+    transition: 0.2s;
+    .storeImg {
+        transition: 0.2s;
+    }
+}
+
+.storeImg {
+    width: 15rem;
+    height: 10rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.foodCard div {
+    padding-left: 1rem;
+    margin-top: 3px;
+}
+.storeName {
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+.foodItems {
+    color: gray;
+}
+.storeRating {
+    color: green;
+}
+.veg {
+    width: fit-content;
+    padding: 0 5px 0 5px;
+    white-space: nowrap;
+    border: 1px solid green;
+    border-radius: 5px;
+    color: green;
+}
+.nonVeg {
+    margin-top: 5rem;
+    width: fit-content;
+    padding: 0 5px 0 5px;
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid red;
+    border-radius: 5px;
+    color: red;
+}
