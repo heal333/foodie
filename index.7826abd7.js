@@ -27506,8 +27506,8 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _foodCard = require("./FoodCard");
-var _foodCardDefault = parcelHelpers.interopDefault(_foodCard);
+var _foodCardJs = require("./FoodCard.js");
+var _foodCardJsDefault = parcelHelpers.interopDefault(_foodCardJs);
 var _react = require("react");
 var _s = $RefreshSig$();
 const Body = ()=>{
@@ -27538,7 +27538,7 @@ const Body = ()=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "foodContainer",
                 children: data.map((obj)=>{
-                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _foodCardDefault.default), {
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _foodCardJsDefault.default), {
                         imageSrc: obj.Image,
                         name: obj["Restaurant Name"],
                         items: obj.Cuisine,
@@ -27574,7 +27574,7 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./FoodCard":"GoKEW","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"GoKEW":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./FoodCard.js":"GoKEW","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"GoKEW":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$06fc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
