@@ -27680,6 +27680,6 @@ $RefreshReg$(_c, "FoodCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"giGSC":[function() {},{}]},["APLPM","1xC6H","2Ew96"], "2Ew96", "parcelRequire21de")
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"giGSC":[function() {},{}]},["APLPM","1xC6H","2Ew96"], "2Ew96", "parcelRequire26b5")
 
 //# sourceMappingURL=index.7826abd7.js.map
