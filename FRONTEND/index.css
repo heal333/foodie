@@ -52,13 +52,13 @@
     border-radius: 7px;
 }
 .foodCard:hover {
-    scale: 1.1;
-    box-shadow: 1rem 1rem 2rem gray;
+    /* scale: 1.1; */
+    box-shadow: 2rem 2rem 2rem gray;
     transition: 0.3s;
-    .storeImg {
+    /* .storeImg {
         scale: 1.05;
         transition: 0.3s;
-    }
+    } */
 }
 .foodCard:not(:hover) {
     transition: 0.2s;

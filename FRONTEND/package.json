@@ -1,13 +1,14 @@
 {
     "name": "foodie",
+    "private": true,
     "version": "1.0.0",
-    "main": "App.js",
-    "homepage": "https://heal333.github.io/foodie",
-    "type": "module",
+    "source": "index.html",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "parcel",
+        "predeploy": "npm run build",
         "dev": "parcel index.html",
-        "deploy": "gh-pages -d dist"
+        "deploy": "gh-pages -d dist",
+        "build": "parcel build --public-url https://heal333.github.io/foodie"
     },
     "author": "",
     "license": "ISC",

@@ -1,4 +1,4 @@
-import FoodCard from "./FoodCard";
+import FoodCard from "./FoodCard.js";
 import { useState, useEffect } from "react";
 
 const Body = () => {

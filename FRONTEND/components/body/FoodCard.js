@@ -11,7 +11,10 @@ const FoodCard = (props) => {
     }
     return (
         <div className="foodCard">
-            <img className="storeImg" src={props.imageSrc} loading="lazy"></img>
+            <img
+                className="storeImg"
+                src={`${props.imageSrc}?auto=compress&cs=tinysrgb&w=600`}
+            ></img>
             <div className="storeName">{props.name}</div>
             <div className="foodItems">{props.items}</div>
             <div className="storeRating" style={{ color: ratingColor }}>
