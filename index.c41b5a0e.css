@@ -60,13 +60,7 @@
 
 .foodCard:hover {
   transition: all .3s;
-  scale: 1.1;
-  box-shadow: 1rem 1rem 2rem gray;
-
-  & .storeImg {
-    transition: all .3s;
-    scale: 1.05;
-  }
+  box-shadow: 2rem 2rem 2rem gray;
 }
 
 .foodCard:not(:hover) {
