@@ -27595,8 +27595,7 @@ const FoodCard = (props)=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "storeImg",
-                src: props.imageSrc,
-                loading: "lazy"
+                src: `${props.imageSrc}?auto=compress&cs=tinysrgb&w=600`
             }, void 0, false, {
                 fileName: "components/body/FoodCard.js",
                 lineNumber: 14,
@@ -27607,7 +27606,7 @@ const FoodCard = (props)=>{
                 children: props.name
             }, void 0, false, {
                 fileName: "components/body/FoodCard.js",
-                lineNumber: 15,
+                lineNumber: 18,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27615,7 +27614,7 @@ const FoodCard = (props)=>{
                 children: props.items
             }, void 0, false, {
                 fileName: "components/body/FoodCard.js",
-                lineNumber: 16,
+                lineNumber: 19,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27629,7 +27628,7 @@ const FoodCard = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "components/body/FoodCard.js",
-                lineNumber: 17,
+                lineNumber: 20,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27639,7 +27638,7 @@ const FoodCard = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "components/body/FoodCard.js",
-                lineNumber: 20,
+                lineNumber: 23,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27648,19 +27647,19 @@ const FoodCard = (props)=>{
                     children: "veg"
                 }, void 0, false, {
                     fileName: "components/body/FoodCard.js",
-                    lineNumber: 23,
+                    lineNumber: 26,
                     columnNumber: 21
                 }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                     className: "nonVeg",
                     children: "non-veg"
                 }, void 0, false, {
                     fileName: "components/body/FoodCard.js",
-                    lineNumber: 25,
+                    lineNumber: 28,
                     columnNumber: 21
                 }, undefined)
             }, void 0, false, {
                 fileName: "components/body/FoodCard.js",
-                lineNumber: 21,
+                lineNumber: 24,
                 columnNumber: 13
             }, undefined)
         ]
