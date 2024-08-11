@@ -26,20 +26,25 @@ const Body = () => {
 
     const [data, setData] = useState(placeholder);
     useEffect(() => {
-        getRes("http://127.0.0.1:3000/restaurants");
+        // getRes("http://127.0.0.1:3000/restaurants");
+        getRes("https://foodie-orcx.onrender.com/restaurants");
     }, []);
 
     const highestRatedHandler = () => {
-        getRes("http://127.0.0.1:3000/restaurants/highestrated");
+        // getRes("http://127.0.0.1:3000/restaurants/highestrated");
+        getRes("https://foodie-orcx.onrender.comrestaurants/highestrated");
     };
     const deliveryTimeHandler = () => {
-        getRes("http://127.0.0.1:3000/restaurants/deliverytime");
+        // getRes("http://127.0.0.1:3000/restaurants/deliverytime");
+        getRes("https://foodie-orcx.onrender.com/restaurants/deliverytime");
     };
     const vegHandler = () => {
-        getRes("http://127.0.0.1:3000/restaurants/veg");
+        // getRes("http://127.0.0.1:3000/restaurants/veg");
+        getRes("https://foodie-orcx.onrender.com/restaurants/veg");
     };
     const nonVegHandler = () => {
-        getRes("http://127.0.0.1:3000/restaurants/nonveg");
+        // getRes("http://127.0.0.1:3000/restaurants/nonveg");
+        getRes("https://foodie-orcx.onrender.com/restaurants/nonveg");
     };
     return (
         <div className="body">
