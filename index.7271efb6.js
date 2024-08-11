@@ -27544,7 +27544,7 @@ const Body = ()=>{
     }, []);
     const highestRatedHandler = ()=>{
         // getRes("http://127.0.0.1:3000/restaurants/highestrated");
-        getRes("https://foodie-orcx.onrender.comrestaurants/highestrated");
+        getRes("https://foodie-orcx.onrender.com/restaurants/highestrated");
     };
     const deliveryTimeHandler = ()=>{
         // getRes("http://127.0.0.1:3000/restaurants/deliverytime");
