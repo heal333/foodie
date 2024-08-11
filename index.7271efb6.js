@@ -27539,19 +27539,24 @@ const Body = ()=>{
     for(let i = 0; i < 24; i++)placeholder.push({});
     const [data, setData] = (0, _react.useState)(placeholder);
     (0, _react.useEffect)(()=>{
-        getRes("http://127.0.0.1:3000/restaurants");
+        // getRes("http://127.0.0.1:3000/restaurants");
+        getRes("https://foodie-orcx.onrender.com/restaurants");
     }, []);
     const highestRatedHandler = ()=>{
-        getRes("http://127.0.0.1:3000/restaurants/highestrated");
+        // getRes("http://127.0.0.1:3000/restaurants/highestrated");
+        getRes("https://foodie-orcx.onrender.comrestaurants/highestrated");
     };
     const deliveryTimeHandler = ()=>{
-        getRes("http://127.0.0.1:3000/restaurants/deliverytime");
+        // getRes("http://127.0.0.1:3000/restaurants/deliverytime");
+        getRes("https://foodie-orcx.onrender.com/restaurants/deliverytime");
     };
     const vegHandler = ()=>{
-        getRes("http://127.0.0.1:3000/restaurants/veg");
+        // getRes("http://127.0.0.1:3000/restaurants/veg");
+        getRes("https://foodie-orcx.onrender.com/restaurants/veg");
     };
     const nonVegHandler = ()=>{
-        getRes("http://127.0.0.1:3000/restaurants/nonveg");
+        // getRes("http://127.0.0.1:3000/restaurants/nonveg");
+        getRes("https://foodie-orcx.onrender.com/restaurants/nonveg");
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
@@ -27563,7 +27568,7 @@ const Body = ()=>{
                         children: "sort by:"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 47,
+                        lineNumber: 52,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27571,14 +27576,14 @@ const Body = ()=>{
                         children: "highest rated"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 48,
+                        lineNumber: 53,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "most rated"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 49,
+                        lineNumber: 54,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27586,7 +27591,7 @@ const Body = ()=>{
                         children: "delivery time"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 50,
+                        lineNumber: 55,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27594,7 +27599,7 @@ const Body = ()=>{
                         children: "veg"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 51,
+                        lineNumber: 56,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27602,13 +27607,13 @@ const Body = ()=>{
                         children: "non-veg"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 52,
+                        lineNumber: 57,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/body/Body.js",
-                lineNumber: 46,
+                lineNumber: 51,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27626,19 +27631,19 @@ const Body = ()=>{
                         isVeg: obj["Pure Veg"]
                     }, obj._id, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 57,
+                        lineNumber: 62,
                         columnNumber: 25
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/body/Body.js",
-                lineNumber: 54,
+                lineNumber: 59,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/body/Body.js",
-        lineNumber: 45,
+        lineNumber: 50,
         columnNumber: 9
     }, undefined);
 };
