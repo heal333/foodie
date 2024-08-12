@@ -20,18 +20,22 @@ const FoodCard = (props) => {
             )}
             <div className="storeName">{props.name}</div>
             <div className="foodItems">{props.items}</div>
-            {props.rating && (
-                <div className="storeRating">
+            <div className="storeRating">
+                {props.rating ? (
                     <div style={{ color: ratingColor }}>
                         {props.rating} stars
                     </div>
-                    {props.totalRatings ? (
-                        <div>({props.totalRatings})</div>
-                    ) : (
-                        <div>(Too few Ratings)</div>
-                    )}
-                </div>
-            )}
+                ) : (
+                    <div style={{ color: "red" }}>NEW</div>
+                )}
+
+                {props.totalRatings ? (
+                    <div>({props.totalRatings}+ ratings)</div>
+                ) : (
+                    <div>(Too few Ratings)</div>
+                )}
+            </div>
+
             {props.deliveryTime && (
                 <div className="deliveryTime">{props.deliveryTime} mins</div>
             )}

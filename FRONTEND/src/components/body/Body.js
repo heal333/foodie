@@ -32,7 +32,11 @@ const Body = () => {
 
     const highestRatedHandler = () => {
         // getRes("http://127.0.0.1:3000/restaurants/highestrated");
-        getRes("https://foodie-orcx.onrender.comrestaurants/highestrated");
+        getRes("https://foodie-orcx.onrender.com/restaurants/highestrated");
+    };
+    const mostRatedHandler = () => {
+        getRes("http://127.0.0.1:3000/restaurants/mostrated");
+        // getRes("https://foodie-orcx.onrender.com/restaurants/mostrated");
     };
     const deliveryTimeHandler = () => {
         // getRes("http://127.0.0.1:3000/restaurants/deliverytime");
@@ -51,7 +55,7 @@ const Body = () => {
             <div className="filterBar">
                 <div>sort by:</div>
                 <button onClick={highestRatedHandler}>highest rated</button>
-                <button>most rated</button>
+                <button onClick={mostRatedHandler}>most rated</button>
                 <button onClick={deliveryTimeHandler}>delivery time</button>
                 <button onClick={vegHandler}>veg</button>
                 <button onClick={nonVegHandler}>non-veg</button>

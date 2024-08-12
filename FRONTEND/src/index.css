@@ -81,12 +81,15 @@
     overflow: hidden;
 }
 .fadeUpAnimation {
-    animation: fadeUp 0.5s linear;
+    animation: fadeUp 1s linear;
 }
 @keyframes fadeUp {
     0% {
         translate: 0rem 2rem;
-        opacity: 0.5;
+        opacity: 0;
+    }
+    75% {
+        opacity: 0;
     }
     100% {
         translate: 0;

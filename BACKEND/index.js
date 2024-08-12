@@ -21,7 +21,14 @@ mongoose.connect(DB).then((con) => {
 
 const data = mongoose.model("restaurants", new mongoose.Schema());
 
+app.get("/", (req, res) => {
+    console.log(req.query);
+
+    res.status(200).json({ youGot: "rooted" });
+});
+
 app.get("/restaurants", async (req, res) => {
+    // if (!req.query.highestRated && !req.query.mostRated && !req )
     result = await data.find(
         {},
         {
@@ -44,7 +51,7 @@ app.get("/restaurants/highestrated", async (req, res) => {
 
 app.get("/restaurants/mostrated", async (req, res) => {
     result = await data.find().sort({ "Number of Ratings": 1 });
-    res.status(200).json(result.slice(0, 20));
+    res.status(200).json(result.reverse().slice(0, 20));
 });
 
 app.get("/restaurants/deliverytime", async (req, res) => {
