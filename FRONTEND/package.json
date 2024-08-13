@@ -6,7 +6,7 @@
     "scripts": {
         "start": "parcel",
         "predeploy": "npm run build",
-        "dev": "parcel index.html",
+        "dev": "parcel ./index.html",
         "deploy": "gh-pages -d dist",
         "build": "parcel build --public-url https://heal333.github.io/foodie"
     },

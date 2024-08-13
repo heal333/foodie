@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     --headerBackground: white;
-    --bodyBackground: rgb(230, 230, 230);
+    --bodyBackground: rgb(238, 238, 238);
     --cardBackground: white;
     --textColor: black;
 }
@@ -45,13 +45,16 @@
     justify-content: space-between;
     margin: auto;
     padding: 0 2rem;
-    min-width: 27rem;
-    max-width: 50rem;
+    /* min-width: 27rem; */
+    max-width: 66rem;
     white-space: nowrap;
+    color: black;
+    overflow: hidden;
 }
 .filterBar button {
     color: rgb(49, 49, 49);
     padding: 2px 1rem;
+    margin: 1px;
     border-radius: 1rem;
     border: 1px solid rgb(204, 204, 204);
 }
@@ -59,11 +62,12 @@
     background-color: rgb(206, 206, 206);
     transition: 250ms;
 }
-.filterBar button:focus {
+
+/* .filterBar button:focus {
     border: 1px solid rgb(206, 206, 206);
     background-color: rgb(0, 212, 0);
     color: white;
-}
+} */
 
 .foodContainer {
     display: flex;
@@ -72,23 +76,21 @@
 }
 .foodCard {
     background-color: var(--cardBackground);
+    /* background-image: linear-gradient(to bottom, white, var(--bodyBackground)); */
     color: var(--textColor);
     min-width: 15rem;
     width: 15rem;
-    height: 20rem;
+    height: 20.5rem;
     margin: 1.5rem;
     border-radius: 7px;
     overflow: hidden;
 }
 .fadeUpAnimation {
-    animation: fadeUp 1s linear;
+    animation: fadeUp 0.5s linear;
 }
 @keyframes fadeUp {
     0% {
         translate: 0rem 2rem;
-        opacity: 0;
-    }
-    75% {
         opacity: 0;
     }
     100% {
@@ -169,6 +171,10 @@
     border-radius: 5px;
     color: red;
     margin-top: 2px;
+}
+.pageNavigation {
+    width: fit-content;
+    margin: auto;
 }
 
 .Footer {
