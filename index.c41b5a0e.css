@@ -1,6 +1,6 @@
 * {
   --headerBackground: white;
-  --bodyBackground: #e6e6e6;
+  --bodyBackground: #eee;
   --cardBackground: white;
   --textColor: black;
   margin: 0;
@@ -46,31 +46,27 @@
 
 .filterBar {
   white-space: nowrap;
+  color: #000;
   justify-content: space-between;
-  min-width: 27rem;
-  max-width: 50rem;
+  max-width: 66rem;
   margin: auto;
   padding: 0 2rem;
   font-family: monospace;
   display: flex;
+  overflow: hidden;
 }
 
 .filterBar button {
   color: #313131;
   border: 1px solid #ccc;
   border-radius: 1rem;
+  margin: 1px;
   padding: 2px 1rem;
 }
 
 .filterBar button:hover {
   background-color: #cecece;
   transition: all .25s;
-}
-
-.filterBar button:focus {
-  color: #fff;
-  background-color: #00d400;
-  border: 1px solid #cecece;
 }
 
 .foodContainer {
@@ -85,7 +81,7 @@
   border-radius: 7px;
   width: 15rem;
   min-width: 15rem;
-  height: 20rem;
+  height: 20.5rem;
   margin: 1.5rem;
   overflow: hidden;
 }
@@ -96,7 +92,7 @@
 
 @keyframes fadeUp {
   0% {
-    opacity: .5;
+    opacity: 0;
     translate: 0 2rem;
   }
 
@@ -183,6 +179,11 @@
   width: fit-content;
   margin-top: 2px;
   padding: 0 5px;
+}
+
+.pageNavigation {
+  width: fit-content;
+  margin: auto;
 }
 
 .Footer {

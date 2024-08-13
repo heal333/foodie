@@ -27517,15 +27517,21 @@ var _foodCardJs = require("./FoodCard.js");
 var _foodCardJsDefault = parcelHelpers.interopDefault(_foodCardJs);
 var _react = require("react");
 var _s = $RefreshSig$();
+const PageNavigation = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "pageNavigation",
+        children: "1 2 3 4 5 6"
+    }, void 0, false, {
+        fileName: "src/components/body/Body.js",
+        lineNumber: 5,
+        columnNumber: 12
+    }, undefined);
+};
+_c = PageNavigation;
 const Body = ()=>{
     _s();
-    const [activeState, setActiveState] = (0, _react.useState)({
-        highestRated: false,
-        mostRated: false,
-        deliveryTime: false,
-        veg: false,
-        nonVeg: false
-    });
+    const [activeSort, setActiveSort] = (0, _react.useState)(0); //this can have 4 possible values, 0:no sorting, 1:sort by highest rated, 2:sort by most rated, 3:sorty by delivery time
+    const [activeVeg, setActiveVeg] = (0, _react.useState)(0); // this has 3 possible values, 0: both veg and non veg, 1:veg only, 2: nonveg only
     const getRes = async (api)=>{
         try {
             // let response = await fetch("https://foodie-orcx.onrender.com");
@@ -27543,20 +27549,42 @@ const Body = ()=>{
         getRes("https://foodie-orcx.onrender.com/restaurants");
     }, []);
     const highestRatedHandler = ()=>{
-        // getRes("http://127.0.0.1:3000/restaurants/highestrated");
-        getRes("https://foodie-orcx.onrender.com/restaurants/highestrated");
+        // getRes(
+        //     `http://127.0.0.1:3000/restaurants/highestrated?veg=${activeVeg}`
+        // );
+        getRes(`https://foodie-orcx.onrender.com/restaurants/highestrated?veg=${activeVeg}`);
+        setActiveSort(1);
+    };
+    const mostRatedHandler = ()=>{
+        // getRes(`http://127.0.0.1:3000/restaurants/mostrated?veg=${activeVeg}`);
+        getRes(`https://foodie-orcx.onrender.com/restaurants/mostrated?veg=${activeVeg}`);
+        setActiveSort(2);
     };
     const deliveryTimeHandler = ()=>{
-        // getRes("http://127.0.0.1:3000/restaurants/deliverytime");
-        getRes("https://foodie-orcx.onrender.com/restaurants/deliverytime");
+        // getRes(
+        //     `http://127.0.0.1:3000/restaurants/deliverytime?veg=${activeVeg}`
+        // );
+        getRes(`https://foodie-orcx.onrender.com/restaurants/deliverytime?veg=${activeVeg}`);
+        setActiveSort(3);
     };
     const vegHandler = ()=>{
-        // getRes("http://127.0.0.1:3000/restaurants/veg");
-        getRes("https://foodie-orcx.onrender.com/restaurants/veg");
+        // getRes(
+        //     `http://127.0.0.1:3000/restaurants/veg?activeSort=${activeSort}`
+        // );
+        getRes(`https://foodie-orcx.onrender.com/restaurants/veg?aciveSort=${activeSort}`);
+        setActiveVeg(1);
     };
     const nonVegHandler = ()=>{
-        // getRes("http://127.0.0.1:3000/restaurants/nonveg");
-        getRes("https://foodie-orcx.onrender.com/restaurants/nonveg");
+        // getRes(
+        //     `http://127.0.0.1:3000/restaurants/nonveg?activeSort=${activeSort}`
+        // );
+        getRes(`https://foodie-orcx.onrender.com/restaurants/nonveg?activeSort=${activeSort}`);
+        setActiveVeg(2);
+    };
+    const clearFilterHandler = ()=>{
+        getRes("https://foodie-orcx.onrender.com/restaurants");
+        setActiveSort(0);
+        setActiveVeg(0);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
@@ -27568,52 +27596,101 @@ const Body = ()=>{
                         children: "sort by:"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 52,
+                        lineNumber: 83,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: highestRatedHandler,
+                        style: activeSort === 1 ? {
+                            backgroundColor: "rgb(0, 212, 0)",
+                            color: "white"
+                        } : {},
                         children: "highest rated"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 53,
+                        lineNumber: 84,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: mostRatedHandler,
+                        style: activeSort === 2 ? {
+                            backgroundColor: "rgb(0, 212, 0)",
+                            color: "white"
+                        } : {},
                         children: "most rated"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 54,
+                        lineNumber: 97,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: deliveryTimeHandler,
+                        style: activeSort === 3 ? {
+                            backgroundColor: "rgb(0, 212, 0)",
+                            color: "white"
+                        } : {},
                         children: "delivery time"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 55,
+                        lineNumber: 110,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            color: "gray"
+                        },
+                        children: "|"
+                    }, void 0, false, {
+                        fileName: "src/components/body/Body.js",
+                        lineNumber: 123,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: vegHandler,
+                        style: activeVeg === 1 ? {
+                            backgroundColor: "rgb(0, 212, 0)",
+                            color: "white"
+                        } : {},
                         children: "veg"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 56,
+                        lineNumber: 125,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: nonVegHandler,
+                        style: activeVeg === 2 ? {
+                            backgroundColor: "rgb(0, 212, 0)",
+                            color: "white"
+                        } : {},
                         children: "non-veg"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 57,
+                        lineNumber: 138,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            color: "gray"
+                        },
+                        children: "|"
+                    }, void 0, false, {
+                        fileName: "src/components/body/Body.js",
+                        lineNumber: 151,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: clearFilterHandler,
+                        children: "clear filter"
+                    }, void 0, false, {
+                        fileName: "src/components/body/Body.js",
+                        lineNumber: 153,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/body/Body.js",
-                lineNumber: 51,
+                lineNumber: 82,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27631,27 +27708,33 @@ const Body = ()=>{
                         isVeg: obj["Pure Veg"]
                     }, obj._id, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 62,
+                        lineNumber: 158,
                         columnNumber: 25
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/body/Body.js",
-                lineNumber: 59,
+                lineNumber: 155,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(PageNavigation, {}, void 0, false, {
+                fileName: "src/components/body/Body.js",
+                lineNumber: 173,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/body/Body.js",
-        lineNumber: 50,
+        lineNumber: 81,
         columnNumber: 9
     }, undefined);
 };
-_s(Body, "6Ghx16nzh6mBQjhkZX0mFoDv7NQ=");
-_c = Body;
+_s(Body, "dCz8jvvRTVpqyadurgEVwzxzAFY=");
+_c1 = Body;
 exports.default = Body;
-var _c;
-$RefreshReg$(_c, "Body");
+var _c, _c1;
+$RefreshReg$(_c, "PageNavigation");
+$RefreshReg$(_c1, "Body");
 
   $parcel$ReactRefreshHelpers$19da.postlude(module);
 } finally {
@@ -27709,10 +27792,10 @@ const FoodCard = (props)=>{
                 lineNumber: 22,
                 columnNumber: 13
             }, undefined),
-            props.rating && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "storeRating",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    props.rating ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         style: {
                             color: ratingColor
                         },
@@ -27724,29 +27807,38 @@ const FoodCard = (props)=>{
                         fileName: "src/components/body/FoodCard.js",
                         lineNumber: 25,
                         columnNumber: 21
+                    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            color: "red"
+                        },
+                        children: "NEW"
+                    }, void 0, false, {
+                        fileName: "src/components/body/FoodCard.js",
+                        lineNumber: 29,
+                        columnNumber: 21
                     }, undefined),
                     props.totalRatings ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         children: [
                             "(",
                             props.totalRatings,
-                            ")"
+                            "+ ratings)"
                         ]
                     }, void 0, true, {
                         fileName: "src/components/body/FoodCard.js",
-                        lineNumber: 29,
-                        columnNumber: 25
+                        lineNumber: 33,
+                        columnNumber: 21
                     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         children: "(Too few Ratings)"
                     }, void 0, false, {
                         fileName: "src/components/body/FoodCard.js",
-                        lineNumber: 31,
-                        columnNumber: 25
+                        lineNumber: 35,
+                        columnNumber: 21
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/body/FoodCard.js",
-                lineNumber: 24,
-                columnNumber: 17
+                lineNumber: 23,
+                columnNumber: 13
             }, undefined),
             props.deliveryTime && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "deliveryTime",
@@ -27756,7 +27848,7 @@ const FoodCard = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/body/FoodCard.js",
-                lineNumber: 36,
+                lineNumber: 40,
                 columnNumber: 17
             }, undefined),
             props.isVeg && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27766,19 +27858,19 @@ const FoodCard = (props)=>{
                     children: "veg"
                 }, void 0, false, {
                     fileName: "src/components/body/FoodCard.js",
-                    lineNumber: 41,
+                    lineNumber: 45,
                     columnNumber: 25
                 }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                     className: "nonVeg",
                     children: "non-veg"
                 }, void 0, false, {
                     fileName: "src/components/body/FoodCard.js",
-                    lineNumber: 43,
+                    lineNumber: 47,
                     columnNumber: 25
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/body/FoodCard.js",
-                lineNumber: 39,
+                lineNumber: 43,
                 columnNumber: 17
             }, undefined)
         ]
