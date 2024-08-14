@@ -184,12 +184,25 @@
 .pageNavigation {
   width: fit-content;
   margin: auto;
+  display: flex;
+}
+
+.pageNum {
+  text-align: center;
+  cursor: pointer;
+  background-color: #d1d1d1;
+  border-radius: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: .5rem;
+  padding: .5rem;
+  transition: all 1s;
 }
 
 .Footer {
   color: gray;
   background-color: #000;
-  height: 20rem;
+  height: 27rem;
 }
 
 .contactInfo {
