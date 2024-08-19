@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import FoodCard from "./FoodCard.js";
 import { useState, useEffect } from "react";
 
 let placeholder = [];
 for (let i = 0; i < 20; i++) {
-    placeholder.push({});
+    placeholder.push({ _id: i });
 }
 const Body = () => {
     const [activeSort, setActiveSort] = useState(0); //this can have 4 possible values, 0:no sorting, 1:sort by highest rated, 2:sort by most rated, 3:sorty by delivery time
@@ -27,21 +28,26 @@ const Body = () => {
     useEffect(() => {
         getRes(activeSort, activeVeg, activePage);
         setTotalPage(25);
+        return () => console.log("unmounted");
     }, []);
 
     const highestRatedHandler = () => {
+        setData(placeholder);
         setActiveSort(1);
         getRes(1, activeVeg, activePage);
     };
     const mostRatedHandler = () => {
+        setData(placeholder);
         setActiveSort(2);
         getRes(2, activeVeg, activePage);
     };
     const deliveryTimeHandler = () => {
+        setData(placeholder);
         setActiveSort(3);
         getRes(3, activeVeg, activePage);
     };
     const vegHandler = () => {
+        setData(placeholder);
         if (activePage > 12) {
             setActivePage(12);
             getRes(activeSort, 1, 12);
@@ -53,6 +59,7 @@ const Body = () => {
         setTotalPage(12);
     };
     const nonVegHandler = () => {
+        setData(placeholder);
         if (activePage > 14) {
             setActivePage(14);
             getRes(activeSort, 2, 14);
@@ -64,12 +71,14 @@ const Body = () => {
         setTotalPage(14);
     };
     const clearFilterHandler = () => {
+        setData(placeholder);
         setActiveSort(0);
         setActiveVeg(0);
         getRes(0, 0, activePage);
         setTotalPage(25);
     };
     const pageChangeHandler = (page) => {
+        setData(placeholder);
         setActivePage(page);
         getRes(activeSort, activeVeg, page);
     };
@@ -83,6 +92,7 @@ const Body = () => {
         pages.push(
             <div
                 className="pageNum"
+                key={i}
                 style={activePage === i ? { backgroundColor: "white" } : {}}
                 onClick={() => pageChangeHandler(i)}
             >
@@ -168,18 +178,19 @@ const Body = () => {
             <div className="foodContainer">
                 {data.map((obj) => {
                     return (
-                        <FoodCard
-                            fadeAni={"fadeUpAnimation"}
-                            key={obj._id}
-                            imageSrc={obj.Image}
-                            name={obj["Restaurant Name"]}
-                            items={obj.Cuisine}
-                            rating={obj.Rating}
-                            totalRatings={obj["Number of Ratings"]}
-                            totalRating={obj}
-                            deliveryTime={obj["Delivery Time"]}
-                            isVeg={obj["Pure Veg"]}
-                        />
+                        <Link key={obj._id} to={`/restaurant/${obj._id}`}>
+                            <FoodCard
+                                fadeAni={"fadeUpAnimation"}
+                                imageSrc={obj.Image}
+                                name={obj["Restaurant Name"]}
+                                items={obj.Cuisine}
+                                rating={obj.Rating}
+                                totalRatings={obj["Number of Ratings"]}
+                                totalRating={obj}
+                                deliveryTime={obj["Delivery Time"]}
+                                isVeg={obj["Pure Veg"]}
+                            />
+                        </Link>
                     );
                 })}
             </div>

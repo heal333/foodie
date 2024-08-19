@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
 });
 
 const resSchema = {
+    _id: 1,
     "Restaurant Name": 1,
     Cuisine: 1,
     Rating: 1,
@@ -93,4 +94,9 @@ app.get("/restaurants", async (req, res) => {
     const pages = parseInt(req.query.page) * 20;
     res.status(200).json(result.slice(pages - 20, pages));
     // res.status(200).json({});
+});
+
+app.get("/menu", async (req, res) => {
+    const result = await data.find({ _id: req.query.id });
+    res.status(200).json(result);
 });

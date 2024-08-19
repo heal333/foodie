@@ -6,6 +6,12 @@
     --bodyBackground: rgb(238, 238, 238);
     --cardBackground: white;
     --textColor: black;
+    --theme: rgb(0, 212, 0);
+    text-decoration: none;
+    color: var(--textColor);
+}
+html {
+    scroll-behavior: smooth;
 }
 .header {
     display: flex;
@@ -19,6 +25,10 @@
     background-color: var(--headerBackground);
     z-index: 5;
 }
+.headerOffset {
+    width: 100%;
+    height: 4.7rem;
+}
 .logo {
     font-size: 2rem;
     font-family: monospace;
@@ -27,15 +37,26 @@
 .navItems {
     display: flex;
     list-style-type: none;
-    margin: 0 1rem 0 1rem;
+    margin: 0 2rem;
 }
-.navItems li {
+.navItems * {
     padding: 0.5rem 1.5rem 0.5rem 1.5rem;
     white-space: nowrap;
+    text-decoration: none;
+    color: var(--textColor);
+}
+.cart {
+    background-color: var(--theme);
+    font-family: monospace;
+    font-weight: 500;
+    color: white;
+    border-radius: 5rem;
+}
+.cart:hover {
+    background-color: green;
 }
 
 .body {
-    margin-top: 4.7rem;
     padding-top: 1rem;
     background-color: var(--bodyBackground);
 }
@@ -90,11 +111,9 @@
 }
 @keyframes fadeUp {
     0% {
-        translate: 0rem 2rem;
         opacity: 0;
     }
     100% {
-        translate: 0;
         opacity: 1;
     }
 }
@@ -188,9 +207,43 @@
     transition: 1s;
     cursor: pointer;
 }
+.restaurant {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: var(--bodyBackground);
+}
+.restaurantInfo {
+    width: 20rem;
+    margin: auto;
+    transition: 1s;
+}
+.restaurantImage {
+    width: 40rem;
+    height: 40rem;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 1rem;
+    opacity: 1;
+    transition: 1.5s;
+}
+
+.restaurantInfo .name {
+    color: green;
+    font-size: 2rem;
+    font-family: monospace;
+    font-weight: bold;
+}
+.aboutUs {
+    background-color: var(--bodyBackground);
+    margin: auto;
+    padding: 0 5rem;
+    font-family: monospace;
+    font-size: 1.3rem;
+}
 
 .Footer {
-    height: 27rem;
+    height: 20rem;
     background-color: black;
     color: gray;
 }
@@ -205,4 +258,13 @@
 .contactInfo a {
     color: gray;
     text-decoration: none;
+}
+
+@media screen and (max-width: 70rem) {
+    .restaurantImage {
+        width: 100%;
+    }
+    .restaurantInfo {
+        padding-top: 3rem;
+    }
 }
