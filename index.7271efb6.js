@@ -3018,7 +3018,7 @@ var _errorPageJsDefault = parcelHelpers.interopDefault(_errorPageJs);
 _c = App;
 const appRouter = (0, _reactRouterDom.createBrowserRouter)([
     {
-        path: "/",
+        path: "/foodie",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
             fileName: "src/App.js",
             lineNumber: 41,
@@ -3026,19 +3026,19 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
         }, undefined),
         children: [
             {
-                path: "/",
+                path: "/foodie",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 44,
-                    columnNumber: 35
+                    columnNumber: 41
                 }, undefined)
             },
             {
-                path: "/aboutus",
+                path: "/foodie/aboutus",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutUsJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 45,
-                    columnNumber: 42
+                    columnNumber: 49
                 }, undefined)
             },
             {
