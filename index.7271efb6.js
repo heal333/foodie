@@ -34519,7 +34519,7 @@ const Header = ()=>{
                 className: "navItems",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/",
+                        to: "./",
                         children: "Home"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
@@ -34527,7 +34527,7 @@ const Header = ()=>{
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/aboutus",
+                        to: "./aboutus",
                         children: "About us"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
@@ -34535,7 +34535,7 @@ const Header = ()=>{
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/contactus",
+                        to: "./contactus",
                         children: "Contact us"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
@@ -34544,7 +34544,7 @@ const Header = ()=>{
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         className: "cart",
-                        to: "/cart",
+                        to: "./cart",
                         children: "cart"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
