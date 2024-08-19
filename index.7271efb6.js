@@ -3026,47 +3026,47 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
         }, undefined),
         children: [
             {
-                path: "/",
+                path: "./",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 44,
-                    columnNumber: 35
+                    columnNumber: 36
                 }, undefined)
             },
             {
-                path: "/aboutus",
+                path: "./aboutus",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutUsJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 45,
-                    columnNumber: 42
+                    columnNumber: 43
                 }, undefined)
             },
             {
-                path: "/contactus",
+                path: "./contactus",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: "cosnlsdjf"
                 }, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 46,
-                    columnNumber: 44
+                    columnNumber: 45
                 }, undefined)
             },
             {
-                path: "/cart",
+                path: "./cart",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: "dis is the dart"
                 }, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 47,
-                    columnNumber: 39
+                    columnNumber: 40
                 }, undefined)
             },
             {
-                path: "/restaurant/:resId",
+                path: "./restaurant/:resId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 48,
-                    columnNumber: 52
+                    columnNumber: 53
                 }, undefined)
             }
         ],
