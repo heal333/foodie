@@ -3018,7 +3018,7 @@ var _errorPageJsDefault = parcelHelpers.interopDefault(_errorPageJs);
 _c = App;
 const appRouter = (0, _reactRouterDom.createBrowserRouter)([
     {
-        path: "/",
+        path: "./",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
             fileName: "src/App.js",
             lineNumber: 41,
