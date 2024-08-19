@@ -3018,7 +3018,7 @@ var _errorPageJsDefault = parcelHelpers.interopDefault(_errorPageJs);
 _c = App;
 const appRouter = (0, _reactRouterDom.createBrowserRouter)([
     {
-        path: "./",
+        path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
             fileName: "src/App.js",
             lineNumber: 41,
@@ -3026,47 +3026,47 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
         }, undefined),
         children: [
             {
-                path: "./",
+                path: "/",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 44,
-                    columnNumber: 36
+                    columnNumber: 35
                 }, undefined)
             },
             {
-                path: "./aboutus",
+                path: "/aboutus",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutUsJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 45,
-                    columnNumber: 43
+                    columnNumber: 42
                 }, undefined)
             },
             {
-                path: "./contactus",
+                path: "/contactus",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: "cosnlsdjf"
                 }, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 46,
-                    columnNumber: 45
+                    columnNumber: 44
                 }, undefined)
             },
             {
-                path: "./cart",
+                path: "/cart",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: "dis is the dart"
                 }, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 47,
-                    columnNumber: 40
+                    columnNumber: 39
                 }, undefined)
             },
             {
-                path: "./restaurant/:resId",
+                path: "/restaurant/:resId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 48,
-                    columnNumber: 53
+                    columnNumber: 52
                 }, undefined)
             }
         ],
@@ -34922,7 +34922,7 @@ const Body = ()=>{
                 className: "foodContainer",
                 children: data.map((obj)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: `/restaurant/${obj._id}`,
+                        to: `./restaurant/${obj._id}`,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _foodCardJsDefault.default), {
                             fadeAni: "fadeUpAnimation",
                             imageSrc: obj.Image,
@@ -35164,10 +35164,11 @@ $RefreshReg$(_c, "FoodCard");
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aTjSe":[function(require,module,exports) {
+// export const API = "https://foodie-orcx.onrender.com";
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "API", ()=>API);
-const API = "https://foodie-orcx.onrender.com"; // export const API = "http://127.0.0.1:3000";
+const API = "http://127.0.0.1:3000";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b54nx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$81c7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
