@@ -3040,34 +3040,6 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                     lineNumber: 45,
                     columnNumber: 49
                 }, undefined)
-            },
-            {
-                path: "/contactus",
-                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: "cosnlsdjf"
-                }, void 0, false, {
-                    fileName: "src/App.js",
-                    lineNumber: 46,
-                    columnNumber: 44
-                }, undefined)
-            },
-            {
-                path: "/cart",
-                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: "dis is the dart"
-                }, void 0, false, {
-                    fileName: "src/App.js",
-                    lineNumber: 47,
-                    columnNumber: 39
-                }, undefined)
-            },
-            {
-                path: "/restaurant/:resId",
-                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantJsDefault.default), {}, void 0, false, {
-                    fileName: "src/App.js",
-                    lineNumber: 48,
-                    columnNumber: 52
-                }, undefined)
             }
         ],
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorPageJsDefault.default), {}, void 0, false, {
