@@ -3040,6 +3040,34 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                     lineNumber: 45,
                     columnNumber: 49
                 }, undefined)
+            },
+            {
+                path: "/foodie/contactus",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: "cosnlsdjf"
+                }, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 46,
+                    columnNumber: 51
+                }, undefined)
+            },
+            {
+                path: "/foodie/cart",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: "dis is the dart"
+                }, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 47,
+                    columnNumber: 46
+                }, undefined)
+            },
+            {
+                path: "/foodie/restaurant/:resId",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantJsDefault.default), {}, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 48,
+                    columnNumber: 59
+                }, undefined)
             }
         ],
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorPageJsDefault.default), {}, void 0, false, {
@@ -34491,7 +34519,7 @@ const Header = ()=>{
                 className: "navItems",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "./",
+                        to: "/foodie",
                         children: "Home"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
@@ -34499,7 +34527,7 @@ const Header = ()=>{
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "./aboutus",
+                        to: "/foodie/aboutus",
                         children: "About us"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
@@ -34507,7 +34535,7 @@ const Header = ()=>{
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "./contactus",
+                        to: "/foodie/contactus",
                         children: "Contact us"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
@@ -34516,7 +34544,7 @@ const Header = ()=>{
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         className: "cart",
-                        to: "./cart",
+                        to: "/foodie/cart",
                         children: "cart"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
@@ -34894,7 +34922,7 @@ const Body = ()=>{
                 className: "foodContainer",
                 children: data.map((obj)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: `./restaurant/${obj._id}`,
+                        to: `/foodie/restaurant/${obj._id}`,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _foodCardJsDefault.default), {
                             fadeAni: "fadeUpAnimation",
                             imageSrc: obj.Image,
@@ -34907,7 +34935,7 @@ const Body = ()=>{
                             isVeg: obj["Pure Veg"]
                         }, void 0, false, {
                             fileName: "src/components/body/Body.js",
-                            lineNumber: 183,
+                            lineNumber: 186,
                             columnNumber: 29
                         }, undefined)
                     }, obj._id, false, {
@@ -34930,7 +34958,7 @@ const Body = ()=>{
                         children: "<<"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 199,
+                        lineNumber: 202,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34939,7 +34967,7 @@ const Body = ()=>{
                         children: "<"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 202,
+                        lineNumber: 205,
                         columnNumber: 17
                     }, undefined),
                     pages,
@@ -34949,7 +34977,7 @@ const Body = ()=>{
                         children: ">"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 213,
+                        lineNumber: 216,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34958,13 +34986,13 @@ const Body = ()=>{
                         children: ">>"
                     }, void 0, false, {
                         fileName: "src/components/body/Body.js",
-                        lineNumber: 223,
+                        lineNumber: 226,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/body/Body.js",
-                lineNumber: 198,
+                lineNumber: 201,
                 columnNumber: 13
             }, undefined),
             ";"
