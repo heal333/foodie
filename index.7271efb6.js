@@ -35164,11 +35164,10 @@ $RefreshReg$(_c, "FoodCard");
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aTjSe":[function(require,module,exports) {
-// export const API = "https://foodie-orcx.onrender.com";
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "API", ()=>API);
-const API = "http://127.0.0.1:3000";
+const API = "https://foodie-orcx.onrender.com"; // export const API = "http://127.0.0.1:3000";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b54nx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$81c7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
