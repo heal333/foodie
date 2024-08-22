@@ -12,7 +12,7 @@ class AboutUs extends React.Component {
     async componentDidMount() {
         // will execute after render method
         // children components are mounted tooo
-        const data = await fetch("http://api.github.com/users/heal333");
+        const data = await fetch("https://api.github.com/users/heal333");
         const json = await data.json();
         this.setState({
             userInfo: json,

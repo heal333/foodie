@@ -9,15 +9,19 @@ const FoodCard = (props) => {
     } else {
         ratingColor = "red";
     }
+    if (!props.imageSrc) {
+        return (
+            <div className={`foodCard ${props.fadeAni}`}>
+                <div className="loading">loading...</div>
+            </div>
+        );
+    }
     return (
         <div className={`foodCard ${props.fadeAni}`}>
-            {!props.imageSrc && <div className="loading">loading...</div>}
-            {props.imageSrc && (
-                <img
-                    className="storeImg"
-                    src={`${props.imageSrc}?auto=compress&cs=tinysrgb&w=600`}
-                ></img>
-            )}
+            <img
+                className="storeImg"
+                src={`${props.imageSrc}?auto=compress&cs=tinysrgb&w=600`}
+            ></img>
             <div className="storeName">{props.name}</div>
             <div className="foodItems">{props.items}</div>
             <div className="storeRating">
@@ -30,24 +34,19 @@ const FoodCard = (props) => {
                 )}
 
                 {props.totalRatings ? (
-                    <div>({props.totalRatings}+ ratings)</div>
+                    <div style={{ color: "rgb(200,200,200)" }}>
+                        ({props.totalRatings}+ ratings)
+                    </div>
                 ) : (
-                    <div>(Too few Ratings)</div>
+                    <div style={{ color: "rgb(200,200,200)" }}>
+                        (Too few Ratings)
+                    </div>
                 )}
             </div>
-
-            {props.deliveryTime && (
-                <div className="deliveryTime">{props.deliveryTime} mins</div>
-            )}
-            {props.isVeg && (
-                <div className="vegIndicator">
-                    {props.isVeg === "Yes" ? (
-                        <span className="veg">veg</span>
-                    ) : (
-                        <span className="nonVeg">non-veg</span>
-                    )}
-                </div>
-            )}
+            <div className="deliveryTime">{props.deliveryTime} mins</div>
+            <div className={props.isVeg === "Yes" ? "veg" : "nonVeg"}>
+                {props.isVeg === "Yes" ? "veg" : "non-veg"}
+            </div>
         </div>
     );
 };

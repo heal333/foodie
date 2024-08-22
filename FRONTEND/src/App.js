@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import Header from "./components/header/Header.js";
-import Body from "./components/body/Body.js";
+import Body from "./components/body/body.js";
 import Footer from "./components/footer/Footer.js";
 import Restaurant from "./components/body/Restaurant.js";
 import "./index.css";
@@ -37,15 +37,15 @@ const App = () => {
 
 const appRouter = createBrowserRouter([
     {
-        path: "/",
+        path: "/foodie",
         element: <App />,
 
         children: [
-            { path: "/", element: <Body /> },
-            { path: "/aboutus", element: <AboutUs /> },
-            { path: "/contactus", element: <div>cosnlsdjf</div> },
-            { path: "/cart", element: <div>dis is the dart</div> },
-            { path: "/restaurant/:resId", element: <Restaurant /> },
+            { path: "/foodie", element: <Body /> },
+            { path: "/foodie/aboutus", element: <AboutUs /> },
+            { path: "/foodie/contactus", element: <div>cosnlsdjf</div> },
+            { path: "/foodie/cart", element: <div>dis is the dart</div> },
+            { path: "/foodie/restaurant/:resId", element: <Restaurant /> },
         ],
         errorElement: <ErrorPage />,
     },

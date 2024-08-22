@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
     font-size: 1rem;
     margin: 0;
@@ -9,6 +13,7 @@
     --theme: rgb(0, 212, 0);
     text-decoration: none;
     color: var(--textColor);
+    scrollbar-width: thin;
 }
 html {
     scroll-behavior: smooth;
@@ -37,10 +42,10 @@ html {
 .navItems {
     display: flex;
     list-style-type: none;
-    margin: 0 2rem;
+    margin: 0 1rem;
 }
 .navItems * {
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     white-space: nowrap;
     text-decoration: none;
     color: var(--textColor);
@@ -74,7 +79,7 @@ html {
 }
 .filterBar button {
     color: rgb(49, 49, 49);
-    padding: 2px 1rem;
+    padding: 2px 1rem 2px 1rem;
     margin: 1px;
     border-radius: 1rem;
     border: 1px solid rgb(204, 204, 204);
@@ -101,7 +106,7 @@ html {
     color: var(--textColor);
     min-width: 15rem;
     width: 15rem;
-    height: 20.5rem;
+    height: 21rem;
     margin: 1.5rem;
     border-radius: 7px;
     overflow: hidden;
@@ -150,7 +155,7 @@ html {
     margin-bottom: 0.5rem;
 }
 .foodItems {
-    margin-top: 2px;
+    margin-top: 1px;
     padding-left: 1rem;
     color: gray;
 }
@@ -158,7 +163,7 @@ html {
     color: rgb(189, 189, 189);
     padding-left: 1rem;
     display: flex;
-    margin-top: 2px;
+    margin-top: 1px;
 }
 .storeRating div {
     padding-right: 0.5rem;
@@ -166,30 +171,24 @@ html {
 }
 .deliveryTime {
     padding-left: 1rem;
-    margin-top: 2px;
+    margin-top: 1px;
+}
+.veg,
+.nonVeg {
+    margin: 1px 1rem;
+    padding: 0 0.5rem;
+    width: fit-content;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 1rem;
 }
 .veg {
-    width: fit-content;
-    padding: 0 5px 0 5px;
-    white-space: nowrap;
     border: 1px solid green;
-    border-radius: 10px;
     color: green;
-    margin-top: 2px;
-}
-.vegIndicator {
-    padding-left: 1rem;
-    margin-top: 3px;
 }
 .nonVeg {
-    width: fit-content;
-    padding: 0 5px 0 5px;
-    white-space: nowrap;
-    text-align: center;
     border: 1px solid red;
-    border-radius: 5px;
     color: red;
-    margin-top: 2px;
 }
 .pageNavigation {
     width: fit-content;
@@ -199,11 +198,11 @@ html {
 .pageNum {
     background-color: rgb(209, 209, 209);
     text-align: center;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
     margin: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 2rem;
+    line-height: 2.5rem;
+    border-radius: 40rem;
     transition: 1s;
     cursor: pointer;
 }
