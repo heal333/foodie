@@ -1,3 +1,6 @@
+import OffsetDiv from "../utils/offsetDiv";
+import Search from "./search";
+
 let placeholder = [];
 for (let i = 0; i < 20; i++) {
     placeholder.push({ _id: i });
@@ -64,6 +67,8 @@ const FilterBar = (props) => {
     };
     return (
         <div className="filterBar">
+            <Search />
+            <OffsetDiv width="2rem" />
             <div>sort by:</div>
             <button
                 onClick={highestRatedHandler}

@@ -19,7 +19,12 @@ mongoose.connect(DB).then((con) => {
     });
 });
 
-const data = mongoose.model("restaurants", new mongoose.Schema());
+const data = mongoose.model(
+    "restaurants",
+    new mongoose.Schema({
+        "Restaurant Name": String,
+    })
+);
 
 app.get("/", (req, res) => {
     res.status(200).json({ youGot: "rooted" });
@@ -99,4 +104,14 @@ app.get("/restaurants", async (req, res) => {
 app.get("/menu", async (req, res) => {
     const result = await data.find({ _id: req.query.id });
     res.status(200).json(result);
+});
+
+app.get("/search", async (req, res) => {
+    const result = await data.find({}, { "Restaurant Name": 1 });
+    const lst = result.filter((ele) => {
+        return ele["Restaurant Name"]
+            .toLocaleLowerCase()
+            .includes(req.query.keyword.toLowerCase());
+    });
+    res.status(200).json(lst);
 });

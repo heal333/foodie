@@ -28,7 +28,7 @@ html {
     width: 100%;
     color: var(--textColor);
     background-color: var(--headerBackground);
-    z-index: 5;
+    z-index: 10;
 }
 .headerOffset {
     width: 100%;
@@ -70,12 +70,69 @@ html {
     display: flex;
     justify-content: space-between;
     margin: auto;
-    padding: 0 2rem;
     /* min-width: 27rem; */
-    max-width: 66rem;
+    /* max-width: 80rem; */
+    width: 80%;
     white-space: nowrap;
     color: black;
     overflow: hidden;
+    transition: 1.5s;
+}
+@media screen and (max-width: 90rem) {
+    .filterBar {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+}
+.search {
+    width: 15rem;
+    padding: 1px;
+    z-index: 5;
+}
+.overlay {
+    position: fixed;
+    top: 5rem;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    z-index: 3;
+}
+.searchInput {
+    position: absolute;
+    border-radius: 1rem;
+    border: 1px solid white;
+    padding: 0 1rem;
+    width: 15rem;
+    transition: 1s;
+    z-index: 5;
+}
+.searchInput:hover {
+    border: 1px solid gray;
+}
+
+.searchResult {
+    position: absolute;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    max-height: 40rem;
+    width: 80%;
+    z-index: 2;
+    background-color: white;
+    /* scrollbar-width: none; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 5;
+    transition: 1s;
+    border: 1px solid var(--theme);
+}
+.searchItem {
+    padding: 2px 1rem;
+    transition: 0s;
+}
+.searchItem:hover {
+    background-color: var(--theme);
+    color: white;
 }
 .filterBar button {
     color: rgb(49, 49, 49);
