@@ -35016,10 +35016,11 @@ exports.default = useRestaurantData;
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react":"21dqq","./const":"aTjSe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aTjSe":[function(require,module,exports) {
+// export const API = "https://foodie-orcx.onrender.com";
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "API", ()=>API);
-const API = "https://foodie-orcx.onrender.com"; // export const API = "http://127.0.0.1:3000";
+const API = "http://127.0.0.1:3000";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"irmnC":[function() {},{}],"90Bjz":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$360c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -35453,6 +35454,10 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _offsetDiv = require("../utils/offsetDiv");
+var _offsetDivDefault = parcelHelpers.interopDefault(_offsetDiv);
+var _search = require("./search");
+var _searchDefault = parcelHelpers.interopDefault(_search);
 let placeholder = [];
 for(let i = 0; i < 20; i++)placeholder.push({
     _id: i
@@ -35502,11 +35507,23 @@ const FilterBar = (props)=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "filterBar",
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchDefault.default), {}, void 0, false, {
+                fileName: "src/components/body/filterBar.js",
+                lineNumber: 70,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _offsetDivDefault.default), {
+                width: "2rem"
+            }, void 0, false, {
+                fileName: "src/components/body/filterBar.js",
+                lineNumber: 71,
+                columnNumber: 13
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: "sort by:"
             }, void 0, false, {
                 fileName: "src/components/body/filterBar.js",
-                lineNumber: 67,
+                lineNumber: 72,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35518,7 +35535,7 @@ const FilterBar = (props)=>{
                 children: "highest rated"
             }, void 0, false, {
                 fileName: "src/components/body/filterBar.js",
-                lineNumber: 68,
+                lineNumber: 73,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35530,7 +35547,7 @@ const FilterBar = (props)=>{
                 children: "most rated"
             }, void 0, false, {
                 fileName: "src/components/body/filterBar.js",
-                lineNumber: 81,
+                lineNumber: 86,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35542,7 +35559,7 @@ const FilterBar = (props)=>{
                 children: "delivery time"
             }, void 0, false, {
                 fileName: "src/components/body/filterBar.js",
-                lineNumber: 94,
+                lineNumber: 99,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35552,7 +35569,7 @@ const FilterBar = (props)=>{
                 children: "|"
             }, void 0, false, {
                 fileName: "src/components/body/filterBar.js",
-                lineNumber: 107,
+                lineNumber: 112,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35564,7 +35581,7 @@ const FilterBar = (props)=>{
                 children: "veg"
             }, void 0, false, {
                 fileName: "src/components/body/filterBar.js",
-                lineNumber: 109,
+                lineNumber: 114,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35576,7 +35593,7 @@ const FilterBar = (props)=>{
                 children: "non-veg"
             }, void 0, false, {
                 fileName: "src/components/body/filterBar.js",
-                lineNumber: 122,
+                lineNumber: 127,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35586,7 +35603,7 @@ const FilterBar = (props)=>{
                 children: "|"
             }, void 0, false, {
                 fileName: "src/components/body/filterBar.js",
-                lineNumber: 135,
+                lineNumber: 140,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35594,13 +35611,13 @@ const FilterBar = (props)=>{
                 children: "clear filter"
             }, void 0, false, {
                 fileName: "src/components/body/filterBar.js",
-                lineNumber: 137,
+                lineNumber: 142,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/body/filterBar.js",
-        lineNumber: 66,
+        lineNumber: 69,
         columnNumber: 9
     }, undefined);
 };
@@ -35610,6 +35627,147 @@ var _c;
 $RefreshReg$(_c, "FilterBar");
 
   $parcel$ReactRefreshHelpers$2554.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./search":"a0s2u","../utils/offsetDiv":"2NzXk"}],"a0s2u":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$ff2e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$ff2e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _const = require("../utils/const");
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+const Search = ()=>{
+    _s();
+    const [searchKeyword, setSearchKeyword] = (0, _react.useState)("");
+    const [suggestions, setSuggestions] = (0, _react.useState)([]);
+    const [showModal, setShowModal] = (0, _react.useState)(false);
+    const searchStyle = {
+        width: "80%",
+        outlineColor: "var(--theme)"
+    };
+    const getSearchSuggestions = async (keyword)=>{
+        const response = await fetch(`${(0, _const.API)}/search?keyword=${keyword}`);
+        const json = await response.json();
+        setSuggestions(json);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "search",
+        children: [
+            showModal && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "overlay",
+                onClick: ()=>{
+                    setShowModal(false);
+                    setSearchKeyword("");
+                }
+            }, void 0, false, {
+                fileName: "src/components/body/search.js",
+                lineNumber: 22,
+                columnNumber: 17
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                className: "searchInput",
+                style: showModal ? searchStyle : {},
+                placeholder: "search",
+                onChange: (e)=>{
+                    setSearchKeyword(e.target.value);
+                    getSearchSuggestions(e.target.value);
+                    setShowModal(true);
+                    e.target.value.length === 0 ? setShowModal(false) : setShowModal(true);
+                },
+                value: searchKeyword
+            }, void 0, false, {
+                fileName: "src/components/body/search.js",
+                lineNumber: 30,
+                columnNumber: 13
+            }, undefined),
+            showModal && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "searchResult fadeUpAnimation ",
+                onClick: (e)=>{
+                    e.preventDefault();
+                },
+                children: suggestions.map((obj)=>{
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: `./restaurant/${obj._id}`,
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "searchItem fadeUpAnimation",
+                                children: obj["Restaurant Name"]
+                            }, void 0, false, {
+                                fileName: "src/components/body/search.js",
+                                lineNumber: 54,
+                                columnNumber: 33
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                                fileName: "src/components/body/search.js",
+                                lineNumber: 58,
+                                columnNumber: 33
+                            }, undefined)
+                        ]
+                    }, obj._id, true, {
+                        fileName: "src/components/body/search.js",
+                        lineNumber: 53,
+                        columnNumber: 29
+                    }, undefined);
+                })
+            }, void 0, false, {
+                fileName: "src/components/body/search.js",
+                lineNumber: 45,
+                columnNumber: 17
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/body/search.js",
+        lineNumber: 20,
+        columnNumber: 9
+    }, undefined);
+};
+_s(Search, "lpdXWQTmjuEALvYR3oIIbC7qacg=");
+_c = Search;
+exports.default = Search;
+var _c;
+$RefreshReg$(_c, "Search");
+
+  $parcel$ReactRefreshHelpers$ff2e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","../utils/const":"aTjSe","react-router-dom":"9xmpe"}],"2NzXk":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4184 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4184.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const OffsetDiv = (props)=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        style: {
+            width: props.width
+        }
+    }, void 0, false, {
+        fileName: "src/components/utils/offsetDiv.js",
+        lineNumber: 2,
+        columnNumber: 12
+    }, undefined);
+};
+_c = OffsetDiv;
+exports.default = OffsetDiv;
+var _c;
+$RefreshReg$(_c, "OffsetDiv");
+
+  $parcel$ReactRefreshHelpers$4184.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
