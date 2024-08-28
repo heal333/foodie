@@ -33,7 +33,12 @@ const Restaurant = () => {
                     <div>{restaurantData["Offer Name"]}</div>
                 </div>
             </div>
-            <Menu />
+            {restaurantData._id && (
+                <Menu
+                    id={restaurantData._id}
+                    name={restaurantData["Restaurant Name"]}
+                />
+            )}
         </>
     );
 };

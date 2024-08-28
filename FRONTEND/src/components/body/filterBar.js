@@ -1,3 +1,4 @@
+import { API } from "../utils/const";
 import OffsetDiv from "../utils/offsetDiv";
 import Search from "./search";
 
@@ -16,7 +17,7 @@ const FilterBar = (props) => {
         activeSort,
         activeVeg,
         activePage,
-        setTotalPage,
+        getTotalPages,
     } = props;
 
     const highestRatedHandler = () => {
@@ -36,34 +37,37 @@ const FilterBar = (props) => {
     };
     const vegHandler = () => {
         setData(placeholder);
-        if (activePage > 12) {
-            setActivePage(12);
-            getRestaurantList(activeSort, 1, 12);
-        } else {
-            getRestaurantList(activeSort, 1, activePage);
-        }
+        // if (activePage > 12) {
+        //     setActivePage(12);
+        //     getRestaurantList(activeSort, 1, 12);
+        // } else {
+        //     getRestaurantList(activeSort, 1, activePage);
+        // }
         setActiveVeg(1);
+        setActivePage(1);
+        getRestaurantList(activeSort, 1, 1);
 
-        setTotalPage(12);
+        getTotalPages(1);
     };
     const nonVegHandler = () => {
         setData(placeholder);
-        if (activePage > 14) {
-            setActivePage(14);
-            getRestaurantList(activeSort, 2, 14);
-        } else {
-            getRestaurantList(activeSort, 2, activePage);
-        }
+        // if (activePage > 14) {
+        //     setActivePage(14);
+        //     getRestaurantList(activeSort, 2, 14);
+        // } else {
+        //     getRestaurantList(activeSort, 2, activePage);
+        // }
+        setActivePage(1);
         setActiveVeg(2);
-
-        setTotalPage(14);
+        getRestaurantList(activeSort, 2, 1);
+        getTotalPages(2);
     };
     const clearFilterHandler = () => {
         setData(placeholder);
         setActiveSort(0);
         setActiveVeg(0);
         getRestaurantList(0, 0, activePage);
-        setTotalPage(25);
+        getTotalPages();
     };
     return (
         <div className="filterBar">

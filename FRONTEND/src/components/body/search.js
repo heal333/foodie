@@ -16,6 +16,7 @@ const Search = () => {
         const json = await response.json();
         setSuggestions(json);
     };
+
     return (
         <div className="search">
             {showModal && (

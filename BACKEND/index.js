@@ -21,6 +21,7 @@ mongoose.connect(DB).then((con) => {
 
 const data = mongoose.model(
     "restaurants",
+    // "rams",
     new mongoose.Schema({
         "Restaurant Name": String,
     })
@@ -101,9 +102,13 @@ app.get("/restaurants", async (req, res) => {
     // res.status(200).json({});
 });
 
-app.get("/menu", async (req, res) => {
-    const result = await data.find({ _id: req.query.id });
-    res.status(200).json(result);
+app.get("/resdetails", async (req, res) => {
+    if (req.query.id) {
+        const result = await data.find({ _id: req.query.id });
+        res.status(200).json(result);
+    } else {
+        res.status(404).statusMessage("restaurent not found");
+    }
 });
 
 app.get("/search", async (req, res) => {
@@ -114,4 +119,26 @@ app.get("/search", async (req, res) => {
             .includes(req.query.keyword.toLowerCase());
     });
     res.status(200).json(lst);
+});
+
+app.get("/totalpage", async (req, res) => {
+    let result = 0;
+    if (req.query.veg === "1") {
+        result = await data.find({ ["Pure Veg"]: "Yes" }, { _id: 1 });
+    } else if (req.query.veg === "2") {
+        result = await data.find({ ["Pure Veg"]: "No" }, { _id: 1 });
+    } else {
+        result = await data.find({}, { _id: 1 });
+    }
+    let pages = parseInt(result.length / 20);
+    if (result.length % 20 !== 0) {
+        pages += 1;
+    }
+    res.status(200).json(pages);
+});
+
+app.get("/menu", async (req, res) => {
+    // console.log(req.query);
+    const result = await data.find({ _id: req.query.id }, { Menu: 1 });
+    res.status(200).json(result[0]);
 });

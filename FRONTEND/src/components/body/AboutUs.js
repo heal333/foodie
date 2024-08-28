@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class AboutUs extends React.Component {
     constructor(props) {
@@ -26,6 +27,11 @@ class AboutUs extends React.Component {
     render() {
         return (
             <div className="aboutUs">
+                {/* <UserContext.Consumer>
+                    {(context) => {
+                        console.log(context);
+                    }}
+                </UserContext.Consumer> */}
                 <h1
                     onClick={() => {
                         this.setState({

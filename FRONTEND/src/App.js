@@ -1,4 +1,6 @@
-import React from "react";
+"use strict";
+
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -6,9 +8,11 @@ import Header from "./components/header/Header.js";
 import Body from "./components/body/body.js";
 import Footer from "./components/footer/Footer.js";
 import Restaurant from "./components/body/Restaurant.js";
-import "./index.css";
 import AboutUs from "./components/body/AboutUs.js";
 import ErrorPage from "./components/utils/ErrorPage.js";
+import "./index.css";
+import CartContextProvider from "./components/utils/CartContextProvider.js";
+import Cart from "./components/cart/Cart.js";
 
 /**
  * Header
@@ -25,13 +29,18 @@ import ErrorPage from "./components/utils/ErrorPage.js";
  */
 
 const App = () => {
+    // const [context, setContext] = useState("default");
+    // console.log(context);
     return (
-        <div>
+        <CartContextProvider>
             <div className="headerOffset"></div>
             <Header />
             <Outlet />
             <Footer />
-        </div>
+        </CartContextProvider>
+        // <UserContext.Provider value={{ data: context, changeData: setContext }}>
+
+        // </UserContext.Provider>
     );
 };
 
@@ -44,7 +53,7 @@ const appRouter = createBrowserRouter([
             { path: "/foodie", element: <Body /> },
             { path: "/foodie/aboutus", element: <AboutUs /> },
             { path: "/foodie/contactus", element: <div>cosnlsdjf</div> },
-            { path: "/foodie/cart", element: <div>dis is the dart</div> },
+            { path: "/foodie/cart", element: <Cart /> },
             { path: "/foodie/restaurant/:resId", element: <Restaurant /> },
         ],
         errorElement: <ErrorPage />,

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CartButton from "../cart/CartButton";
 
 const Header = () => {
     return (
@@ -8,9 +9,7 @@ const Header = () => {
                 <Link to="/foodie">Home</Link>
                 <Link to="/foodie/aboutus">About us</Link>
                 <Link to="/foodie/contactus">Contact us</Link>
-                <Link className="cart" to="/foodie/cart">
-                    cart
-                </Link>
+                <CartButton />
             </ul>
         </div>
     );

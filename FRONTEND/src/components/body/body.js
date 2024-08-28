@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { API } from "../utils/const.js";
 import FilterBar from "./filterBar.js";
 import PageNavigation from "./pageNavigation.js";
+import useGetTotalPages from "../utils/useGetTotalPages.js";
 
 let placeholder = [];
 for (let i = 0; i < 20; i++) {
@@ -27,10 +28,15 @@ const Body = () => {
             console.log(err);
         }
     };
+    const getTotalPages = async (veg) => {
+        const response = await fetch(`${API}/totalpage?veg=${veg}`);
+        const result = await response.json();
+        setTotalPage(result);
+    };
 
     useEffect(() => {
         getRestaurantList(activeSort, activeVeg, activePage);
-        setTotalPage(25);
+        getTotalPages(0);
         return () => console.log("unmounted");
     }, []);
 
@@ -51,7 +57,8 @@ const Body = () => {
                 activeSort={activeSort}
                 activeVeg={activeVeg}
                 activePage={activePage}
-                setTotalPage={setTotalPage}
+                totalPage={totalPage}
+                getTotalPages={getTotalPages}
             />
             <div className="foodContainer">
                 {data.map((obj) => {

@@ -23,7 +23,7 @@ const FoodCard = (props) => {
                 src={`${props.imageSrc}?auto=compress&cs=tinysrgb&w=600`}
             ></img>
             <div className="storeName">{props.name}</div>
-            <div className="foodItems">{props.items}</div>
+            <div className="cuisine">{props.items}</div>
             <div className="storeRating">
                 {props.rating ? (
                     <div style={{ color: ratingColor }}>

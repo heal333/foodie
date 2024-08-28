@@ -13,13 +13,13 @@ const useRestaurantData = (resId) => {
         "Offer Name": "...",
     });
     const fetchData = async () => {
-        const data = await fetch(`${API}/menu?id=${resId}`);
+        const data = await fetch(`${API}/resdetails?id=${resId}`);
         const json = await data.json();
         setResInfo(json[0]);
     };
 
     useEffect(() => {
-        fetchData();
+        resId !== "0" && fetchData();
     }, []);
     return resInfo;
 };
