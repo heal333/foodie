@@ -3005,7 +3005,9 @@ var _cartJsDefault = parcelHelpers.interopDefault(_cartJs);
                 lineNumber: 37,
                 columnNumber: 13
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {
+                className: "fullBody"
+            }, void 0, false, {
                 fileName: "src/App.js",
                 lineNumber: 38,
                 columnNumber: 13
@@ -36135,104 +36137,460 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _cartContextProvider = require("../utils/CartContextProvider");
-var _s = $RefreshSig$();
-const CartRestaurantItems = ({ menu })=>{
-    console.log(menu);
+var _cartItems = require("./CartItems");
+var _cartItemsDefault = parcelHelpers.interopDefault(_cartItems);
+var _order = require("./Order");
+var _orderDefault = parcelHelpers.interopDefault(_order);
+const Cart = ()=>{
+    console.log("'tis nothing but a cart");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: Object.keys(menu).map((item)=>{
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        children: menu[item].name
-                    }, void 0, false, {
-                        fileName: "src/components/cart/Cart.js",
-                        lineNumber: 11,
-                        columnNumber: 25
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        children: menu[item].amount
-                    }, void 0, false, {
-                        fileName: "src/components/cart/Cart.js",
-                        lineNumber: 12,
-                        columnNumber: 25
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        children: menu[item].price
-                    }, void 0, false, {
-                        fileName: "src/components/cart/Cart.js",
-                        lineNumber: 13,
-                        columnNumber: 25
-                    }, undefined)
-                ]
-            }, void 0, true, {
+        className: "cart",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderDefault.default), {}, void 0, false, {
                 fileName: "src/components/cart/Cart.js",
-                lineNumber: 10,
-                columnNumber: 21
-            }, undefined);
-        })
-    }, void 0, false, {
+                lineNumber: 8,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartItemsDefault.default), {}, void 0, false, {
+                fileName: "src/components/cart/Cart.js",
+                lineNumber: 9,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/components/cart/Cart.js",
         lineNumber: 7,
         columnNumber: 9
     }, undefined);
 };
-_c = CartRestaurantItems;
-const Cart = ()=>{
-    _s();
-    const { cartItems } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
-    let lst = [];
-    console.log(cartItems);
-    // Object.values(cartItems).map((res) => {
-    //     Object.values(res).map((item) => {
-    //         console.log(item);
-    //         lst.push([item.name]);
-    //     });
-    // });
-    // console.log(lst);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: Object.keys(cartItems).map((res)=>{
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: [
-                    cartItems[res]["Restaurant Name"],
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(CartRestaurantItems, {
-                        menu: cartItems[res].menu
-                    }, void 0, false, {
-                        fileName: "src/components/cart/Cart.js",
-                        lineNumber: 38,
-                        columnNumber: 25
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                        fileName: "src/components/cart/Cart.js",
-                        lineNumber: 39,
-                        columnNumber: 25
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/cart/Cart.js",
-                lineNumber: 36,
-                columnNumber: 21
-            }, undefined);
-        })
-    }, void 0, false, {
-        fileName: "src/components/cart/Cart.js",
-        lineNumber: 33,
-        columnNumber: 9
-    }, undefined);
-};
-_s(Cart, "BIN+5BYL7QF018V0+oIA6r/CC2Q=");
-_c1 = Cart;
+_c = Cart;
 exports.default = Cart;
-var _c, _c1;
-$RefreshReg$(_c, "CartRestaurantItems");
-$RefreshReg$(_c1, "Cart");
+var _c;
+$RefreshReg$(_c, "Cart");
 
   $parcel$ReactRefreshHelpers$fe9e.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["9wh9R","1xC6H","2kQhy"], "2kQhy", "parcelRequire26b5")
+},{"react/jsx-dev-runtime":"iTorj","./CartItems":"lcOfM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Order":"2N4Nw"}],"lcOfM":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9ee7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9ee7.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _cartContextProvider = require("../utils/CartContextProvider");
+var _s = $RefreshSig$(), _s1 = $RefreshSig$();
+const CartRestaurantItems = ({ menu, calcTotalPrice })=>{
+    _s();
+    let total = 0;
+    (0, _react.useEffect)(()=>{
+        calcTotalPrice(total);
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: Object.keys(menu).map((item, i)=>{
+            total += menu[item].price * menu[item].amount;
+            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "cartItemFood",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "cartPaegItemName",
+                        children: menu[item].name
+                    }, void 0, false, {
+                        fileName: "src/components/cart/CartItems.js",
+                        lineNumber: 15,
+                        columnNumber: 25
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "cartPageItemPrice",
+                        children: [
+                            "\u20B9",
+                            menu[item].price
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/cart/CartItems.js",
+                        lineNumber: 18,
+                        columnNumber: 25
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "cartPageItemAmount",
+                        children: menu[item].amount
+                    }, void 0, false, {
+                        fileName: "src/components/cart/CartItems.js",
+                        lineNumber: 21,
+                        columnNumber: 25
+                    }, undefined)
+                ]
+            }, i, true, {
+                fileName: "src/components/cart/CartItems.js",
+                lineNumber: 14,
+                columnNumber: 21
+            }, undefined);
+        })
+    }, void 0, false, {
+        fileName: "src/components/cart/CartItems.js",
+        lineNumber: 10,
+        columnNumber: 9
+    }, undefined);
+};
+_s(CartRestaurantItems, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = CartRestaurantItems;
+const CartItems = ()=>{
+    _s1();
+    const { cartItems } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
+    const [totalPrice, setTotalPrice] = (0, _react.useState)(0);
+    let total = 0;
+    const calcTotalPrice = (price)=>{
+        total += price;
+    };
+    (0, _react.useEffect)(()=>{
+        setTotalPrice(total);
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "cartItems",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "cartItemsLabel",
+                children: "cart Items:"
+            }, void 0, false, {
+                fileName: "src/components/cart/CartItems.js",
+                lineNumber: 45,
+                columnNumber: 13
+            }, undefined),
+            Object.keys(cartItems).map((res, i)=>{
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "cartItemsRestaurant",
+                            children: cartItems[res]["Restaurant Name"]
+                        }, void 0, false, {
+                            fileName: "src/components/cart/CartItems.js",
+                            lineNumber: 49,
+                            columnNumber: 25
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(CartRestaurantItems, {
+                            menu: cartItems[res].menu,
+                            calcTotalPrice: calcTotalPrice
+                        }, void 0, false, {
+                            fileName: "src/components/cart/CartItems.js",
+                            lineNumber: 52,
+                            columnNumber: 25
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                            fileName: "src/components/cart/CartItems.js",
+                            lineNumber: 56,
+                            columnNumber: 25
+                        }, undefined)
+                    ]
+                }, i, true, {
+                    fileName: "src/components/cart/CartItems.js",
+                    lineNumber: 48,
+                    columnNumber: 21
+                }, undefined);
+            }),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/cart/CartItems.js",
+                lineNumber: 60,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    textAlign: "center"
+                },
+                children: [
+                    "Total price:",
+                    totalPrice
+                ]
+            }, void 0, true, {
+                fileName: "src/components/cart/CartItems.js",
+                lineNumber: 61,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/cart/CartItems.js",
+        lineNumber: 44,
+        columnNumber: 9
+    }, undefined);
+};
+_s1(CartItems, "jv5sNqyDxngLiu1hEqunoWKBilc=");
+_c1 = CartItems;
+exports.default = CartItems;
+var _c, _c1;
+$RefreshReg$(_c, "CartRestaurantItems");
+$RefreshReg$(_c1, "CartItems");
+
+  $parcel$ReactRefreshHelpers$9ee7.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2N4Nw":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8a72 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8a72.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _addressInput = require("./AddressInput");
+var _addressInputDefault = parcelHelpers.interopDefault(_addressInput);
+var _paymentInput = require("./PaymentInput");
+var _paymentInputDefault = parcelHelpers.interopDefault(_paymentInput);
+var _confirmOrderInput = require("./ConfirmOrderInput");
+var _confirmOrderInputDefault = parcelHelpers.interopDefault(_confirmOrderInput);
+var _s = $RefreshSig$();
+const Order = ()=>{
+    _s();
+    const [addressInput, setAddressInput] = (0, _react.useState)(true);
+    const [paymentInput, setPaymentInput] = (0, _react.useState)(false);
+    const [orderConfirmInput, setOrderConfimInput] = (0, _react.useState)(false);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "order ",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                onClick: ()=>setAddressInput(!addressInput),
+                children: "address"
+            }, void 0, false, {
+                fileName: "src/components/cart/Order.js",
+                lineNumber: 12,
+                columnNumber: 13
+            }, undefined),
+            addressInput && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addressInputDefault.default), {}, void 0, false, {
+                fileName: "src/components/cart/Order.js",
+                lineNumber: 13,
+                columnNumber: 30
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                onClick: ()=>setPaymentInput(!paymentInput),
+                children: "payment"
+            }, void 0, false, {
+                fileName: "src/components/cart/Order.js",
+                lineNumber: 14,
+                columnNumber: 13
+            }, undefined),
+            paymentInput && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _paymentInputDefault.default), {}, void 0, false, {
+                fileName: "src/components/cart/Order.js",
+                lineNumber: 15,
+                columnNumber: 30
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                onClick: ()=>setOrderConfimInput(!orderConfirmInput),
+                children: "order/redirect to loginn page"
+            }, void 0, false, {
+                fileName: "src/components/cart/Order.js",
+                lineNumber: 16,
+                columnNumber: 13
+            }, undefined),
+            orderConfirmInput && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _confirmOrderInputDefault.default), {}, void 0, false, {
+                fileName: "src/components/cart/Order.js",
+                lineNumber: 19,
+                columnNumber: 35
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/cart/Order.js",
+        lineNumber: 11,
+        columnNumber: 9
+    }, undefined);
+};
+_s(Order, "4whv61kYF+X2EKglZ8OT7YMxdVQ=");
+_c = Order;
+exports.default = Order;
+var _c;
+$RefreshReg$(_c, "Order");
+
+  $parcel$ReactRefreshHelpers$8a72.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./AddressInput":"d7uPP","./PaymentInput":"4rEod","./ConfirmOrderInput":"UlNAF"}],"d7uPP":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$59d5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$59d5.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const AddressInput = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "addressInput",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                placeholder: "enter your name"
+            }, void 0, false, {
+                fileName: "src/components/cart/AddressInput.js",
+                lineNumber: 4,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                placeholder: "phone number",
+                type: "number"
+            }, void 0, false, {
+                fileName: "src/components/cart/AddressInput.js",
+                lineNumber: 5,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                placeholder: "address line 1"
+            }, void 0, false, {
+                fileName: "src/components/cart/AddressInput.js",
+                lineNumber: 6,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                placeholder: "address line 2"
+            }, void 0, false, {
+                fileName: "src/components/cart/AddressInput.js",
+                lineNumber: 7,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                placeholder: "pincode"
+            }, void 0, false, {
+                fileName: "src/components/cart/AddressInput.js",
+                lineNumber: 8,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                className: "submitButton",
+                children: "Submit"
+            }, void 0, false, {
+                fileName: "src/components/cart/AddressInput.js",
+                lineNumber: 9,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/cart/AddressInput.js",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+};
+_c = AddressInput;
+exports.default = AddressInput;
+var _c;
+$RefreshReg$(_c, "AddressInput");
+
+  $parcel$ReactRefreshHelpers$59d5.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4rEod":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$483e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$483e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const PaymentInput = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "paymentInput",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                placeholder: "enter card number"
+            }, void 0, false, {
+                fileName: "src/components/cart/PaymentInput.js",
+                lineNumber: 4,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                placeholder: "cvv"
+            }, void 0, false, {
+                fileName: "src/components/cart/PaymentInput.js",
+                lineNumber: 5,
+                columnNumber: 13
+            }, undefined),
+            "or",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                placeholder: "enter your upi"
+            }, void 0, false, {
+                fileName: "src/components/cart/PaymentInput.js",
+                lineNumber: 7,
+                columnNumber: 13
+            }, undefined),
+            "or",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: "checkbox"
+            }, void 0, false, {
+                fileName: "src/components/cart/PaymentInput.js",
+                lineNumber: 9,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: "Cash On Delivery"
+            }, void 0, false, {
+                fileName: "src/components/cart/PaymentInput.js",
+                lineNumber: 10,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/cart/PaymentInput.js",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+};
+_c = PaymentInput;
+exports.default = PaymentInput;
+var _c;
+$RefreshReg$(_c, "PaymentInput");
+
+  $parcel$ReactRefreshHelpers$483e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"UlNAF":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4a9d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4a9d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const ConfirmOrderInput = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+            children: "confirm your order!"
+        }, void 0, false, {
+            fileName: "src/components/cart/ConfirmOrderInput.js",
+            lineNumber: 4,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/cart/ConfirmOrderInput.js",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+};
+_c = ConfirmOrderInput;
+exports.default = ConfirmOrderInput;
+var _c;
+$RefreshReg$(_c, "ConfirmOrderInput");
+
+  $parcel$ReactRefreshHelpers$4a9d.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["9wh9R","1xC6H","2kQhy"], "2kQhy", "parcelRequire26b5")
 
 //# sourceMappingURL=index.7271efb6.js.map
