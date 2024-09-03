@@ -414,7 +414,7 @@ body {
   justify-content: space-evenly;
   width: 30rem;
   height: 40rem;
-  margin: 5rem auto;
+  margin: 20% auto 50%;
   padding: 1rem;
   display: flex;
 }
@@ -587,9 +587,9 @@ body {
   }
 }
 
-@media (aspect-ratio <= 100 / 99) {
+@media (aspect-ratio <= 1 / 1.5) {
   html {
-    font-size: 24px;
+    font-size: 1.6rem;
   }
 }
 
