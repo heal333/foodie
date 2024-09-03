@@ -4,7 +4,8 @@
   --cardBackground: white;
   --textColor: black;
   --softTextColor: #505050;
-  --theme: #00d400;
+  --theme: #00d40094;
+  --shadowColor: gray;
 }
 
 * {
@@ -145,6 +146,7 @@ html {
 }
 
 .searchInput {
+  color: var(--textColor);
   z-index: 5;
   border: 1px solid #fff;
   border-radius: 1rem;
@@ -165,9 +167,9 @@ html {
 
 .searchResult {
   z-index: 2;
+  background-color: var(--cardBackground);
   z-index: 5;
   border: 1px solid var(--theme);
-  background-color: #fff;
   border-radius: 1rem;
   width: 80%;
   max-height: 40rem;
@@ -245,9 +247,9 @@ html {
 }
 
 .foodCard:hover {
+  box-shadow: 2rem 2rem 2rem var(--shadowColor);
   transition: all .3s;
   translate: -.25rem -.25rem;
-  box-shadow: 2rem 2rem 2rem gray;
 }
 
 .foodCard:not(:hover) {
