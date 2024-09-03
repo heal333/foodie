@@ -1,21 +1,22 @@
-* {
+:root {
   --headerBackground: white;
   --bodyBackground: #e6e6e6;
   --cardBackground: white;
   --textColor: black;
+  --softTextColor: #505050;
   --theme: #00d400;
+}
+
+* {
   scrollbar-width: thin;
   margin: 0;
   padding: 0;
   font-size: 1rem;
+  transition: color, background-color .5s;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--bodyBackground);
 }
 
 .header {
@@ -25,7 +26,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 1rem;
+  height: 5rem;
   display: flex;
   position: fixed;
   top: 0;
@@ -37,9 +38,12 @@ body {
 }
 
 .logo {
+  color: var(--textColor);
+  margin-left: 1rem;
   font-family: monospace;
   font-size: 2rem;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .currentPage {
@@ -48,8 +52,13 @@ body {
   padding: 0 1rem;
 }
 
+.switchTheme {
+  height: 2rem;
+  transition: all 5s;
+}
+
 .navItems {
-  margin: 0 1rem;
+  margin: auto 1rem;
   list-style-type: none;
   display: flex;
 }
@@ -57,6 +66,7 @@ body {
 .navItems * {
   white-space: nowrap;
   color: var(--textColor);
+  margin: auto;
   padding: .5rem 1.5rem;
   text-decoration: none;
 }
@@ -65,7 +75,6 @@ body {
   background-color: var(--theme);
   color: #fff;
   border-radius: 5rem;
-  margin-right: 1rem;
   font-family: monospace;
   font-weight: 500;
   transition: all .1s linear;
@@ -74,7 +83,7 @@ body {
 
 .cartButtonBadge {
   text-align: center;
-  color: #000;
+  color: var(--textColor);
   background-color: var(--bodyBackground);
   border-radius: 1rem;
   width: 1rem;
@@ -185,8 +194,8 @@ body {
 }
 
 .filterBar button {
-  color: #313131;
-  background-color: #fff;
+  color: var(--softTextColor);
+  background-color: var(--cardBackground);
   border: 0 solid #ccc;
   border-radius: 1rem;
   margin: 5px;
@@ -194,6 +203,7 @@ body {
 }
 
 .filterBar button:hover {
+  color: #000;
   background-color: #cecece;
   transition: all .25s;
 }
@@ -321,6 +331,7 @@ body {
 
 .restaurant {
   background-color: var(--bodyBackground);
+  color: var(--textColor);
   flex-wrap: wrap;
   justify-content: space-between;
   display: flex;
@@ -352,6 +363,7 @@ body {
 .menu {
   border: 3px solid var(--theme);
   background-color: var(--bodyBackground);
+  color: var(--textColor);
   border-radius: 1rem;
   width: 80%;
   min-height: 50rem;
@@ -385,8 +397,8 @@ body {
 }
 
 .foodItem button {
-  background-color: var(--bodyBackground);
   color: #000;
+  background-color: silver;
   border: 0 solid gray;
   border-radius: 2rem;
   margin: 1rem;
@@ -395,11 +407,12 @@ body {
 }
 
 .foodItem button:hover {
-  background-color: var(--cardBackground);
+  background-color: #fff;
 }
 
 .aboutUs {
   background-color: var(--bodyBackground);
+  color: var(--textColor);
   margin: auto;
   padding: 0 5rem;
   font-family: monospace;
@@ -408,13 +421,14 @@ body {
 
 .loginPage {
   background-color: var(--cardBackground);
+  color: var(--textColor);
   text-align: center;
   border-radius: 1rem;
   flex-direction: column;
   justify-content: space-evenly;
   width: 30rem;
   height: 40rem;
-  margin: 20% auto 50%;
+  margin: 20vh auto 50vh;
   padding: 1rem;
   display: flex;
 }
@@ -435,6 +449,7 @@ body {
 .loginPage input:hover {
   border: 1px solid var(--cardBackground);
   background-color: var(--bodyBackground);
+  color: var(--textColor);
 }
 
 .loginPage input:focus {
@@ -464,6 +479,7 @@ body {
 }
 
 .cart {
+  color: var(--textColor);
   flex-wrap: wrap;
   width: fit-content;
   margin: auto;
