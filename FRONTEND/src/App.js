@@ -13,6 +13,8 @@ import ErrorPage from "./components/utils/ErrorPage.js";
 import "./index.css";
 import CartContextProvider from "./components/utils/CartContextProvider.js";
 import Cart from "./components/cart/Cart.js";
+import Login from "./components/login/LoginPage.js";
+import SignupPage from "./components/login/SignupPage.js";
 
 /**
  * Header
@@ -35,7 +37,7 @@ const App = () => {
         <CartContextProvider>
             <div className="headerOffset"></div>
             <Header />
-            <Outlet />
+            <Outlet className="fullBody" />
             <Footer />
         </CartContextProvider>
         // <UserContext.Provider value={{ data: context, changeData: setContext }}>
@@ -52,7 +54,8 @@ const appRouter = createBrowserRouter([
         children: [
             { path: "/foodie", element: <Body /> },
             { path: "/foodie/aboutus", element: <AboutUs /> },
-            { path: "/foodie/contactus", element: <div>cosnlsdjf</div> },
+            { path: "/foodie/login", element: <Login /> },
+            { path: "/foodie/signup", element: <SignupPage /> },
             { path: "/foodie/cart", element: <Cart /> },
             { path: "/foodie/restaurant/:resId", element: <Restaurant /> },
         ],

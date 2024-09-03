@@ -72,8 +72,8 @@ const FilterBar = (props) => {
     return (
         <div className="filterBar">
             <Search />
-            <OffsetDiv width="2rem" />
-            <div>sort by:</div>
+            <OffsetDiv width=".5rem" />
+            <div style={{ color: "gray", margin: "auto 0" }}>sort by:</div>
             <button
                 onClick={highestRatedHandler}
                 style={
@@ -113,7 +113,7 @@ const FilterBar = (props) => {
             >
                 delivery time
             </button>
-            <div style={{ color: "gray" }}>|</div>
+            <div style={{ color: "gray", margin: "auto 0" }}>|</div>
 
             <button
                 onClick={vegHandler}
@@ -141,7 +141,7 @@ const FilterBar = (props) => {
             >
                 non-veg
             </button>
-            <div style={{ color: "gray" }}>|</div>
+            <div style={{ color: "gray", margin: "auto 0" }}>|</div>
 
             <button onClick={clearFilterHandler}>clear filter</button>
         </div>

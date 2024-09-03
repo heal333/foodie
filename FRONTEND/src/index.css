@@ -7,12 +7,14 @@
     --cardBackground: white;
     --textColor: black;
     --theme: rgb(0, 212, 0);
-    text-decoration: none;
-    color: var(--textColor);
+    /* text-decoration: none; */
     scrollbar-width: thin;
 }
 html {
     scroll-behavior: smooth;
+}
+body {
+    background-color: var(--bodyBackground);
 }
 .header {
     display: flex;
@@ -34,6 +36,13 @@ html {
     font-size: 2rem;
     font-family: monospace;
     font-weight: bold;
+}
+.currentPage {
+    /* position: absolute; */
+    color: gray;
+    margin: auto auto;
+    padding: 0 1rem;
+    /* line-height: normal; */
 }
 .navItems {
     display: flex;
@@ -69,13 +78,16 @@ html {
     right: 0rem;
     background-color: var(--bodyBackground);
 }
-.cart:hover {
+.cartButton:hover {
     background-color: green;
 }
 
 .body {
     padding-top: 1rem;
     background-color: var(--bodyBackground);
+}
+.fullBody {
+    background-color: red;
 }
 .filterBar {
     font-family: monospace;
@@ -98,7 +110,8 @@ html {
 }
 .search {
     width: 15rem;
-    padding: 1px;
+    height: 1.5rem;
+    padding: 5px 5px;
     z-index: 5;
 }
 .overlay {
@@ -113,14 +126,18 @@ html {
 .searchInput {
     position: absolute;
     border-radius: 1rem;
+    padding: 3px 1rem;
     border: 1px solid white;
-    padding: 0 1rem;
     width: 15rem;
     transition: 1s;
     z-index: 5;
+    outline: none;
 }
 .searchInput:hover {
     border: 1px solid gray;
+}
+.searchInput:focus {
+    border: 1px solid var(--theme);
 }
 
 .searchResult {
@@ -137,6 +154,11 @@ html {
     z-index: 5;
     transition: 1s;
     border: 1px solid var(--theme);
+    text-decoration: none;
+}
+.searchResult a {
+    text-decoration: none;
+    color: var(--textColor);
 }
 .searchItem {
     padding: 2px 1rem;
@@ -148,10 +170,11 @@ html {
 }
 .filterBar button {
     color: rgb(49, 49, 49);
-    padding: 2px 1rem 2px 1rem;
-    margin: 1px;
+    padding: 3px 1rem;
+    margin: 5px;
     border-radius: 1rem;
-    border: 1px solid rgb(204, 204, 204);
+    border: 0px solid rgb(204, 204, 204);
+    background-color: white;
 }
 .filterBar button:hover {
     background-color: rgb(206, 206, 206);
@@ -181,9 +204,9 @@ html {
     overflow: hidden;
 }
 .fadeUpAnimation {
-    animation: fadeUp 0.5s linear;
+    animation: fadeIn 0.5s linear;
 }
-@keyframes fadeUp {
+@keyframes fadeIn {
     0% {
         opacity: 0;
     }
@@ -307,9 +330,10 @@ html {
     min-height: 50rem;
     padding: 1rem;
     margin: 5rem auto;
+    border: 3px solid var(--theme);
     border-radius: 1rem;
     background-color: var(--bodyBackground);
-    box-shadow: 0.3rem 0.3rem 0.5rem inset gray;
+    /* box-shadow: 0.3rem 0.3rem 0.5rem inset gray; */
 }
 .foodItem {
     margin: 2rem 3rem;
@@ -319,7 +343,7 @@ html {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    box-shadow: 0.3rem 0.3rem 0.3rem gray;
+    /* box-shadow: 0.3rem 0.3rem 0.3rem gray; */
     transition: 250ms;
     border: 2px solid white;
 }
@@ -327,7 +351,9 @@ html {
     /* background-color: var(--theme);
     color: white; */
     border-color: var(--theme);
-    box-shadow: 1rem 1rem 1rem gray;
+    background-color: var(--theme);
+    color: var(--cardBackground);
+    /* box-shadow: 1rem 1rem 1rem gray; */
 }
 .foodItem div {
     margin: auto 0;
@@ -338,17 +364,15 @@ html {
 
 .foodItem button {
     margin: 1rem;
-    padding: 1px 0.5rem;
-    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
     background-color: var(--bodyBackground);
     overflow: hidden;
     color: black;
-    border: 1px solid gray;
+    border: 0px solid gray;
 }
 .foodItem button:hover {
-    background-color: rgb(192, 192, 192);
-    color: white;
-    background-color: var(--theme);
+    background-color: var(--cardBackground);
 }
 
 .aboutUs {
@@ -357,6 +381,144 @@ html {
     padding: 0 5rem;
     font-family: monospace;
     font-size: 1.3rem;
+}
+.loginPage {
+    width: 30rem;
+    height: 40rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: var(--cardBackground);
+    /* margin: 5rem auto; */
+    margin: 20% auto 50% auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+}
+.loginPage label {
+    margin: 5rem;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.loginPage input {
+    margin: 0 2rem;
+    border-radius: 1rem;
+    padding: 0.3rem 1rem;
+    border: 1px solid rgb(206, 206, 206);
+}
+.loginPage input:hover {
+    border: 1px solid var(--cardBackground);
+    background-color: var(--bodyBackground);
+}
+.loginPage input:focus {
+    outline: none;
+    border: 1px solid var(--theme);
+
+    background-color: rgb(202, 255, 202);
+}
+.loginPage button {
+    border-radius: 2rem;
+    padding: 0.5rem 5rem;
+    width: fit-content;
+    margin: 1rem auto;
+    border: 1px solid var(--theme);
+    background-color: var(--theme);
+    color: white;
+    transition: 300ms;
+}
+.loginPage button:hover {
+    background-color: green;
+}
+.loginPage div {
+    margin: 3rem;
+    color: gray;
+}
+
+.cart {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    width: fit-content;
+    transition: 400ms;
+}
+/* .order {
+    background-color: gray;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    width: 30rem;
+} */
+
+.order div {
+    background-color: var(--cardBackground);
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    width: 35rem;
+    transition: 1s;
+    animation: expandDown 500ms;
+}
+.cartItems {
+    background-color: var(--cardBackground);
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    width: 35rem;
+    height: 50rem;
+}
+.cartItemsLabel {
+    font-weight: bolder;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.cartItemsRestaurant {
+    color: green;
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+.cartItemFood {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+.cartItemFood button {
+    margin: 1px 0.5rem;
+    border-radius: 1rem;
+    padding: 0 0.7rem;
+    border: none;
+}
+.cartItemFood .add:hover {
+    background-color: rgb(0, 184, 0);
+    color: white;
+}
+.cartItemFood .remove:hover {
+    background-color: red;
+    color: white;
+}
+.addressInput * {
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+    margin: 0.8rem 0.4rem;
+    border: 1px solid rgb(156, 156, 156);
+}
+.paymentInput * {
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 0.2rem 1rem;
+    width: 30rem;
+    display: flex;
+    border: 1px solid black;
+}
+.submitbutton {
+    border: 1px solid var(--theme);
+    background-color: var(--theme);
+    color: white;
+}
+.submitbutton:hover {
+    background-color: green;
 }
 
 .Footer {
@@ -377,12 +539,20 @@ html {
     text-decoration: none;
 }
 
-@media screen and (max-width: 70rem) {
+@media screen and (max-width: 78rem) {
     .restaurantImage {
         width: 100%;
     }
     .restaurantInfo {
         padding-top: 3rem;
+    }
+    .cart {
+        width: 40rem;
+    }
+}
+@media (max-aspect-ratio: 1/1.5) {
+    html {
+        font-size: 1.6rem;
     }
 }
 
@@ -390,4 +560,15 @@ html {
     background-color: red;
     width: 50rem;
     height: 50rem;
+}
+
+@keyframes expandDown {
+    0% {
+        opacity: 0;
+        translate: 0 -1rem;
+    }
+    100% {
+        opacity: 1;
+        translate: 0 0;
+    }
 }

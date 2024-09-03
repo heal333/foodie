@@ -4,12 +4,12 @@ import { CartContext } from "../utils/CartContextProvider";
 const CartButton = () => {
     const [cartAnimation, setCartAnimation] = useState({});
 
-    const { totalItems } = useContext(CartContext);
+    const { totalItems, setCurrentPage } = useContext(CartContext);
     useEffect(() => {
         totalItems > 0 && setCartAnimation({ scale: "1.2" });
         // console.log("wat");
 
-        timer = setTimeout(() => {
+        let timer = setTimeout(() => {
             setCartAnimation({});
             clearTimeout(timer);
         }, 300);

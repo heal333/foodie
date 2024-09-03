@@ -19,7 +19,7 @@ const useRestaurantData = (resId) => {
     };
 
     useEffect(() => {
-        resId !== "0" && fetchData();
+        resId.length > 3 && fetchData();
     }, []);
     return resInfo;
 };

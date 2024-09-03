@@ -48,6 +48,15 @@ const Menu = (props) => {
     };
     return (
         <div className="menu">
+            <div
+                style={{
+                    textAlign: "center",
+                    fontWeight: 600,
+                    fontSize: "1.4rem",
+                }}
+            >
+                menu
+            </div>
             {menu.map((obj, i) => {
                 return (
                     <div className="foodItem" key={i}>

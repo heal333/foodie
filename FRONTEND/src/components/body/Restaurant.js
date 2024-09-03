@@ -1,12 +1,17 @@
 import { useParams } from "react-router-dom";
 import Menu from "./Menu";
 import useRestaurantData from "../utils/useRestaurantData";
+import { useContext, useEffect } from "react";
+import { CartContext } from "../utils/CartContextProvider";
 const Restaurant = () => {
     const { resId } = useParams();
-
-    window.scrollTo(0, 0);
+    const { setCurrentPage } = useContext(CartContext);
 
     const restaurantData = useRestaurantData(resId);
+    useEffect(() => {
+        setCurrentPage("/restaurant");
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <>

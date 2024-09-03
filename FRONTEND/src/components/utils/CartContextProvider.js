@@ -7,12 +7,15 @@ export const CartContext = createContext({
 
 const CartContextProvider = (props) => {
     const [totalItems, setTotalItems] = useState(0);
+    const [currentPage, setCurrentPage] = useState("");
     const [cartItems, setCartItems] = useState({});
     return (
         <CartContext.Provider
             value={{
                 cartItems: cartItems,
                 totalItems: totalItems,
+                currentPage: currentPage,
+                setCurrentPage,
                 setTotalItems,
                 setCartItems,
             }}

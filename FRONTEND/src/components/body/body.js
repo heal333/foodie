@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import FoodCard from "./FoodCard.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import { API } from "../utils/const.js";
 import FilterBar from "./filterBar.js";
 import PageNavigation from "./pageNavigation.js";
 import useGetTotalPages from "../utils/useGetTotalPages.js";
+import { CartContext } from "../utils/CartContextProvider.js";
 
 let placeholder = [];
 for (let i = 0; i < 20; i++) {
@@ -17,6 +18,8 @@ const Body = () => {
     const [activePage, setActivePage] = useState(1);
     const [data, setData] = useState(placeholder);
     const [totalPage, setTotalPage] = useState(0);
+
+    const { setCurrentPage } = useContext(CartContext);
 
     const getRestaurantList = async (activeSort, activeVeg, activePage) => {
         try {
@@ -37,6 +40,7 @@ const Body = () => {
     useEffect(() => {
         getRestaurantList(activeSort, activeVeg, activePage);
         getTotalPages(0);
+        setCurrentPage("");
         return () => console.log("unmounted");
     }, []);
 
@@ -66,6 +70,7 @@ const Body = () => {
                         <Link
                             key={obj._id}
                             to={`/foodie/restaurant/${obj._id}`}
+                            style={{ textDecoration: "none" }}
                         >
                             <FoodCard
                                 fadeAni={"fadeUpAnimation"}
