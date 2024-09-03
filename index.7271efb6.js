@@ -36218,27 +36218,28 @@ var _s = $RefreshSig$();
 const Cart = ()=>{
     _s();
     const { setCurrentPage } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
-    console.log("'tis nothing but a cart");
+    // console.log("'tis nothing but a cart");
     (0, _react.useEffect)(()=>{
         setCurrentPage("/cart");
+        window.scrollTo(0, 0);
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "cart",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderDefault.default), {}, void 0, false, {
                 fileName: "src/components/cart/Cart.js",
-                lineNumber: 14,
+                lineNumber: 15,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartItemsDefault.default), {}, void 0, false, {
                 fileName: "src/components/cart/Cart.js",
-                lineNumber: 15,
+                lineNumber: 16,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/cart/Cart.js",
-        lineNumber: 13,
+        lineNumber: 14,
         columnNumber: 9
     }, undefined);
 };
@@ -36265,68 +36266,49 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _cartContextProvider = require("../utils/CartContextProvider");
-var _s = $RefreshSig$(), _s1 = $RefreshSig$();
-const CartRestaurantItems = ({ menu, calcTotalPrice })=>{
-    _s();
-    let total = 0;
-    (0, _react.useEffect)(()=>{
-        calcTotalPrice(total);
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: Object.keys(menu).map((item, i)=>{
-            total += menu[item].price * menu[item].amount;
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "cartItemFood",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "cartPaegItemName",
-                        children: menu[item].name
-                    }, void 0, false, {
-                        fileName: "src/components/cart/CartItems.js",
-                        lineNumber: 15,
-                        columnNumber: 25
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "cartPageItemPrice",
-                        children: [
-                            "\u20B9",
-                            menu[item].price
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/cart/CartItems.js",
-                        lineNumber: 18,
-                        columnNumber: 25
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "cartPageItemAmount",
-                        children: menu[item].amount
-                    }, void 0, false, {
-                        fileName: "src/components/cart/CartItems.js",
-                        lineNumber: 21,
-                        columnNumber: 25
-                    }, undefined)
-                ]
-            }, i, true, {
-                fileName: "src/components/cart/CartItems.js",
-                lineNumber: 14,
-                columnNumber: 21
-            }, undefined);
-        })
-    }, void 0, false, {
-        fileName: "src/components/cart/CartItems.js",
-        lineNumber: 10,
-        columnNumber: 9
-    }, undefined);
-};
-_s(CartRestaurantItems, "OD7bBpZva5O2jO+Puf00hKivP7c=");
-_c = CartRestaurantItems;
+var _reactRouterDom = require("react-router-dom");
+var _cartRestaurantItems = require("./CartRestaurantItems");
+var _cartRestaurantItemsDefault = parcelHelpers.interopDefault(_cartRestaurantItems);
+var _s = $RefreshSig$();
 const CartItems = ()=>{
-    _s1();
-    const { cartItems } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
+    _s();
+    const { cartItems, setCartItems, setTotalItems } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
     const [totalPrice, setTotalPrice] = (0, _react.useState)(0);
     let total = 0;
     const calcTotalPrice = (price)=>{
         total += price;
+    };
+    const increaseAmount = (id, item)=>{
+        setCartItems((prev)=>{
+            // console.log(prev);
+            prev[id]["menu"][item]["amount"] += 1;
+            setTotalItems((prev)=>prev + 1);
+            setTotalPrice(totalPrice + prev[id]["menu"][item]["price"]);
+            return prev;
+        });
+    };
+    const decreaseAmount = (id, item)=>{
+        if (cartItems[id]["menu"][item]["amount"] === 1) {
+            setTotalPrice(totalPrice - cartItems[id]["menu"][item]["price"]);
+            setTotalItems((prev)=>prev - 1);
+            // console.log(Object.keys(cartItems));
+            if (Object.keys(cartItems[id]["menu"]).length === 1) setCartItems((prev)=>{
+                delete prev[id];
+                return prev;
+            });
+            else setCartItems((prev)=>{
+                delete prev[id]["menu"][item];
+                return prev;
+            });
+            return;
+        }
+        setCartItems((prev)=>{
+            // console.log(prev);
+            prev[id]["menu"][item]["amount"] -= 1;
+            setTotalItems((prev)=>prev - 1);
+            setTotalPrice(totalPrice - prev[id]["menu"][item]["price"]);
+            return prev;
+        });
     };
     (0, _react.useEffect)(()=>{
         setTotalPrice(total);
@@ -36339,43 +36321,47 @@ const CartItems = ()=>{
                 children: "cart Items:"
             }, void 0, false, {
                 fileName: "src/components/cart/CartItems.js",
-                lineNumber: 45,
+                lineNumber: 59,
                 columnNumber: 13
             }, undefined),
             Object.keys(cartItems).map((res, i)=>{
                 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                            to: `/foodie/restaurant/${res}`,
                             className: "cartItemsRestaurant",
                             children: cartItems[res]["Restaurant Name"]
                         }, void 0, false, {
                             fileName: "src/components/cart/CartItems.js",
-                            lineNumber: 49,
+                            lineNumber: 63,
                             columnNumber: 25
                         }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(CartRestaurantItems, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartRestaurantItemsDefault.default), {
                             menu: cartItems[res].menu,
-                            calcTotalPrice: calcTotalPrice
+                            calcTotalPrice: calcTotalPrice,
+                            increaseAmount: increaseAmount,
+                            decreaseAmount: decreaseAmount,
+                            id: res
                         }, void 0, false, {
                             fileName: "src/components/cart/CartItems.js",
-                            lineNumber: 52,
+                            lineNumber: 69,
                             columnNumber: 25
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                             fileName: "src/components/cart/CartItems.js",
-                            lineNumber: 56,
+                            lineNumber: 76,
                             columnNumber: 25
                         }, undefined)
                     ]
                 }, i, true, {
                     fileName: "src/components/cart/CartItems.js",
-                    lineNumber: 48,
+                    lineNumber: 62,
                     columnNumber: 21
                 }, undefined);
             }),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/cart/CartItems.js",
-                lineNumber: 60,
+                lineNumber: 80,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36388,29 +36374,123 @@ const CartItems = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/cart/CartItems.js",
-                lineNumber: 61,
+                lineNumber: 81,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/cart/CartItems.js",
-        lineNumber: 44,
+        lineNumber: 58,
         columnNumber: 9
     }, undefined);
 };
-_s1(CartItems, "jv5sNqyDxngLiu1hEqunoWKBilc=");
-_c1 = CartItems;
+_s(CartItems, "d5jcZXvk2vO2YJjErThsCyLEgao=");
+_c = CartItems;
 exports.default = CartItems;
-var _c, _c1;
-$RefreshReg$(_c, "CartRestaurantItems");
-$RefreshReg$(_c1, "CartItems");
+var _c;
+$RefreshReg$(_c, "CartItems");
 
   $parcel$ReactRefreshHelpers$9ee7.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2N4Nw":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","./CartRestaurantItems":"8H0my"}],"8H0my":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0e53 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0e53.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
+const CartRestaurantItems = (props)=>{
+    _s();
+    let total = 0;
+    (0, _react.useEffect)(()=>{
+        props.calcTotalPrice(total);
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: Object.keys(props.menu).map((item, i)=>{
+            total += props.menu[item].price * props.menu[item].amount;
+            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "cartItemFood",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "cartPaegItemName",
+                        children: props.menu[item].name
+                    }, void 0, false, {
+                        fileName: "src/components/cart/CartRestaurantItems.js",
+                        lineNumber: 14,
+                        columnNumber: 25
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "cartPageItemPrice",
+                        children: [
+                            "\u20B9",
+                            props.menu[item].price
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/cart/CartRestaurantItems.js",
+                        lineNumber: 17,
+                        columnNumber: 25
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "cartPageItemAmount",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "remove",
+                                onClick: ()=>props.decreaseAmount(props.id, item),
+                                children: "-"
+                            }, void 0, false, {
+                                fileName: "src/components/cart/CartRestaurantItems.js",
+                                lineNumber: 21,
+                                columnNumber: 29
+                            }, undefined),
+                            props.menu[item].amount,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "add",
+                                onClick: ()=>props.increaseAmount(props.id, item),
+                                children: "+"
+                            }, void 0, false, {
+                                fileName: "src/components/cart/CartRestaurantItems.js",
+                                lineNumber: 30,
+                                columnNumber: 29
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/cart/CartRestaurantItems.js",
+                        lineNumber: 20,
+                        columnNumber: 25
+                    }, undefined)
+                ]
+            }, i, true, {
+                fileName: "src/components/cart/CartRestaurantItems.js",
+                lineNumber: 13,
+                columnNumber: 21
+            }, undefined);
+        })
+    }, void 0, false, {
+        fileName: "src/components/cart/CartRestaurantItems.js",
+        lineNumber: 9,
+        columnNumber: 9
+    }, undefined);
+};
+_s(CartRestaurantItems, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c = CartRestaurantItems;
+exports.default = CartRestaurantItems;
+var _c;
+$RefreshReg$(_c, "CartRestaurantItems");
+
+  $parcel$ReactRefreshHelpers$0e53.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2N4Nw":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8a72 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36772,6 +36852,8 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _cartContextProvider = require("../utils/CartContextProvider");
+var _offsetDiv = require("../utils/offsetDiv");
+var _offsetDivDefault = parcelHelpers.interopDefault(_offsetDiv);
 var _s = $RefreshSig$();
 const SignupPage = ()=>{
     _s();
@@ -36780,11 +36862,74 @@ const SignupPage = ()=>{
         setCurrentPage("/sign up");
     });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: "tis nothing but the sign up page"
-    }, void 0, false, {
+        className: "loginPage",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: "Sign up"
+            }, void 0, false, {
+                fileName: "src/components/login/SignupPage.js",
+                lineNumber: 12,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                placeholder: "user name"
+            }, void 0, false, {
+                fileName: "src/components/login/SignupPage.js",
+                lineNumber: 13,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                placeholder: "email",
+                type: "email"
+            }, void 0, false, {
+                fileName: "src/components/login/SignupPage.js",
+                lineNumber: 14,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: "password",
+                placeholder: "password"
+            }, void 0, false, {
+                fileName: "src/components/login/SignupPage.js",
+                lineNumber: 17,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: "password",
+                placeholder: "confirm password"
+            }, void 0, false, {
+                fileName: "src/components/login/SignupPage.js",
+                lineNumber: 18,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "checkbox"
+                    }, void 0, false, {
+                        fileName: "src/components/login/SignupPage.js",
+                        lineNumber: 20,
+                        columnNumber: 17
+                    }, undefined),
+                    " i accept the terms and conditions"
+                ]
+            }, void 0, true, {
+                fileName: "src/components/login/SignupPage.js",
+                lineNumber: 19,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                children: "Register"
+            }, void 0, false, {
+                fileName: "src/components/login/SignupPage.js",
+                lineNumber: 23,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/components/login/SignupPage.js",
-        lineNumber: 9,
-        columnNumber: 12
+        lineNumber: 11,
+        columnNumber: 9
     }, undefined);
 };
 _s(SignupPage, "y/QjTq+T4VVMo2svsQkE6zKb4kk=");
@@ -36798,6 +36943,6 @@ $RefreshReg$(_c, "SignupPage");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["9wh9R","1xC6H","2kQhy"], "2kQhy", "parcelRequire26b5")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/offsetDiv":"2NzXk"}]},["9wh9R","1xC6H","2kQhy"], "2kQhy", "parcelRequire26b5")
 
 //# sourceMappingURL=index.7271efb6.js.map
