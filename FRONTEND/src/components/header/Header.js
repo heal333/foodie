@@ -2,16 +2,20 @@ import { Link } from "react-router-dom";
 import CartButton from "../cart/CartButton";
 import { useContext } from "react";
 import { CartContext } from "../utils/CartContextProvider";
+import ThemeButton from "./ThemeButton";
 
 const Header = () => {
     const { currentPage, setCurrentPage } = useContext(CartContext);
     return (
         <div className="header">
             <div style={{ display: "flex" }}>
-                <div className="logo">foodie</div>
+                <Link to="/foodie" className="logo">
+                    foodie
+                </Link>
                 <div className="currentPage">{currentPage}</div>
             </div>
             <ul className="navItems">
+                <ThemeButton />
                 <Link to="/foodie">Home</Link>
                 <Link
                     to="/foodie/aboutus"
