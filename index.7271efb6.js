@@ -36025,17 +36025,25 @@ const Menu = (props)=>{
                     className: "foodItem",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: obj.name
-                        }, void 0, false, {
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    children: obj.name
+                                }, void 0, false, {
+                                    fileName: "src/components/body/Menu.js",
+                                    lineNumber: 64,
+                                    columnNumber: 29
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    children: obj.ingredients
+                                }, void 0, false, {
+                                    fileName: "src/components/body/Menu.js",
+                                    lineNumber: 65,
+                                    columnNumber: 29
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
                             fileName: "src/components/body/Menu.js",
                             lineNumber: 63,
-                            columnNumber: 25
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: obj.ingredients
-                        }, void 0, false, {
-                            fileName: "src/components/body/Menu.js",
-                            lineNumber: 64,
                             columnNumber: 25
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36045,7 +36053,7 @@ const Menu = (props)=>{
                             ]
                         }, void 0, true, {
                             fileName: "src/components/body/Menu.js",
-                            lineNumber: 65,
+                            lineNumber: 68,
                             columnNumber: 25
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36053,7 +36061,7 @@ const Menu = (props)=>{
                             children: "add +"
                         }, void 0, false, {
                             fileName: "src/components/body/Menu.js",
-                            lineNumber: 66,
+                            lineNumber: 69,
                             columnNumber: 25
                         }, undefined)
                     ]

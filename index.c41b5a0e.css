@@ -6,6 +6,7 @@
   --softTextColor: #505050;
   --theme: #00d40094;
   --shadowColor: gray;
+  background-color: var(--bodyBackground);
 }
 
 * {
