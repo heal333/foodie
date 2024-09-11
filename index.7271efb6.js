@@ -36027,6 +36027,7 @@ const Menu = (props)=>{
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "name",
                                     children: obj.name
                                 }, void 0, false, {
                                     fileName: "src/components/body/Menu.js",
@@ -36034,6 +36035,7 @@ const Menu = (props)=>{
                                     columnNumber: 29
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "description",
                                     children: obj.ingredients
                                 }, void 0, false, {
                                     fileName: "src/components/body/Menu.js",

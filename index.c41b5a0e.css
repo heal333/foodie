@@ -3,7 +3,7 @@
   --bodyBackground: #e6e6e6;
   --cardBackground: white;
   --textColor: black;
-  --softTextColor: #505050;
+  --softTextColor: #4b4b4b;
   --theme: #00d40094;
   --shadowColor: gray;
   background-color: var(--bodyBackground);
@@ -390,6 +390,14 @@ html {
   border-color: var(--theme);
   background-color: var(--theme);
   color: var(--cardBackground);
+
+  & .name {
+    color: #fff;
+  }
+
+  & .description {
+    color: #646464;
+  }
 }
 
 .foodItem div {
@@ -411,6 +419,16 @@ html {
 
 .foodItem button:hover {
   background-color: #fff;
+}
+
+.foodItem .name {
+  color: green;
+  font-size: 1.3rem;
+}
+
+.foodItem .description {
+  color: var(--softTextColor);
+  font-size: .9rem;
 }
 
 .aboutUs {
