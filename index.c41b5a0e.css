@@ -401,10 +401,7 @@ html {
 }
 
 .foodItem div {
-  white-space: nowrap;
-  color: inherit;
   margin: auto 0;
-  overflow: hidden;
 }
 
 .foodItem button {

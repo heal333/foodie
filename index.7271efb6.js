@@ -36036,8 +36036,13 @@ const Menu = (props)=>{
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "description",
-                                    children: obj.ingredients
-                                }, void 0, false, {
+                                    children: [
+                                        obj.ingredients,
+                                        " | ",
+                                        obj.diet,
+                                        obj.flavor_profile !== "-1" ? `| ${obj.flavor_profile}` : ""
+                                    ]
+                                }, void 0, true, {
                                     fileName: "src/components/body/Menu.js",
                                     lineNumber: 65,
                                     columnNumber: 29
@@ -36058,7 +36063,7 @@ const Menu = (props)=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/body/Menu.js",
-                                    lineNumber: 68,
+                                    lineNumber: 73,
                                     columnNumber: 29
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36066,13 +36071,13 @@ const Menu = (props)=>{
                                     children: "add +"
                                 }, void 0, false, {
                                     fileName: "src/components/body/Menu.js",
-                                    lineNumber: 69,
+                                    lineNumber: 74,
                                     columnNumber: 29
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/body/Menu.js",
-                            lineNumber: 67,
+                            lineNumber: 72,
                             columnNumber: 25
                         }, undefined)
                     ]
