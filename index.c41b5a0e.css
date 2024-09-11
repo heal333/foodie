@@ -412,7 +412,7 @@ html {
   background-color: silver;
   border: 0 solid gray;
   border-radius: 2rem;
-  margin: 1rem;
+  margin: 1rem 1rem 1rem 5rem;
   padding: .5rem 1rem;
   overflow: hidden;
 }
@@ -429,6 +429,11 @@ html {
 .foodItem .description {
   color: var(--softTextColor);
   font-size: .9rem;
+}
+
+.priceAndAdd {
+  justify-content: space-between;
+  display: flex;
 }
 
 .aboutUs {

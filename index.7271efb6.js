@@ -36049,21 +36049,30 @@ const Menu = (props)=>{
                             columnNumber: 25
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "priceAndAdd",
                             children: [
-                                "\u20B9",
-                                obj.price
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    children: [
+                                        "\u20B9",
+                                        obj.price
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/body/Menu.js",
+                                    lineNumber: 68,
+                                    columnNumber: 29
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>addItemHandler(obj, i + 1),
+                                    children: "add +"
+                                }, void 0, false, {
+                                    fileName: "src/components/body/Menu.js",
+                                    lineNumber: 69,
+                                    columnNumber: 29
+                                }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/body/Menu.js",
-                            lineNumber: 68,
-                            columnNumber: 25
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: ()=>addItemHandler(obj, i + 1),
-                            children: "add +"
-                        }, void 0, false, {
-                            fileName: "src/components/body/Menu.js",
-                            lineNumber: 69,
+                            lineNumber: 67,
                             columnNumber: 25
                         }, undefined)
                     ]
