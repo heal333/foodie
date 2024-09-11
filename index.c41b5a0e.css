@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  transition: color, background-color .5s;
+  transition: color, background-color, font-size .5s;
 }
 
 html {
@@ -639,6 +639,7 @@ html {
 @media screen and (width <= 1200px) {
   html {
     font-size: 1.5rem;
+    transition: all 1s;
   }
 }
 
