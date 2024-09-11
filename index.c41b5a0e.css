@@ -367,7 +367,8 @@ html {
   border: 3px solid var(--theme);
   background-color: var(--bodyBackground);
   color: var(--textColor);
-  border-radius: 1rem;
+  z-index: 5;
+  border-radius: 0 1rem 1rem;
   width: 80%;
   min-height: 50rem;
   margin: 5rem auto;
@@ -428,7 +429,15 @@ html {
   font-size: .9rem;
 }
 
+.foodItemDetails {
+  flex-direction: column;
+  flex-grow: 1;
+  width: 60%;
+  display: flex;
+}
+
 .priceAndAdd {
+  flex-grow: 1;
   justify-content: space-between;
   display: flex;
 }
@@ -626,16 +635,21 @@ html {
   }
 }
 
-@media (aspect-ratio <= 1 / 1.5) {
+@media screen and (width <= 1100px) {
   html {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 }
 
-.temp {
-  background-color: red;
-  width: 50rem;
-  height: 50rem;
+.test {
+  background-color: var(--theme);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 50%, 50% 100%, 0 100%);
+  z-index: 4;
+  border-radius: 5px;
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  translate: -3.5rem -3.5rem;
 }
 
 @keyframes expandDown {

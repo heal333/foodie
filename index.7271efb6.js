@@ -36009,6 +36009,13 @@ const Menu = (props)=>{
         className: "menu",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "test"
+            }, void 0, false, {
+                fileName: "src/components/body/Menu.js",
+                lineNumber: 51,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
                     textAlign: "center",
                     fontWeight: 600,
@@ -36017,7 +36024,7 @@ const Menu = (props)=>{
                 children: "menu"
             }, void 0, false, {
                 fileName: "src/components/body/Menu.js",
-                lineNumber: 51,
+                lineNumber: 52,
                 columnNumber: 13
             }, undefined),
             menu.map((obj, i)=>{
@@ -36025,13 +36032,14 @@ const Menu = (props)=>{
                     className: "foodItem",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "foodItemDetails",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "name",
                                     children: obj.name
                                 }, void 0, false, {
                                     fileName: "src/components/body/Menu.js",
-                                    lineNumber: 64,
+                                    lineNumber: 65,
                                     columnNumber: 29
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36044,13 +36052,13 @@ const Menu = (props)=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/body/Menu.js",
-                                    lineNumber: 65,
+                                    lineNumber: 66,
                                     columnNumber: 29
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/body/Menu.js",
-                            lineNumber: 63,
+                            lineNumber: 64,
                             columnNumber: 25
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36063,7 +36071,7 @@ const Menu = (props)=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/body/Menu.js",
-                                    lineNumber: 73,
+                                    lineNumber: 74,
                                     columnNumber: 29
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36071,19 +36079,19 @@ const Menu = (props)=>{
                                     children: "add +"
                                 }, void 0, false, {
                                     fileName: "src/components/body/Menu.js",
-                                    lineNumber: 74,
+                                    lineNumber: 75,
                                     columnNumber: 29
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/body/Menu.js",
-                            lineNumber: 72,
+                            lineNumber: 73,
                             columnNumber: 25
                         }, undefined)
                     ]
                 }, i, true, {
                     fileName: "src/components/body/Menu.js",
-                    lineNumber: 62,
+                    lineNumber: 63,
                     columnNumber: 21
                 }, undefined);
             })
