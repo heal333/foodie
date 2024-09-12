@@ -9,6 +9,10 @@
   background-color: var(--bodyBackground);
 }
 
+input {
+  font-size: 1rem;
+}
+
 * {
   scrollbar-width: thin;
   margin: 0;
