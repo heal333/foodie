@@ -10,7 +10,7 @@
 }
 
 input {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 * {
@@ -680,7 +680,7 @@ html {
   }
 }
 
-@media screen and (width <= 1100px) {
+@media screen and (width <= 1200px) {
   html {
     font-size: 30px;
   }
