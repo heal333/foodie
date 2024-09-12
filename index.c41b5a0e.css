@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  transition: color, background-color, font-size .5s;
+  transition: color, background-color, all .5s;
 }
 
 html {
@@ -51,12 +51,12 @@ html {
 .currentPage {
   color: gray;
   margin: auto;
-  padding: 0 1rem;
+  padding-left: .7rem;
 }
 
 .switchTheme {
   height: 2rem;
-  transition: all 5s;
+  transition: background-color 5s;
 }
 
 .navItems {
@@ -79,7 +79,7 @@ html {
   border-radius: 5rem;
   font-family: monospace;
   font-weight: 500;
-  transition: all .1s linear;
+  transition: all 50ms;
   position: relative;
 }
 
@@ -117,7 +117,6 @@ html {
   width: 80%;
   margin: auto;
   font-family: monospace;
-  transition: all 1.5s;
   display: flex;
   overflow: hidden;
 }
@@ -188,7 +187,6 @@ html {
 
 .searchItem {
   padding: 2px 1rem;
-  transition: all;
 }
 
 .searchItem:hover {
@@ -225,6 +223,7 @@ html {
   min-width: 15rem;
   height: 21rem;
   margin: 1.5rem;
+  transition: all .2s;
   overflow: hidden;
 }
 
@@ -249,12 +248,7 @@ html {
 
 .foodCard:hover {
   box-shadow: 2rem 2rem 2rem var(--shadowColor);
-  transition: all .3s;
   translate: -.25rem -.25rem;
-}
-
-.foodCard:not(:hover) {
-  transition: all .2s;
 }
 
 .storeImg {
@@ -340,12 +334,6 @@ html {
   display: flex;
 }
 
-.restaurantInfo {
-  width: 20rem;
-  margin: auto;
-  transition: all 1s;
-}
-
 .restaurantImage {
   object-fit: cover;
   opacity: 1;
@@ -356,11 +344,56 @@ html {
   overflow: hidden;
 }
 
+.restaurantInfo {
+  width: 20rem;
+  margin: auto;
+  transition: all 1s;
+}
+
 .restaurantInfo .name {
   color: green;
+  margin-bottom: .5rem;
   font-family: monospace;
   font-size: 2rem;
   font-weight: bold;
+}
+
+.restaurantInfo .location {
+  color: var(--softTextColor);
+  margin-bottom: .3rem;
+  font-size: .9rem;
+}
+
+.restaurantInfo .resCuisine {
+  color: var(--softTextColor);
+  font-size: .9rem;
+}
+
+.restaurantInfo .deliveryIn {
+  color: var(--softTextColor);
+  font-size: 1rem;
+}
+
+.restaurantInfo .distance {
+  color: var(--softTextColor);
+}
+
+.restaurant .totalOffers {
+  background-color: var(--theme);
+  color: #fff;
+  border-radius: 1rem;
+  width: fit-content;
+  margin: 2rem auto .5rem;
+  padding: 0 .7rem;
+}
+
+.allOffers {
+  text-align: center;
+}
+
+.offerUnit {
+  color: var(--softTextColor);
+  font-family: monospace;
 }
 
 .menu {
@@ -577,9 +610,15 @@ html {
   background-color: red;
 }
 
+.addressInput {
+  flex-wrap: wrap;
+  display: flex;
+}
+
 .addressInput * {
   border: 1px solid #9c9c9c;
   border-radius: 1rem;
+  flex-grow: 1;
   margin: .8rem .4rem;
   padding: .2rem 1rem;
 }
@@ -638,8 +677,15 @@ html {
 
 @media screen and (width <= 1200px) {
   html {
-    font-size: 1.5rem;
-    transition: all 1s;
+    font-size: 22px;
+  }
+
+  .navItems * {
+    padding: .5rem 1.2rem;
+  }
+
+  .cartButtonBadge {
+    padding: 7px;
   }
 }
 
