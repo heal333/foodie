@@ -3,6 +3,7 @@ import Menu from "./Menu";
 import useRestaurantData from "../utils/useRestaurantData";
 import { useContext, useEffect } from "react";
 import { CartContext } from "../utils/CartContextProvider";
+import RestaurantPageDetails from "./RestaurantPageDetails";
 const Restaurant = () => {
     const { resId } = useParams();
     const { setCurrentPage } = useContext(CartContext);
@@ -23,20 +24,7 @@ const Restaurant = () => {
                         `${restaurantData.Image}?auto=compress&cs=tinysrgb&w=1000`
                     }
                 ></img>
-                <div className="restaurantInfo">
-                    <div className="name">
-                        {restaurantData["Restaurant Name"]}
-                    </div>
-                    <div>{restaurantData["Area"]}</div>
-                    <div>Cuisine: {restaurantData.Cuisine}</div>
-                    <div>{restaurantData.Location} </div>
-                    <div>{restaurantData["Delivery Time"]} mins</div>
-                    <div>
-                        {(restaurantData["Delivery Time"] * 0.3).toFixed(2)} km
-                    </div>
-                    <div>{restaurantData["Number of Offers"]}</div>
-                    <div>{restaurantData["Offer Name"]}</div>
-                </div>
+                <RestaurantPageDetails restaurantData={restaurantData} />
             </div>
             {restaurantData._id && (
                 <Menu

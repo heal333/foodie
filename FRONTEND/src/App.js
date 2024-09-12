@@ -2,12 +2,17 @@
 
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import {
+    createBrowserRouter,
+    RouterProvider,
+    Outlet,
+    Link,
+} from "react-router-dom";
 
 import Header from "./components/header/Header.js";
 import Body from "./components/body/body.js";
 import Footer from "./components/footer/Footer.js";
-import Restaurant from "./components/body/Restaurant.js";
+import Restaurant from "./components/restaurantPage/Restaurant.js";
 import AboutUs from "./components/body/AboutUs.js";
 import ErrorPage from "./components/utils/ErrorPage.js";
 import "./index.css";
@@ -48,10 +53,11 @@ const App = () => {
 
 const appRouter = createBrowserRouter([
     {
-        path: "/foodie",
+        path: "/",
         element: <App />,
 
         children: [
+            { path: "/", element: <Link to="/foodie">go to home page</Link> },
             { path: "/foodie", element: <Body /> },
             { path: "/foodie/aboutus", element: <AboutUs /> },
             { path: "/foodie/login", element: <Login /> },

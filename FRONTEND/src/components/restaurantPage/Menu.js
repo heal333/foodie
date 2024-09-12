@@ -48,6 +48,7 @@ const Menu = (props) => {
     };
     return (
         <div className="menu">
+            <div className="test"></div>
             <div
                 style={{
                     textAlign: "center",
@@ -60,12 +61,21 @@ const Menu = (props) => {
             {menu.map((obj, i) => {
                 return (
                     <div className="foodItem" key={i}>
-                        <div>{obj.name}</div>
-                        <div>{obj.description}</div>
-                        <div>₹{obj.price}</div>
-                        <button onClick={() => addItemHandler(obj, i + 1)}>
-                            add +
-                        </button>
+                        <div className="foodItemDetails">
+                            <div className="name">{obj.name}</div>
+                            <div className="description">
+                                {obj.ingredients} | {obj.diet}
+                                {obj.flavor_profile !== "-1"
+                                    ? `| ${obj.flavor_profile}`
+                                    : ""}
+                            </div>
+                        </div>
+                        <div className="priceAndAdd">
+                            <div>₹{obj.price}</div>
+                            <button onClick={() => addItemHandler(obj, i + 1)}>
+                                add +
+                            </button>
+                        </div>
                     </div>
                 );
             })}
