@@ -675,9 +675,9 @@ html {
   }
 }
 
-@media screen and (width <= 1200px) {
+@media screen and (width <= 1300px) {
   html {
-    font-size: 22px;
+    font-size: 25px;
   }
 
   .navItems * {
