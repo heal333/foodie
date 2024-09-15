@@ -3,7 +3,7 @@ const data = require("../models/restaurantsData");
 
 const router = express.Router();
 
-router.get("/totalpage", async (req, res) => {
+router.get("/totalpage", async (req, res, next) => {
     let result = 0;
     if (req.query.veg === "1") {
         result = await data.find({ ["Pure Veg"]: "Yes" }, { _id: 1 });

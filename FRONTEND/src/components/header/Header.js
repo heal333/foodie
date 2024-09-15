@@ -5,7 +5,8 @@ import { CartContext } from "../utils/CartContextProvider";
 import ThemeButton from "./ThemeButton";
 
 const Header = () => {
-    const { currentPage, setCurrentPage } = useContext(CartContext);
+    const { currentPage, user, setCurrentPage } = useContext(CartContext);
+
     return (
         <div className="header">
             <div style={{ display: "flex" }}>
@@ -23,7 +24,7 @@ const Header = () => {
                 >
                     About us
                 </Link>
-                <Link to="/foodie/login">Login</Link>
+                <Link to={user === "Login" ? "/foodie/login" : ""}>{user}</Link>
                 <CartButton />
             </ul>
         </div>
