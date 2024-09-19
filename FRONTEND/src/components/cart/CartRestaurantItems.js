@@ -11,12 +11,10 @@ const CartRestaurantItems = (props) => {
                 total += props.menu[item].price * props.menu[item].amount;
                 return (
                     <div className="cartItemFood" key={i}>
-                        <div className="cartPaegItemName">
+                        <div className="cartPageItemName">
                             {props.menu[item].name}
                         </div>
-                        <div className="cartPageItemPrice">
-                            ₹{props.menu[item].price}
-                        </div>
+
                         <div className="cartPageItemAmount">
                             <button
                                 className="remove"
@@ -35,6 +33,10 @@ const CartRestaurantItems = (props) => {
                             >
                                 +
                             </button>
+                        </div>
+                        <div className="cartPageItemPrice">
+                            ₹{props.menu[item].price} x{" "}
+                            {props.menu[item].amount}
                         </div>
                     </div>
                 );

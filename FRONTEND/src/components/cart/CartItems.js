@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../utils/CartContextProvider";
 import { Link } from "react-router-dom";
 import CartRestaurantItems from "./CartRestaurantItems";
+import OffsetDiv from "../utils/offsetDiv";
 
 const CartItems = () => {
     const { cartItems, setCartItems, setTotalItems } = useContext(CartContext);
@@ -78,7 +79,9 @@ const CartItems = () => {
                 );
             })}
             <hr></hr>
-            <div style={{ textAlign: "center" }}>Total price:₹{totalPrice}</div>
+            <div style={{ textAlign: "end", paddingRight: "1rem" }}>
+                Total price: ₹{totalPrice}
+            </div>
         </div>
     );
 };

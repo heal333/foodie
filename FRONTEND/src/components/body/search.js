@@ -41,6 +41,7 @@ const Search = () => {
                         : setShowModal(true);
                 }}
                 value={searchKeyword}
+                type="search"
             />
             {showModal && (
                 <div

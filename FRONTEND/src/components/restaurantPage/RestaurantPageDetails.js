@@ -1,6 +1,5 @@
 const RestaurantPageDetails = ({ restaurantData }) => {
     let offer = restaurantData["Offer Name"].split(",");
-    console.log(offer);
     return (
         <div className="restaurantInfo">
             <div className="name">{restaurantData["Restaurant Name"]}</div>

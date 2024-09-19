@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import Menu from "./Menu";
-import useRestaurantData from "../utils/useRestaurantData";
+import useRestaurantData from "../utils/customHooks/useRestaurantData";
 import { useContext, useEffect } from "react";
 import { CartContext } from "../utils/CartContextProvider";
 import RestaurantPageDetails from "./RestaurantPageDetails";

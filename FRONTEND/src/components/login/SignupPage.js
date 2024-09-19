@@ -2,14 +2,16 @@ import { useEffect, useContext, useRef, useState } from "react";
 import { CartContext } from "../utils/CartContextProvider";
 import { API } from "../utils/const";
 import OffsetDiv from "../utils/offsetDiv";
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
-    const { setCurrentPage } = useContext(CartContext);
+    const { setCurrentPage, setUser } = useContext(CartContext);
     const inputMailRef = useRef();
     const inputPassRef = useRef();
     const inputUserRef = useRef();
     const inputConfirmPassRef = useRef();
     const inputTermsRef = useRef();
+    const navigate = useNavigate();
 
     const [userEror, setUserError] = useState(false);
     const [mailError, setMailError] = useState(false);
@@ -17,6 +19,7 @@ const SignupPage = () => {
     const [confirmPassError, setConfirmPassError] = useState(false);
     const [termsError, setTermsError] = useState(false);
     const [buttonText, setButtonText] = useState("Register");
+    const [invalidUser, setInvalidUser] = useState(false);
     useEffect(() => {
         setCurrentPage("/sign up");
     });
@@ -35,10 +38,14 @@ const SignupPage = () => {
             console.log(result.status);
             if (result.status === 201) {
                 const response = await result.json();
-                console.log(response.user.user);
+                setUser(response.user.user);
+                localStorage.setItem("token", response.token);
+                localStorage.setItem("user", response.user.email);
+                navigate("/foodie");
             } else {
                 const response = await result.json();
-                console.log(response.err);
+                setInvalidUser(true);
+                console.log(response);
             }
         } catch (error) {
             console.log(error);
@@ -90,7 +97,10 @@ const SignupPage = () => {
             <label>Sign up</label>
             <input
                 className={userEror ? "error" : ""}
-                onClick={() => setUserError(false)}
+                onClick={() => {
+                    setUserError(false);
+                    setInvalidUser(false);
+                }}
                 placeholder={
                     userEror
                         ? "*name must be between 3 to 16 chars long"
@@ -103,7 +113,10 @@ const SignupPage = () => {
                 placeholder={mailError ? "*enter a valid email" : "email"}
                 ref={inputMailRef}
                 className={mailError ? "error" : ""}
-                onClick={() => setMailError(false)}
+                onClick={() => {
+                    setMailError(false);
+                    setInvalidUser(false);
+                }}
                 type="email"
             ></input>
             {/* or
@@ -136,6 +149,9 @@ const SignupPage = () => {
                     ref={inputTermsRef}
                 ></input>{" "}
                 i accept the terms and conditions
+            </span>
+            <span className="invalidError">
+                {invalidUser && "user name or email already exists"}
             </span>
             <button>{buttonText}</button>
         </form>

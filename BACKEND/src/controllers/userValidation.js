@@ -4,7 +4,7 @@ const { compare } = require("bcryptjs");
 const KEY = "will get it from envioronmental variable later";
 
 function createJSONToken(email) {
-    return sign({ email }, KEY, { expiresIn: "1h" });
+    return sign({ email }, KEY, { expiresIn: "24h" });
 }
 
 function validateJSONToken(token) {

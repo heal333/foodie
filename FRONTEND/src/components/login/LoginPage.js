@@ -1,17 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, navigate } from "react";
 import { CartContext } from "../utils/CartContextProvider";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 
 import { useEffect, useContext, useRef, useState } from "react";
 import { CartContext } from "../utils/CartContextProvider";
 import { API } from "../utils/const";
-import OffsetDiv from "../utils/offsetDiv";
 
 const Login = () => {
     const { setCurrentPage, setUser } = useContext(CartContext);
     const inputPassRef = useRef();
     const inputUserRef = useRef();
 
+    const navigate = useNavigate();
     const [userEror, setUserError] = useState(false);
     const [passError, setPassError] = useState(false);
     const [buttonText, setButtonText] = useState("Login!");
@@ -33,7 +33,11 @@ const Login = () => {
             console.log(result.status);
             if (result.status === 201) {
                 const response = await result.json();
-                setUser(inputUserRef.current.value);
+                setUser(response.user);
+                console.log(response);
+                localStorage.setItem("token", response.token);
+                localStorage.setItem("user", response.user);
+                navigate("/foodie");
             } else {
                 const response = await result.json();
                 setInvalidUser(true);

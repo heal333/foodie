@@ -7,6 +7,7 @@ import {
     RouterProvider,
     Outlet,
     Link,
+    redirect,
 } from "react-router-dom";
 
 import Header from "./components/header/Header.js";
@@ -20,6 +21,8 @@ import CartContextProvider from "./components/utils/CartContextProvider.js";
 import Cart from "./components/cart/Cart.js";
 import Login from "./components/login/LoginPage.js";
 import SignupPage from "./components/login/SignupPage.js";
+import { authLoader } from "./components/utils/authLoader.js";
+import Account from "./components/user/Account.js";
 
 /**
  * Header
@@ -60,10 +63,23 @@ const appRouter = createBrowserRouter([
             { path: "/", element: <Link to="/foodie">go to home page</Link> },
             { path: "/foodie", element: <Body /> },
             { path: "/foodie/aboutus", element: <AboutUs /> },
-            { path: "/foodie/login", element: <Login /> },
-            { path: "/foodie/signup", element: <SignupPage /> },
+            {
+                path: "/foodie/login",
+                element: <Login />,
+                loader: () => {
+                    return authLoader(<Login />);
+                },
+            },
+            {
+                path: "/foodie/signup",
+                element: <SignupPage />,
+                loader: () => {
+                    return authLoader(<SignupPage />);
+                },
+            },
             { path: "/foodie/cart", element: <Cart /> },
             { path: "/foodie/restaurant/:resId", element: <Restaurant /> },
+            { path: "/foodie/user/:userId", element: <Account /> },
         ],
         errorElement: <ErrorPage />,
     },

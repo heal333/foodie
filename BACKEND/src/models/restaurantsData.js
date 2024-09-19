@@ -4,7 +4,7 @@ const data = mongoose.model(
     "restaurants",
     // "rams",
     new mongoose.Schema({
-        "Restaurant Name": String,
+        "Restaurant Name": { type: String },
     })
 );
 

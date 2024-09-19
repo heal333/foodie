@@ -4,7 +4,7 @@
     --cardBackground: white;
     --textColor: black;
     --softTextColor: rgb(75, 75, 75);
-    --theme: rgba(0, 212, 0, 0.582);
+    --theme: rgb(0, 212, 0);
     --shadowColor: gray;
     background-color: var(--bodyBackground);
 
@@ -15,13 +15,39 @@
     margin: 0;
     padding: 0;
     scrollbar-width: thin;
-    transition: color, background-color 500ms;
+    transition: font-size, background-color, 500ms;
 }
 .body {
     background-color: red;
 }
 html {
     scroll-behavior: smooth;
+}
+input {
+    margin: 0 2rem;
+    border-radius: 1rem;
+    padding: 0.3rem 1rem;
+    border: none;
+    outline: 1px solid rgb(175, 175, 175);
+}
+input:enabled:hover {
+    outline: 1px solid var(--theme);
+}
+input:focus {
+    outline: 1px solid var(--theme);
+    background-color: rgb(202, 255, 202);
+}
+input:disabled {
+    opacity: 0.5;
+    outline: none;
+    cursor: not-allowed;
+}
+input:disabled::placeholder {
+    color: var(--textColor);
+}
+
+button:disabled {
+    cursor: not-allowed;
 }
 /* body {
     background-color: var(--bodyBackground);
@@ -143,21 +169,10 @@ html {
 }
 .searchInput {
     position: absolute;
-    border-radius: 1rem;
     padding: 3px 1rem;
-    border: 1px solid white;
-    /* background-color: var(--bodyBackground); */
-    color: black;
     width: 15rem;
     transition: 1s;
     z-index: 5;
-    outline: none;
-}
-.searchInput:hover {
-    border: 1px solid gray;
-}
-.searchInput:focus {
-    border: 1px solid var(--theme);
 }
 
 .searchResult {
@@ -399,12 +414,15 @@ html {
     color: white; */
     border-color: var(--theme);
     background-color: var(--theme);
-    color: var(--cardBackground);
+    /* color: var(--cardBackground); */
     .name {
         color: white;
     }
     .description {
         color: rgb(100, 100, 100);
+    }
+    .priceAndAdd {
+        color: white;
     }
     /* box-shadow: 1rem 1rem 1rem gray; */
 }
@@ -478,7 +496,7 @@ html {
     font-weight: bold;
     font-size: 2rem;
 }
-.loginPage input {
+/* .loginPage input {
     margin: 0 2rem;
     border-radius: 1rem;
     padding: 0.3rem 1rem;
@@ -492,7 +510,7 @@ html {
     outline: 1px solid var(--theme);
 
     background-color: rgb(202, 255, 202);
-}
+} */
 .loginPage button {
     border-radius: 2rem;
     padding: 0.5rem 5rem;
@@ -511,18 +529,23 @@ html {
     color: gray;
 }
 
+.account {
+    height: 80%;
+}
+
 .cart {
     display: flex;
-    margin: auto;
+    margin: 2rem auto;
     flex-wrap: wrap;
-    width: fit-content;
+    width: 100%;
     color: var(--textColor);
+    justify-content: center;
 }
 .order {
     /* max-width: 50rem; */
     transition: width 1s;
-    margin: 1rem auto;
     max-width: 45rem;
+    flex-grow: 1;
 }
 
 .order div {
@@ -533,43 +556,58 @@ html {
     /* width: 35rem; */
     animation: expandDown 500ms;
 }
+.addressBanner {
+    display: flex;
+    justify-content: space-between;
+}
+
 .addressInput {
     display: flex;
     flex-wrap: wrap;
 }
 .addressInput * {
-    padding: 0.2rem 1.5rem;
-    border-radius: 1rem;
+    /* padding: 0.2rem 1.5rem; */
+    /* border-radius: 1rem; */
     margin: 0.8rem 0.8rem;
-    border: 1px solid rgb(156, 156, 156);
+    /* border: 1px solid rgb(156, 156, 156); */
     flex-grow: 1;
 }
-.paymentInput * {
-    border-radius: 1rem;
-    margin: 1rem;
-    padding: 0.2rem 1rem;
-    display: flex;
-    border: 1px solid black;
+.paymentInput {
+    padding: 0;
+    margin: 0;
 }
-.submitbutton {
+.paymentInput div {
+    padding: 0;
+    margin: 0.8rem 0.8rem;
+    /* display: flex;
+    justify-content: left; */
+}
+
+.paymentInput * * {
+    margin: 1rem 1rem 0.5rem 0;
+}
+.order button {
     border: 1px solid var(--theme);
+    border-radius: 1rem;
+    padding: 0.2rem 1.5rem;
     background-color: var(--theme);
     color: white;
+    flex-grow: 1;
 }
-.submitbutton:hover {
+.order button:hover {
     background-color: green;
 }
 
 .cartItems {
     background-color: var(--cardBackground);
     border-radius: 1rem;
-    margin: 1rem;
     padding: 1rem;
-    flex-grow: 1;
-    max-width: 90%;
-    min-width: 30rem;
+
     height: 50rem;
-    margin: 1rem auto;
+    transition: width 1s;
+    max-width: 45rem;
+    margin: 0 1rem;
+    flex-grow: 1;
 }
 .cartItemsLabel {
     font-weight: bolder;
@@ -595,6 +633,13 @@ html {
     padding: 0 0.7rem;
     border: none;
 }
+.cartItemFood .cartPageItemName {
+    width: 40%;
+}
+/* .cartItemFood .cartPageItemPrice {
+    background-color: red;
+    width: 5rem;
+} */
 .cartItemFood .add:hover {
     background-color: rgb(0, 184, 0);
     color: white;
@@ -634,7 +679,7 @@ html {
 
 @media (max-width: 1200px) {
     html {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
     .navItems {
         margin-left: 0;
@@ -644,6 +689,9 @@ html {
     }
     .cartButtonBadge {
         padding: 7px;
+    }
+    .cart {
+        flex-direction: column;
     }
 }
 
@@ -660,8 +708,9 @@ html {
 }
 
 .error {
-    border: 2px solid red;
-    outline: 2px solid red;
+    /* border: 2px solid red; */
+    outline: 1px solid red;
+    color: red;
 }
 .error::placeholder {
     color: red;
@@ -670,6 +719,15 @@ html {
 .invalidError {
     color: red;
     height: 1rem;
+}
+.rotate {
+    rotate: 180deg;
+}
+.disabled {
+    opacity: 0.5;
+}
+.hidden {
+    display: none;
 }
 
 @keyframes expandDown {

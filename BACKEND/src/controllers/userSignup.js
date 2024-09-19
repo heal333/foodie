@@ -5,13 +5,20 @@ async function addUser(data) {
     const hashedPass = await hash(data.password, 12);
 
     userData.insertMany([
-        { user: data.user, email: data.email, password: hashedPass },
+        {
+            user: data.user,
+            email: data.email,
+            password: hashedPass,
+            created: new Date(),
+            cart: [],
+            history: [],
+        },
     ]);
     return data;
 }
 
 async function getUser(data) {
-    const user = await userData.find({ user: data.user });
+    const user = await userData.find({ user: data });
     if (user.length === 0) {
         throw new Error("no user found");
     }
@@ -19,7 +26,7 @@ async function getUser(data) {
     return user[0];
 }
 async function getEmail(data) {
-    const email = await userData.find({ email: data.email });
+    const email = await userData.find({ email: data });
     if (email.length === 0) {
         throw new Error("no email found");
     }

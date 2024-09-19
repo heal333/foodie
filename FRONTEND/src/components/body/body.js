@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import { API } from "../utils/const.js";
 import FilterBar from "./filterBar.js";
 import PageNavigation from "./pageNavigation.js";
-import useGetTotalPages from "../utils/useGetTotalPages.js";
+import useGetTotalPages from "../utils/customHooks/useGetTotalPages.js";
 import { CartContext } from "../utils/CartContextProvider.js";
 
 let placeholder = [];

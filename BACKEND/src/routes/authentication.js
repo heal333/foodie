@@ -5,6 +5,8 @@ const {
     isValidPassword,
     createJSONToken,
     isValidText,
+    checkAuthMiddleware,
+    validateJSONToken,
 } = require("../controllers/userValidation");
 const { addUser, getUser, getEmail } = require("../controllers/userSignup");
 
@@ -13,19 +15,19 @@ const router = express.Router();
 //for signup
 router.post("/signup", async (req, res, next) => {
     const data = req.body;
-    console.log(data);
 
     let err = {};
     if (!isValidEmail(data.email)) {
         err.email = "invalid email";
     } else {
         try {
-            const existingUser = await getUser(data);
-            if (existingUser.length > 0) {
+            const existingUser = await getUser(data.user);
+            console.log(existingUser);
+            if (Object.keys(existingUser).length > 0) {
                 err.user = "username already exists";
             }
-            const existingEmail = await getEmail(data);
-            if (existingEmail.length > 0) {
+            const existingEmail = await getEmail(data.email);
+            if (Object.keys(existingEmail).length > 0) {
                 err.email = "email already exists";
             }
         } catch (errors) {}
@@ -62,9 +64,13 @@ router.post("/login", async (req, res) => {
 
     let user;
     try {
-        user = await getUser(data);
+        user = await getUser(data.user);
     } catch (error) {
-        return res.status(401).json({ message: "authentication failed" });
+        try {
+            user = await getEmail(data.user);
+        } catch (error) {
+            return res.status(401).json({ message: "authentication failed" });
+        }
     }
 
     const isValid = await isValidPassword(data.password, user.password);
@@ -78,7 +84,23 @@ router.post("/login", async (req, res) => {
     }
 
     const token = createJSONToken(user.email);
-    res.status(201).json({ token });
+    res.status(201).json({ token: token, user: user.user });
+});
+
+//for auto login validation
+router.post("/autologin", async (req, res, next) => {
+    const data = req.body;
+
+    try {
+        const user = await getUser(data.user);
+        if (user) {
+            if (validateJSONToken(data.token)) {
+                return res.status(201).json(user);
+            }
+        }
+    } catch (err) {
+        return res.status(422).json({ message: "invalid creds" });
+    }
 });
 
 module.exports = router;
