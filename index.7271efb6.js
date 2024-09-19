@@ -2979,6 +2979,9 @@ var _loginPageJs = require("./components/login/LoginPage.js");
 var _loginPageJsDefault = parcelHelpers.interopDefault(_loginPageJs);
 var _signupPageJs = require("./components/login/SignupPage.js");
 var _signupPageJsDefault = parcelHelpers.interopDefault(_signupPageJs);
+var _authLoaderJs = require("./components/utils/authLoader.js");
+var _accountJs = require("./components/user/Account.js");
+var _accountJsDefault = parcelHelpers.interopDefault(_accountJs);
 "use strict";
 /**
  * Header
@@ -3001,30 +3004,30 @@ var _signupPageJsDefault = parcelHelpers.interopDefault(_signupPageJs);
                 className: "headerOffset"
             }, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 43,
+                lineNumber: 46,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerJsDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 44,
+                lineNumber: 47,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {
                 className: "fullBody"
             }, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 45,
+                lineNumber: 48,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerJsDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 46,
+                lineNumber: 49,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 42,
+        lineNumber: 45,
         columnNumber: 9
     }, undefined);
 };
@@ -3034,7 +3037,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 57,
+            lineNumber: 60,
             columnNumber: 18
         }, undefined),
         children: [
@@ -3045,7 +3048,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                     children: "go to home page"
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 60,
+                    lineNumber: 63,
                     columnNumber: 35
                 }, undefined)
             },
@@ -3053,7 +3056,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/foodie",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 61,
+                    lineNumber: 64,
                     columnNumber: 41
                 }, undefined)
             },
@@ -3061,7 +3064,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/foodie/aboutus",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutUsJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 62,
+                    lineNumber: 65,
                     columnNumber: 49
                 }, undefined)
             },
@@ -3069,23 +3072,37 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/foodie/login",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginPageJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 63,
-                    columnNumber: 47
-                }, undefined)
+                    lineNumber: 68,
+                    columnNumber: 26
+                }, undefined),
+                loader: ()=>{
+                    return (0, _authLoaderJs.authLoader)(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginPageJsDefault.default), {}, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 70,
+                        columnNumber: 39
+                    }, undefined));
+                }
             },
             {
                 path: "/foodie/signup",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupPageJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 64,
-                    columnNumber: 48
-                }, undefined)
+                    lineNumber: 75,
+                    columnNumber: 26
+                }, undefined),
+                loader: ()=>{
+                    return (0, _authLoaderJs.authLoader)(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupPageJsDefault.default), {}, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 77,
+                        columnNumber: 39
+                    }, undefined));
+                }
             },
             {
                 path: "/foodie/cart",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 65,
+                    lineNumber: 80,
                     columnNumber: 46
                 }, undefined)
             },
@@ -3093,14 +3110,22 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/foodie/restaurant/:resId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantJsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 66,
+                    lineNumber: 81,
                     columnNumber: 59
+                }, undefined)
+            },
+            {
+                path: "/foodie/user/:userId",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _accountJsDefault.default), {}, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 82,
+                    columnNumber: 54
                 }, undefined)
             }
         ],
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorPageJsDefault.default), {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 68,
+            lineNumber: 84,
             columnNumber: 23
         }, undefined)
     }
@@ -3110,7 +3135,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterP
     router: appRouter
 }, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 74,
+    lineNumber: 90,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -3121,7 +3146,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","react-router-dom":"9xmpe","./components/header/Header.js":"3oj0W","./components/body/body.js":"aY0P3","./components/footer/Footer.js":"b54nx","./components/restaurantPage/Restaurant.js":"lrIwb","./components/body/AboutUs.js":"90Bjz","./components/utils/ErrorPage.js":"7B9Xj","./index.css":"irmnC","./components/utils/CartContextProvider.js":"4ENTP","./components/cart/Cart.js":"3bQIa","./components/login/LoginPage.js":"ejF5b","./components/login/SignupPage.js":"3Vvci","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","react-router-dom":"9xmpe","./components/header/Header.js":"3oj0W","./components/body/body.js":"aY0P3","./components/footer/Footer.js":"b54nx","./components/restaurantPage/Restaurant.js":"lrIwb","./components/body/AboutUs.js":"90Bjz","./components/utils/ErrorPage.js":"7B9Xj","./index.css":"irmnC","./components/utils/CartContextProvider.js":"4ENTP","./components/cart/Cart.js":"3bQIa","./components/login/LoginPage.js":"ejF5b","./components/login/SignupPage.js":"3Vvci","./components/utils/authLoader.js":"anqWP","./components/user/Account.js":"cmlWS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -34537,10 +34562,22 @@ var _react = require("react");
 var _cartContextProvider = require("../utils/CartContextProvider");
 var _themeButton = require("./ThemeButton");
 var _themeButtonDefault = parcelHelpers.interopDefault(_themeButton);
+var _getAutoLogin = require("../utils/getAutoLogin");
+var _getAutoLoginDefault = parcelHelpers.interopDefault(_getAutoLogin);
 var _s = $RefreshSig$();
 const Header = ()=>{
     _s();
-    const { currentPage, user, setCurrentPage } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
+    const { currentPage, user, setUser, setCurrentPage } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("user");
+    const autoLogin = async ()=>{
+        const userData = await (0, _getAutoLoginDefault.default)(userId, token);
+        // console.log(userData);
+        if (userData) setUser(userData.user);
+    };
+    (0, _react.useEffect)(()=>{
+        autoLogin();
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "header",
         children: [
@@ -34555,7 +34592,7 @@ const Header = ()=>{
                         children: "foodie"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
-                        lineNumber: 13,
+                        lineNumber: 29,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34563,13 +34600,13 @@ const Header = ()=>{
                         children: currentPage
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
-                        lineNumber: 16,
+                        lineNumber: 32,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/header/Header.js",
-                lineNumber: 12,
+                lineNumber: 28,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -34577,7 +34614,7 @@ const Header = ()=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _themeButtonDefault.default), {}, void 0, false, {
                         fileName: "src/components/header/Header.js",
-                        lineNumber: 19,
+                        lineNumber: 35,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34585,7 +34622,7 @@ const Header = ()=>{
                         children: "Home"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
-                        lineNumber: 20,
+                        lineNumber: 36,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -34594,36 +34631,36 @@ const Header = ()=>{
                         children: "About us"
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
-                        lineNumber: 21,
+                        lineNumber: 37,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: user === "Login" ? "/foodie/login" : "",
+                        to: user === "Login" ? "/foodie/login" : `/foodie/user/${user}`,
                         children: user
                     }, void 0, false, {
                         fileName: "src/components/header/Header.js",
-                        lineNumber: 27,
+                        lineNumber: 43,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartButtonDefault.default), {}, void 0, false, {
                         fileName: "src/components/header/Header.js",
-                        lineNumber: 28,
+                        lineNumber: 52,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/header/Header.js",
-                lineNumber: 18,
+                lineNumber: 34,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/header/Header.js",
-        lineNumber: 11,
+        lineNumber: 27,
         columnNumber: 9
     }, undefined);
 };
-_s(Header, "0UxE3VD8vJ7Huibg6kPE6zbTK9w=");
+_s(Header, "UQcUVoSq9T/R7xFDSD2/P9GgNAg=");
 _c = Header;
 exports.default = Header;
 var _c;
@@ -34634,7 +34671,7 @@ $RefreshReg$(_c, "Header");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","../cart/CartButton":"duE9w","react":"21dqq","../utils/CartContextProvider":"4ENTP","./ThemeButton":"3Geuf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"duE9w":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","../cart/CartButton":"duE9w","react":"21dqq","../utils/CartContextProvider":"4ENTP","./ThemeButton":"3Geuf","../utils/getAutoLogin":"9Wj3A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"duE9w":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d443 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34974,7 +35011,37 @@ exports.getOrigin = getOrigin;
 },{}],"96AHV":[function(require,module,exports) {
 module.exports = require("a25252654e99d53d").getBundleURL("aXMci") + "sun.e8fdb130.png" + "?" + Date.now();
 
-},{"a25252654e99d53d":"lgJ39"}],"aY0P3":[function(require,module,exports) {
+},{"a25252654e99d53d":"lgJ39"}],"9Wj3A":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _const = require("./const");
+const getAutoLogin = async (user, token)=>{
+    if (!user || !token) return false;
+    const response = await fetch(`${(0, _const.API)}/auth/autologin`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            user: user,
+            token: token
+        })
+    });
+    if (!response.ok) return false;
+    const result = await response.json();
+    // console.log(result);
+    return result;
+};
+exports.default = getAutoLogin;
+
+},{"./const":"aTjSe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aTjSe":[function(require,module,exports) {
+// export const API = "https://foodie-orcx.onrender.com";
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "API", ()=>API);
+const API = "http://127.0.0.1:3000";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aY0P3":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ff99 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34993,7 +35060,7 @@ var _filterBarJs = require("./filterBar.js");
 var _filterBarJsDefault = parcelHelpers.interopDefault(_filterBarJs);
 var _pageNavigationJs = require("./pageNavigation.js");
 var _pageNavigationJsDefault = parcelHelpers.interopDefault(_pageNavigationJs);
-var _useGetTotalPagesJs = require("../utils/useGetTotalPages.js");
+var _useGetTotalPagesJs = require("../utils/customHooks/useGetTotalPages.js");
 var _useGetTotalPagesJsDefault = parcelHelpers.interopDefault(_useGetTotalPagesJs);
 var _cartContextProviderJs = require("../utils/CartContextProvider.js");
 var _s = $RefreshSig$();
@@ -35114,7 +35181,7 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","./FoodCard.js":"dicef","react":"21dqq","../utils/const.js":"aTjSe","./filterBar.js":"9CDtR","./pageNavigation.js":"73WqB","../utils/useGetTotalPages.js":"bcqnq","../utils/CartContextProvider.js":"4ENTP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dicef":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","./FoodCard.js":"dicef","react":"21dqq","../utils/const.js":"aTjSe","./filterBar.js":"9CDtR","./pageNavigation.js":"73WqB","../utils/customHooks/useGetTotalPages.js":"8e0IR","../utils/CartContextProvider.js":"4ENTP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dicef":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$34a7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35262,14 +35329,7 @@ $RefreshReg$(_c, "FoodCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aTjSe":[function(require,module,exports) {
-// export const API = "https://foodie-orcx.onrender.com";
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "API", ()=>API);
-const API = "http://127.0.0.1:3000";
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9CDtR":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9CDtR":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2554 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35554,7 +35614,8 @@ const Search = ()=>{
                     setShowModal(true);
                     e.target.value.length === 0 ? setShowModal(false) : setShowModal(true);
                 },
-                value: searchKeyword
+                value: searchKeyword,
+                type: "search"
             }, void 0, false, {
                 fileName: "src/components/body/search.js",
                 lineNumber: 31,
@@ -35574,24 +35635,24 @@ const Search = ()=>{
                                 children: obj["Restaurant Name"]
                             }, void 0, false, {
                                 fileName: "src/components/body/search.js",
-                                lineNumber: 55,
+                                lineNumber: 56,
                                 columnNumber: 33
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                                 fileName: "src/components/body/search.js",
-                                lineNumber: 59,
+                                lineNumber: 60,
                                 columnNumber: 33
                             }, undefined)
                         ]
                     }, obj._id, true, {
                         fileName: "src/components/body/search.js",
-                        lineNumber: 54,
+                        lineNumber: 55,
                         columnNumber: 29
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/body/search.js",
-                lineNumber: 46,
+                lineNumber: 47,
                 columnNumber: 17
             }, undefined)
         ]
@@ -35695,11 +35756,11 @@ $RefreshReg$(_c, "PageNavigation");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bcqnq":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8223 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8e0IR":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f0af = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8223.prelude(module);
+$parcel$ReactRefreshHelpers$f0af.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -35717,7 +35778,7 @@ const useGetTotalPages = async (veg = 0)=>{
 _s(useGetTotalPages, "iewGgDTm2ryN0PrXcUQ1j/U2bns=");
 exports.default = useGetTotalPages;
 
-  $parcel$ReactRefreshHelpers$8223.postlude(module);
+  $parcel$ReactRefreshHelpers$f0af.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -35825,7 +35886,7 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
 var _menu = require("./Menu");
 var _menuDefault = parcelHelpers.interopDefault(_menu);
-var _useRestaurantData = require("../utils/useRestaurantData");
+var _useRestaurantData = require("../utils/customHooks/useRestaurantData");
 var _useRestaurantDataDefault = parcelHelpers.interopDefault(_useRestaurantData);
 var _react = require("react");
 var _cartContextProvider = require("../utils/CartContextProvider");
@@ -35894,7 +35955,7 @@ $RefreshReg$(_c, "Restaurant");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","./Menu":"bMB7H","../utils/useRestaurantData":"aggdl","react":"21dqq","../utils/CartContextProvider":"4ENTP","./RestaurantPageDetails":"3f6J0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bMB7H":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","./Menu":"bMB7H","../utils/customHooks/useRestaurantData":"ajabl","react":"21dqq","../utils/CartContextProvider":"4ENTP","./RestaurantPageDetails":"3f6J0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bMB7H":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2d1e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36059,17 +36120,17 @@ $RefreshReg$(_c, "Menu");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","../utils/const":"aTjSe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aggdl":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$e84f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","../utils/const":"aTjSe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ajabl":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$378a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$e84f.prelude(module);
+$parcel$ReactRefreshHelpers$378a.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
-var _const = require("./const");
+var _const = require("../const");
 var _s = $RefreshSig$();
 const useRestaurantData = (resId)=>{
     _s();
@@ -36096,12 +36157,12 @@ const useRestaurantData = (resId)=>{
 _s(useRestaurantData, "Au0yprKafJG0FENWgpBpkBrQNoc=");
 exports.default = useRestaurantData;
 
-  $parcel$ReactRefreshHelpers$e84f.postlude(module);
+  $parcel$ReactRefreshHelpers$378a.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","./const":"aTjSe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3f6J0":[function(require,module,exports) {
+},{"react":"21dqq","../const":"aTjSe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3f6J0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a254 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36734,67 +36795,164 @@ var _paymentInput = require("./PaymentInput");
 var _paymentInputDefault = parcelHelpers.interopDefault(_paymentInput);
 var _confirmOrderInput = require("./ConfirmOrderInput");
 var _confirmOrderInputDefault = parcelHelpers.interopDefault(_confirmOrderInput);
+var _arrowPng = require("../../plugs/arrow.png");
+var _arrowPngDefault = parcelHelpers.interopDefault(_arrowPng);
 var _s = $RefreshSig$();
 const Order = ()=>{
     _s();
     const [addressInput, setAddressInput] = (0, _react.useState)(true);
     const [paymentInput, setPaymentInput] = (0, _react.useState)(false);
     const [orderConfirmInput, setOrderConfirmInput] = (0, _react.useState)(false);
+    const [validAddress, setValidAddress] = (0, _react.useState)(false);
+    const [validPayment, setValidPayment] = (0, _react.useState)(false);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "order ",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 onClick: ()=>setAddressInput(!addressInput),
-                children: "address"
-            }, void 0, false, {
+                className: "addressBanner",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "address"
+                    }, void 0, false, {
+                        fileName: "src/components/cart/Order.js",
+                        lineNumber: 20,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: addressInput ? "rotate" : "",
+                        style: {
+                            fontWeight: "bold"
+                        },
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            style: {
+                                width: "1.5rem"
+                            },
+                            src: (0, _arrowPngDefault.default)
+                        }, void 0, false, {
+                            fileName: "src/components/cart/Order.js",
+                            lineNumber: 25,
+                            columnNumber: 21
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/cart/Order.js",
+                        lineNumber: 21,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/cart/Order.js",
-                lineNumber: 12,
+                lineNumber: 16,
                 columnNumber: 13
             }, undefined),
-            addressInput && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addressInputDefault.default), {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addressInputDefault.default), {
+                display: addressInput,
                 setPaymentInput: setPaymentInput,
-                setAddressInput: setAddressInput
+                setAddressInput: setAddressInput,
+                setValidAddress: setValidAddress
             }, void 0, false, {
                 fileName: "src/components/cart/Order.js",
-                lineNumber: 14,
-                columnNumber: 17
+                lineNumber: 28,
+                columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 onClick: ()=>setPaymentInput(!paymentInput),
-                children: "payment"
-            }, void 0, false, {
+                className: "addressBanner",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "payment"
+                    }, void 0, false, {
+                        fileName: "src/components/cart/Order.js",
+                        lineNumber: 38,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: paymentInput ? "rotate" : "",
+                        style: {
+                            fontWeight: "bold"
+                        },
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            style: {
+                                width: "1.5rem"
+                            },
+                            src: (0, _arrowPngDefault.default)
+                        }, void 0, false, {
+                            fileName: "src/components/cart/Order.js",
+                            lineNumber: 43,
+                            columnNumber: 21
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/cart/Order.js",
+                        lineNumber: 39,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/cart/Order.js",
-                lineNumber: 19,
+                lineNumber: 34,
                 columnNumber: 13
             }, undefined),
             paymentInput && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _paymentInputDefault.default), {
-                setOrderConfirmInput: setOrderConfirmInput
+                setOrderConfirmInput: setOrderConfirmInput,
+                setValidPayment: setValidPayment
             }, void 0, false, {
                 fileName: "src/components/cart/Order.js",
-                lineNumber: 21,
+                lineNumber: 47,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 onClick: ()=>setOrderConfirmInput(!orderConfirmInput),
-                children: "order/redirect to loginn page"
-            }, void 0, false, {
+                className: "addressBanner",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "order/redirect to login page"
+                    }, void 0, false, {
+                        fileName: "src/components/cart/Order.js",
+                        lineNumber: 56,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: orderConfirmInput ? "rotate" : "",
+                        style: {
+                            fontWeight: "bold"
+                        },
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            style: {
+                                width: "1.5rem"
+                            },
+                            src: (0, _arrowPngDefault.default)
+                        }, void 0, false, {
+                            fileName: "src/components/cart/Order.js",
+                            lineNumber: 61,
+                            columnNumber: 21
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/cart/Order.js",
+                        lineNumber: 57,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/cart/Order.js",
-                lineNumber: 23,
+                lineNumber: 52,
                 columnNumber: 13
             }, undefined),
-            orderConfirmInput && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _confirmOrderInputDefault.default), {}, void 0, false, {
+            orderConfirmInput && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _confirmOrderInputDefault.default), {
+                validAddress: validAddress,
+                validPayment: validPayment
+            }, void 0, false, {
                 fileName: "src/components/cart/Order.js",
-                lineNumber: 26,
-                columnNumber: 35
+                lineNumber: 65,
+                columnNumber: 17
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/cart/Order.js",
-        lineNumber: 11,
+        lineNumber: 15,
         columnNumber: 9
     }, undefined);
 };
-_s(Order, "tOFJ74VK8yKxrAxwneawrdkytbw=");
+_s(Order, "5nlYJLIFQVjVurg74fu76i36BVM=");
 _c = Order;
 exports.default = Order;
 var _c;
@@ -36805,7 +36963,7 @@ $RefreshReg$(_c, "Order");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./AddressInput":"d7uPP","./PaymentInput":"4rEod","./ConfirmOrderInput":"UlNAF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"d7uPP":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./AddressInput":"d7uPP","./PaymentInput":"4rEod","./ConfirmOrderInput":"UlNAF","../../plugs/arrow.png":"h0tgG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"d7uPP":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$59d5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36815,48 +36973,97 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
 const AddressInput = (props)=>{
+    _s();
+    const [nameError, setNameError] = (0, _react.useState)(false);
+    const [phoneError, setPhoneError] = (0, _react.useState)(false);
+    const [address1Error, setAddress1Error] = (0, _react.useState)(false);
+    const [address2Error, setAddress2Error] = (0, _react.useState)(false);
+    const [pincodeError, setPincodeError] = (0, _react.useState)(false);
+    const nameRef = (0, _react.useRef)();
+    const phoneRef = (0, _react.useRef)();
+    const address1Ref = (0, _react.useRef)();
+    const address2Ref = (0, _react.useRef)();
+    const pincodeRef = (0, _react.useRef)();
     const addressSubmitHandler = ()=>{
-        props.setPaymentInput(true);
-    // props.setAddressInput(false);
+        if (nameRef.current.value.trim().length < 3) setNameError(true);
+        if (phoneRef.current.value.length !== 10) setPhoneError(true);
+        if (address1Ref.current.value.trim().length == 0) setAddress1Error(true);
+        if (address2Ref.current.value.trim().length == 0) setAddress2Error(true);
+        if (pincodeRef.current.value.length !== 6) setPincodeError(true);
+        else if (!nameError && !phoneError && !address1Error && !address2Error && !pincodeError) {
+            console.log(nameRef.current.value.trim().length);
+            props.setPaymentInput(true);
+            props.setValidAddress(true);
+        }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "addressInput",
+        className: `addressInput ${!props.display ? "hidden" : ""}`,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                placeholder: "enter your name"
+                className: nameError ? "error" : "",
+                placeholder: "enter your name",
+                ref: nameRef,
+                onChange: ()=>{
+                    setNameError(false);
+                    props.setValidAddress(false);
+                }
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 8,
+                lineNumber: 45,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                className: phoneError ? "error" : "",
                 placeholder: "phone number",
-                type: "number"
+                type: "number",
+                onChange: ()=>{
+                    setPhoneError(false);
+                    props.setValidAddress(false);
+                },
+                ref: phoneRef
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 9,
+                lineNumber: 54,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                placeholder: "address line 1"
+                className: address1Error ? "error" : "",
+                placeholder: "address line 1",
+                ref: address1Ref,
+                onChange: ()=>{
+                    setAddress1Error(false);
+                }
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 10,
+                lineNumber: 64,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                placeholder: "address line 2"
+                className: address2Error ? "error" : "",
+                placeholder: "address line 2",
+                ref: address2Ref,
+                onChange: ()=>{
+                    setAddress2Error(false);
+                }
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 11,
+                lineNumber: 72,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                placeholder: "pincode"
+                className: pincodeError ? "error" : "",
+                placeholder: "pincode",
+                type: "number",
+                ref: pincodeRef,
+                onChange: ()=>{
+                    setPincodeError(false);
+                }
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 12,
+                lineNumber: 80,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36865,16 +37072,17 @@ const AddressInput = (props)=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 13,
+                lineNumber: 89,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/cart/AddressInput.js",
-        lineNumber: 7,
+        lineNumber: 44,
         columnNumber: 9
     }, undefined);
 };
+_s(AddressInput, "Wjr+QbOs2AkOF7nrBVNYmaFHoxc=");
 _c = AddressInput;
 exports.default = AddressInput;
 var _c;
@@ -36885,7 +37093,7 @@ $RefreshReg$(_c, "AddressInput");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4rEod":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"4rEod":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$483e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36895,48 +37103,143 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
 const PaymentInput = (props)=>{
+    _s();
+    const [cardCheck, setCardCheck] = (0, _react.useState)(true);
+    const [upiCheck, setUpiCheck] = (0, _react.useState)(false);
+    const [codCheck, setCodCheck] = (0, _react.useState)(false);
+    const cardRef = (0, _react.useRef)();
+    const cvvRef = (0, _react.useRef)();
+    const upiRef = (0, _react.useRef)();
     const paymentSubmitHandler = ()=>{
-        props.setOrderConfirmInput(true);
+        if (cardCheck) {
+            cardRef.current.value.length;
+            cvvRef.current.value.length;
+            return;
+        } else if (upiCheck) {
+            if (!upiRef.current.value.includes("@")) //do
+            return;
+        } else if (codCheck) {
+            props.setOrderConfirmInput(true);
+            props.setValidPayment(true);
+        }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "paymentInput",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                placeholder: "enter card number"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "checkbox",
+                        checked: cardCheck,
+                        onChange: ()=>{
+                            setCardCheck((prev)=>!prev);
+                            setUpiCheck(false);
+                            setCodCheck(false);
+                        }
+                    }, void 0, false, {
+                        fileName: "src/components/cart/PaymentInput.js",
+                        lineNumber: 33,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        style: {
+                            width: "60%"
+                        },
+                        placeholder: "enter card number",
+                        disabled: !cardCheck,
+                        type: "number",
+                        ref: cardRef
+                    }, void 0, false, {
+                        fileName: "src/components/cart/PaymentInput.js",
+                        lineNumber: 42,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        style: {
+                            width: "5rem"
+                        },
+                        placeholder: "cvv",
+                        disabled: !cardCheck,
+                        type: "number",
+                        ref: cvvRef
+                    }, void 0, false, {
+                        fileName: "src/components/cart/PaymentInput.js",
+                        lineNumber: 49,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/cart/PaymentInput.js",
-                lineNumber: 7,
+                lineNumber: 32,
                 columnNumber: 13
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                placeholder: "cvv"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "checkbox",
+                        checked: upiCheck,
+                        onChange: ()=>{
+                            setUpiCheck((prev)=>!prev);
+                            setCardCheck(false);
+                            setCodCheck(false);
+                            props.setValidPayment(false);
+                        }
+                    }, void 0, false, {
+                        fileName: "src/components/cart/PaymentInput.js",
+                        lineNumber: 58,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        placeholder: "enter your upi",
+                        disabled: !upiCheck,
+                        type: "email",
+                        ref: upiRef
+                    }, void 0, false, {
+                        fileName: "src/components/cart/PaymentInput.js",
+                        lineNumber: 68,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/cart/PaymentInput.js",
-                lineNumber: 8,
+                lineNumber: 57,
                 columnNumber: 13
             }, undefined),
-            "or",
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                placeholder: "enter your upi"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "checkbox",
+                        checked: codCheck,
+                        onChange: ()=>{
+                            setCodCheck((prev)=>!prev);
+                            setCardCheck(false);
+                            setUpiCheck(false);
+                            props.setValidPayment(false);
+                        }
+                    }, void 0, false, {
+                        fileName: "src/components/cart/PaymentInput.js",
+                        lineNumber: 76,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        className: !codCheck ? "disabled" : "",
+                        style: {
+                            marginLeft: "1rem",
+                            fontSize: ".9rem"
+                        },
+                        children: "Cash On Delivery"
+                    }, void 0, false, {
+                        fileName: "src/components/cart/PaymentInput.js",
+                        lineNumber: 86,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/cart/PaymentInput.js",
-                lineNumber: 10,
-                columnNumber: 13
-            }, undefined),
-            "or",
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "checkbox"
-            }, void 0, false, {
-                fileName: "src/components/cart/PaymentInput.js",
-                lineNumber: 12,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                children: "Cash On Delivery"
-            }, void 0, false, {
-                fileName: "src/components/cart/PaymentInput.js",
-                lineNumber: 13,
+                lineNumber: 75,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36944,16 +37247,17 @@ const PaymentInput = (props)=>{
                 children: "submit"
             }, void 0, false, {
                 fileName: "src/components/cart/PaymentInput.js",
-                lineNumber: 14,
+                lineNumber: 93,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/cart/PaymentInput.js",
-        lineNumber: 6,
+        lineNumber: 31,
         columnNumber: 9
     }, undefined);
 };
+_s(PaymentInput, "Ux5SCy67OAhgrFjYsqyV/Yi9CqU=");
 _c = PaymentInput;
 exports.default = PaymentInput;
 var _c;
@@ -36964,7 +37268,7 @@ $RefreshReg$(_c, "PaymentInput");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"UlNAF":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"UlNAF":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4a9d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36974,21 +37278,46 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const ConfirmOrderInput = ()=>{
+var _react = require("react");
+var _cartContextProvider = require("../utils/CartContextProvider");
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+const ConfirmOrderInput = (props)=>{
+    _s();
+    const { user } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
+    let isDisabled = props.validAddress && props.validPayment;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+        children: user === "Login" ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+            to: "/foodie/login",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                children: "Login"
+            }, void 0, false, {
+                fileName: "src/components/cart/ConfirmOrderInput.js",
+                lineNumber: 13,
+                columnNumber: 21
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/components/cart/ConfirmOrderInput.js",
+            lineNumber: 12,
+            columnNumber: 17
+        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+            disabled: !isDisabled,
+            onClick: ()=>{
+                console.log("ordered");
+            },
             children: "confirm your order!"
         }, void 0, false, {
             fileName: "src/components/cart/ConfirmOrderInput.js",
-            lineNumber: 4,
-            columnNumber: 13
+            lineNumber: 16,
+            columnNumber: 17
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/cart/ConfirmOrderInput.js",
-        lineNumber: 3,
+        lineNumber: 10,
         columnNumber: 9
     }, undefined);
 };
+_s(ConfirmOrderInput, "y3FQDew7UyrSqYkvQcTdCsLbAB8=");
 _c = ConfirmOrderInput;
 exports.default = ConfirmOrderInput;
 var _c;
@@ -36999,7 +37328,10 @@ $RefreshReg$(_c, "ConfirmOrderInput");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ejF5b":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h0tgG":[function(require,module,exports) {
+module.exports = require("b9fa9724bc90031c").getBundleURL("aXMci") + "arrow.411fe32a.png" + "?" + Date.now();
+
+},{"b9fa9724bc90031c":"lgJ39"}],"ejF5b":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$422b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -37013,14 +37345,13 @@ var _react = require("react");
 var _cartContextProvider = require("../utils/CartContextProvider");
 var _reactRouterDom = require("react-router-dom");
 var _const = require("../utils/const");
-var _offsetDiv = require("../utils/offsetDiv");
-var _offsetDivDefault = parcelHelpers.interopDefault(_offsetDiv);
 var _s = $RefreshSig$();
 const Login = ()=>{
     _s();
     const { setCurrentPage, setUser } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
     const inputPassRef = (0, _react.useRef)();
     const inputUserRef = (0, _react.useRef)();
+    const navigate = (0, _reactRouterDom.useNavigate)();
     const [userEror, setUserError] = (0, _react.useState)(false);
     const [passError, setPassError] = (0, _react.useState)(false);
     const [buttonText, setButtonText] = (0, _react.useState)("Login!");
@@ -37043,10 +37374,11 @@ const Login = ()=>{
             console.log(result.status);
             if (result.status === 201) {
                 const response = await result.json();
-                setUser(inputUserRef.current.value);
+                setUser(response.user);
                 console.log(response);
-                window.localStorage.setItem("token", response.token);
-                (0, _reactRouterDom.redirect)("/");
+                localStorage.setItem("token", response.token);
+                localStorage.setItem("user", response.user);
+                navigate("/foodie");
             } else {
                 const response = await result.json();
                 setInvalidUser(true);
@@ -37083,7 +37415,7 @@ const Login = ()=>{
                 children: "Login"
             }, void 0, false, {
                 fileName: "src/components/login/LoginPage.js",
-                lineNumber: 78,
+                lineNumber: 79,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37096,7 +37428,7 @@ const Login = ()=>{
                 ref: inputUserRef
             }, void 0, false, {
                 fileName: "src/components/login/LoginPage.js",
-                lineNumber: 79,
+                lineNumber: 80,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37110,7 +37442,7 @@ const Login = ()=>{
                 ref: inputPassRef
             }, void 0, false, {
                 fileName: "src/components/login/LoginPage.js",
-                lineNumber: 93,
+                lineNumber: 94,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -37118,14 +37450,14 @@ const Login = ()=>{
                 children: invalidUser && "invalid email or/and password"
             }, void 0, false, {
                 fileName: "src/components/login/LoginPage.js",
-                lineNumber: 106,
+                lineNumber: 107,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 children: buttonText
             }, void 0, false, {
                 fileName: "src/components/login/LoginPage.js",
-                lineNumber: 110,
+                lineNumber: 111,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37137,24 +37469,28 @@ const Login = ()=>{
                         children: "sign up"
                     }, void 0, false, {
                         fileName: "src/components/login/LoginPage.js",
-                        lineNumber: 113,
+                        lineNumber: 114,
                         columnNumber: 17
                     }, undefined),
                     " page."
                 ]
             }, void 0, true, {
                 fileName: "src/components/login/LoginPage.js",
-                lineNumber: 111,
+                lineNumber: 112,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/login/LoginPage.js",
-        lineNumber: 77,
+        lineNumber: 78,
         columnNumber: 9
     }, undefined);
 };
-_s(Login, "Uj3qQzz7KFsR9mMc0doRbgq5Tvc=");
+_s(Login, "cyfIE1UNyKd6Kq+VC4oGTtA2/+c=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
 _c = Login;
 exports.default = Login; // const Login = () => {
  //     const { setCurrentPage } = useContext(CartContext);
@@ -37183,7 +37519,7 @@ $RefreshReg$(_c, "Login");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","react-router-dom":"9xmpe","../utils/const":"aTjSe","../utils/offsetDiv":"2NzXk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3Vvci":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","react-router-dom":"9xmpe","../utils/const":"aTjSe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3Vvci":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$58e1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -37198,15 +37534,17 @@ var _cartContextProvider = require("../utils/CartContextProvider");
 var _const = require("../utils/const");
 var _offsetDiv = require("../utils/offsetDiv");
 var _offsetDivDefault = parcelHelpers.interopDefault(_offsetDiv);
+var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 const SignupPage = ()=>{
     _s();
-    const { setCurrentPage } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
+    const { setCurrentPage, setUser } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
     const inputMailRef = (0, _react.useRef)();
     const inputPassRef = (0, _react.useRef)();
     const inputUserRef = (0, _react.useRef)();
     const inputConfirmPassRef = (0, _react.useRef)();
     const inputTermsRef = (0, _react.useRef)();
+    const navigate = (0, _reactRouterDom.useNavigate)();
     const [userEror, setUserError] = (0, _react.useState)(false);
     const [mailError, setMailError] = (0, _react.useState)(false);
     const [passError, setPassError] = (0, _react.useState)(false);
@@ -37233,11 +37571,14 @@ const SignupPage = ()=>{
             console.log(result.status);
             if (result.status === 201) {
                 const response = await result.json();
-                console.log(response.user.user);
+                setUser(response.user.user);
+                localStorage.setItem("token", response.token);
+                localStorage.setItem("user", response.user.email);
+                navigate("/foodie");
             } else {
                 const response = await result.json();
                 setInvalidUser(true);
-                console.log(response.err);
+                console.log(response);
             }
         } catch (error) {
             console.log(error);
@@ -37284,28 +37625,34 @@ const SignupPage = ()=>{
                 children: "Sign up"
             }, void 0, false, {
                 fileName: "src/components/login/SignupPage.js",
-                lineNumber: 92,
+                lineNumber: 97,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 className: userEror ? "error" : "",
-                onClick: ()=>setUserError(false),
+                onClick: ()=>{
+                    setUserError(false);
+                    setInvalidUser(false);
+                },
                 placeholder: userEror ? "*name must be between 3 to 16 chars long" : "user name",
                 ref: inputUserRef
             }, void 0, false, {
                 fileName: "src/components/login/SignupPage.js",
-                lineNumber: 93,
+                lineNumber: 98,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 placeholder: mailError ? "*enter a valid email" : "email",
                 ref: inputMailRef,
                 className: mailError ? "error" : "",
-                onClick: ()=>setMailError(false),
+                onClick: ()=>{
+                    setMailError(false);
+                    setInvalidUser(false);
+                },
                 type: "email"
             }, void 0, false, {
                 fileName: "src/components/login/SignupPage.js",
-                lineNumber: 104,
+                lineNumber: 112,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37316,7 +37663,7 @@ const SignupPage = ()=>{
                 ref: inputPassRef
             }, void 0, false, {
                 fileName: "src/components/login/SignupPage.js",
-                lineNumber: 113,
+                lineNumber: 124,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37327,7 +37674,7 @@ const SignupPage = ()=>{
                 ref: inputConfirmPassRef
             }, void 0, false, {
                 fileName: "src/components/login/SignupPage.js",
-                lineNumber: 122,
+                lineNumber: 133,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -37339,7 +37686,7 @@ const SignupPage = ()=>{
                         ref: inputTermsRef
                     }, void 0, false, {
                         fileName: "src/components/login/SignupPage.js",
-                        lineNumber: 134,
+                        lineNumber: 145,
                         columnNumber: 17
                     }, undefined),
                     " ",
@@ -37347,32 +37694,36 @@ const SignupPage = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/login/SignupPage.js",
-                lineNumber: 133,
+                lineNumber: 144,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                 className: "invalidError",
-                children: invalidUser && "invalid email or/and password"
+                children: invalidUser && "user name or email already exists"
             }, void 0, false, {
                 fileName: "src/components/login/SignupPage.js",
-                lineNumber: 142,
+                lineNumber: 153,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 children: buttonText
             }, void 0, false, {
                 fileName: "src/components/login/SignupPage.js",
-                lineNumber: 145,
+                lineNumber: 156,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/login/SignupPage.js",
-        lineNumber: 91,
+        lineNumber: 96,
         columnNumber: 9
     }, undefined);
 };
-_s(SignupPage, "aDHNIag70hfCWQokNNgZYTJKZJY=");
+_s(SignupPage, "l4+DIMArctdgk0V/xrxozTsnAHA=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
 _c = SignupPage;
 exports.default = SignupPage;
 var _c;
@@ -37383,6 +37734,120 @@ $RefreshReg$(_c, "SignupPage");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","../utils/const":"aTjSe","../utils/offsetDiv":"2NzXk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["9wh9R","1xC6H","2kQhy"], "2kQhy", "parcelRequire26b5")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","../utils/const":"aTjSe","../utils/offsetDiv":"2NzXk","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"anqWP":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$62ca = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$62ca.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "authLoader", ()=>authLoader);
+var _reactRouterDom = require("react-router-dom");
+var _react = require("react");
+var _cartContextProvider = require("./CartContextProvider");
+var _getAutoLogin = require("./getAutoLogin");
+var _getAutoLoginDefault = parcelHelpers.interopDefault(_getAutoLogin);
+const authLoader = async (compo)=>{
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("user");
+    const userData = await (0, _getAutoLoginDefault.default)(userId, token);
+    if (!userData) return compo;
+    return (0, _reactRouterDom.redirect)(`/foodie/user/${userData.user}`);
+};
+
+  $parcel$ReactRefreshHelpers$62ca.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react-router-dom":"9xmpe","react":"21dqq","./CartContextProvider":"4ENTP","./getAutoLogin":"9Wj3A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cmlWS":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9ce6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9ce6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _cartContextProvider = require("../utils/CartContextProvider");
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+const Account = (props)=>{
+    _s();
+    const { setUser } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const data = {
+        _id: "66ea46d8cba514b5d61bca39",
+        user: "test0",
+        email: "test0@test.com",
+        password: "$2a$12$kr2uO.12wYgoz29/Y9pzwO7Y5Nhhy8wAqy611AuyqBDRixGwVHuzG",
+        created: 1726629592442,
+        cart: [],
+        history: [],
+        __v: 0
+    };
+    // useEffect(()=>{
+    //     setUser(data)
+    // })
+    const logoutHandler = ()=>{
+        localStorage.clear();
+        setUser("Login");
+        navigate("/foodie");
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "account",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: data.user
+            }, void 0, false, {
+                fileName: "src/components/user/Account.js",
+                lineNumber: 29,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    "account created on: ",
+                    new Date(data.created).toDateString()
+                ]
+            }, void 0, true, {
+                fileName: "src/components/user/Account.js",
+                lineNumber: 30,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: logoutHandler,
+                children: "logout"
+            }, void 0, false, {
+                fileName: "src/components/user/Account.js",
+                lineNumber: 33,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/user/Account.js",
+        lineNumber: 28,
+        columnNumber: 9
+    }, undefined);
+};
+_s(Account, "rfJX+H2y+PQS2+TKxDzJxHEo+9w=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = Account;
+exports.default = Account;
+var _c;
+$RefreshReg$(_c, "Account");
+
+  $parcel$ReactRefreshHelpers$9ce6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["9wh9R","1xC6H","2kQhy"], "2kQhy", "parcelRequire26b5")
 
 //# sourceMappingURL=index.7271efb6.js.map
