@@ -9,6 +9,7 @@ const searchRoutes = require("./src/routes/search");
 const pageNavigationRoutes = require("./src/routes/pageNavigation");
 const testRoutes = require("./src/routes/test");
 const authRoutes = require("./src/routes/authentication");
+const orderRoutes = require("./src/routes/order");
 
 const app = express();
 app.use(cors());
@@ -24,6 +25,7 @@ app.use(restaurantsRoutes);
 app.use(searchRoutes);
 app.use(pageNavigationRoutes);
 app.use("/auth", authRoutes);
+app.use(orderRoutes);
 
 app.use((error, req, res, next) => {
     const status = error.status || 500;

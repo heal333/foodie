@@ -11,7 +11,7 @@ async function addUser(data) {
             password: hashedPass,
             created: new Date(),
             cart: [],
-            history: [],
+            orderHistory: [],
         },
     ]);
     return data;
@@ -33,8 +33,28 @@ async function getEmail(data) {
     return email[0];
 }
 
+async function addHistory(data) {
+    try {
+        const temp = await userData.collection.updateOne(
+            { user: data.user },
+            {
+                $push: {
+                    orderHistory: {
+                        address: data.address,
+                        ordered: data.ordered,
+                        date: new Date(),
+                    },
+                },
+            }
+        );
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     getUser,
     addUser,
     getEmail,
+    addHistory,
 };

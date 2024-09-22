@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addAddress } from "../utils/redux/userSlice";
 
 const AddressInput = (props) => {
     const [nameError, setNameError] = useState(false);
@@ -12,32 +14,42 @@ const AddressInput = (props) => {
     const address2Ref = useRef();
     const pincodeRef = useRef();
 
+    const dispatch = useDispatch();
+
     const addressSubmitHandler = () => {
+        let err = 0;
         if (nameRef.current.value.trim().length < 3) {
             setNameError(true);
+            err += 1;
         }
         if (phoneRef.current.value.length !== 10) {
             setPhoneError(true);
+            err += 1;
         }
 
         if (address1Ref.current.value.trim().length == 0) {
             setAddress1Error(true);
+            err += 1;
         }
         if (address2Ref.current.value.trim().length == 0) {
             setAddress2Error(true);
+            err += 1;
         }
         if (pincodeRef.current.value.length !== 6) {
             setPincodeError(true);
-        } else if (
-            !nameError &&
-            !phoneError &&
-            !address1Error &&
-            !address2Error &&
-            !pincodeError
-        ) {
-            console.log(nameRef.current.value.trim().length);
+            err += 1;
+        } else if (err == 0) {
             props.setPaymentInput(true);
             props.setValidAddress(true);
+            dispatch(
+                addAddress({
+                    name: nameRef.current.value,
+                    phone: phoneRef.current.value,
+                    address1: address1Ref.current.value,
+                    address2: address2Ref.current.value,
+                    pincode: pincodeRef.current.value,
+                })
+            );
         }
     };
     return (
@@ -67,6 +79,7 @@ const AddressInput = (props) => {
                 ref={address1Ref}
                 onChange={() => {
                     setAddress1Error(false);
+                    props.setValidAddress(false);
                 }}
             ></input>
             <input
@@ -75,6 +88,7 @@ const AddressInput = (props) => {
                 ref={address2Ref}
                 onChange={() => {
                     setAddress2Error(false);
+                    props.setValidAddress(false);
                 }}
             ></input>
             <input
@@ -84,6 +98,7 @@ const AddressInput = (props) => {
                 ref={pincodeRef}
                 onChange={() => {
                     setPincodeError(false);
+                    props.setValidAddress(false);
                 }}
             ></input>
             <button className="submitButton" onClick={addressSubmitHandler}>

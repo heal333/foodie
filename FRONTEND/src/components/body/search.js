@@ -8,8 +8,8 @@ const Search = () => {
     const [showModal, setShowModal] = useState(false);
 
     const searchStyle = {
-        width: "80%",
-        outlineColor: "var(--theme)",
+        width: "80vw",
+        // outlineColor: "var(--theme)",
     };
     const getSearchSuggestions = async (keyword) => {
         const response = await fetch(`${API}/search?keyword=${keyword}`);

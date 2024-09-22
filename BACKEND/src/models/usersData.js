@@ -18,7 +18,7 @@ const userData = mongoose.model(
         password: { type: String },
         created: { type: Number },
         cart: { type: Array },
-        history: { type: Array },
+        orderHistory: { type: Array },
     })
 );
 

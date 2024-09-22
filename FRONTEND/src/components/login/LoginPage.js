@@ -34,7 +34,6 @@ const Login = () => {
             if (result.status === 201) {
                 const response = await result.json();
                 setUser(response.user);
-                console.log(response);
                 localStorage.setItem("token", response.token);
                 localStorage.setItem("user", response.user);
                 navigate("/foodie");
@@ -46,6 +45,7 @@ const Login = () => {
         } catch (error) {
             console.log(error);
         }
+        setButtonText("Login");
     };
     const registerHandler = (e) => {
         e.preventDefault();
@@ -65,9 +65,6 @@ const Login = () => {
             inputPassRef.current.value = "";
             err++;
         }
-        setTimeout(() => {
-            setButtonText("Login");
-        }, 500);
 
         if (err === 0) {
             postLogin();

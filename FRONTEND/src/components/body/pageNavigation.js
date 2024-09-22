@@ -9,9 +9,8 @@ const PageNavigation = (props) => {
     ) {
         pages.push(
             <div
-                className="pageNum"
+                className={`pageNum ${activePage === i ? "activePage" : ""}`}
                 key={i}
-                style={activePage === i ? { backgroundColor: "white" } : {}}
                 onClick={() => pageChangeHandler(i)}
             >
                 {i}

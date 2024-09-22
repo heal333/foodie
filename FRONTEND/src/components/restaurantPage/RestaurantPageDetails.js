@@ -19,7 +19,7 @@ const RestaurantPageDetails = ({ restaurantData }) => {
                 {restaurantData["Number of Offers"]} offers!!!
             </div>
             <div>
-                {restaurantData["Offer Name"].split(",").map((ele) => {
+                {restaurantData["Offer Name"].split(",").map((ele, i) => {
                     let allOfferSplit = ele.split("\n");
                     let offerCode = allOfferSplit[allOfferSplit.length - 1]
                         .replace("ABOVE", " above")
@@ -33,7 +33,7 @@ const RestaurantPageDetails = ({ restaurantData }) => {
                         offerDetails = allOfferSplit[0];
                     }
                     return (
-                        <div className="allOffers">
+                        <div className="allOffers" key={i}>
                             {offerName && <div>{offerName}!!</div>}
                             <div>{offerDetails}</div>
                             <div>{offerCode}</div>

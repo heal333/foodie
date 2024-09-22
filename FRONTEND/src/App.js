@@ -23,6 +23,8 @@ import Login from "./components/login/LoginPage.js";
 import SignupPage from "./components/login/SignupPage.js";
 import { authLoader } from "./components/utils/authLoader.js";
 import Account from "./components/user/Account.js";
+import { Provider } from "react-redux";
+import appStore from "./components/utils/redux/appStore.js";
 
 /**
  * Header
@@ -31,6 +33,13 @@ import Account from "./components/user/Account.js";
  * Body
  *  -Search
  *  -RestaurentCard
+ * Login
+ *  -login
+ *  -signup
+ *  -account
+ * Cart
+ *  -order
+ *  -cart
  * Footer
  *  -copyRight
  *  -links
@@ -42,12 +51,14 @@ const App = () => {
     // const [context, setContext] = useState("default");
     // console.log(context);
     return (
-        <CartContextProvider>
-            <div className="headerOffset"></div>
-            <Header />
-            <Outlet className="fullBody" />
-            <Footer />
-        </CartContextProvider>
+        <Provider store={appStore}>
+            <CartContextProvider>
+                <div className="headerOffset"></div>
+                <Header />
+                <Outlet className="fullBody" />
+                <Footer />
+            </CartContextProvider>
+        </Provider>
         // <UserContext.Provider value={{ data: context, changeData: setContext }}>
 
         // </UserContext.Provider>
