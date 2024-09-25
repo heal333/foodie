@@ -36569,23 +36569,24 @@ var _s = $RefreshSig$();
 const CartItems = ()=>{
     _s();
     const { cartItems, setCartItems, setTotalItems } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
-    const [totalPrice, setTotalPrice] = (0, _react.useState)(0);
-    let total = 0;
-    const calcTotalPrice = (price)=>{
-        total += price;
-    };
+    let totalPrice = 0;
+    // total price
+    Object.values(cartItems).map((obj)=>{
+        Object.values(obj.menu).map((obj)=>{
+            totalPrice += obj.amount * obj.price;
+        });
+    });
+    console.log(totalPrice);
     const increaseAmount = (id, item)=>{
         setCartItems((prev)=>{
             // console.log(prev);
             prev[id]["menu"][item]["amount"] += 1;
             setTotalItems((prev)=>prev + 1);
-            setTotalPrice(totalPrice + prev[id]["menu"][item]["price"]);
             return prev;
         });
     };
     const decreaseAmount = (id, item)=>{
         if (cartItems[id]["menu"][item]["amount"] === 1) {
-            setTotalPrice(totalPrice - cartItems[id]["menu"][item]["price"]);
             setTotalItems((prev)=>prev - 1);
             // console.log(Object.keys(cartItems));
             if (Object.keys(cartItems[id]["menu"]).length === 1) setCartItems((prev)=>{
@@ -36602,13 +36603,13 @@ const CartItems = ()=>{
             // console.log(prev);
             prev[id]["menu"][item]["amount"] -= 1;
             setTotalItems((prev)=>prev - 1);
-            setTotalPrice(totalPrice - prev[id]["menu"][item]["price"]);
             return prev;
         });
     };
-    (0, _react.useEffect)(()=>{
-        setTotalPrice(total);
-    }, []);
+    const clearCartHandler = ()=>{
+        setCartItems({});
+        setTotalItems(0);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "cartItems",
         children: [
@@ -36617,7 +36618,7 @@ const CartItems = ()=>{
                 children: "cart Items:"
             }, void 0, false, {
                 fileName: "src/components/cart/CartItems.js",
-                lineNumber: 60,
+                lineNumber: 62,
                 columnNumber: 13
             }, undefined),
             Object.keys(cartItems).map((res, i)=>{
@@ -36629,35 +36630,42 @@ const CartItems = ()=>{
                             children: cartItems[res]["Restaurant Name"]
                         }, void 0, false, {
                             fileName: "src/components/cart/CartItems.js",
-                            lineNumber: 64,
+                            lineNumber: 66,
                             columnNumber: 25
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartRestaurantItemsDefault.default), {
                             menu: cartItems[res].menu,
-                            calcTotalPrice: calcTotalPrice,
                             increaseAmount: increaseAmount,
                             decreaseAmount: decreaseAmount,
                             id: res
                         }, void 0, false, {
                             fileName: "src/components/cart/CartItems.js",
-                            lineNumber: 70,
+                            lineNumber: 72,
                             columnNumber: 25
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                             fileName: "src/components/cart/CartItems.js",
-                            lineNumber: 77,
+                            lineNumber: 78,
                             columnNumber: 25
                         }, undefined)
                     ]
                 }, i, true, {
                     fileName: "src/components/cart/CartItems.js",
-                    lineNumber: 63,
+                    lineNumber: 65,
                     columnNumber: 21
                 }, undefined);
             }),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/cart/CartItems.js",
-                lineNumber: 81,
+                lineNumber: 82,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: clearCartHandler,
+                children: "clear cart"
+            }, void 0, false, {
+                fileName: "src/components/cart/CartItems.js",
+                lineNumber: 83,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36671,17 +36679,17 @@ const CartItems = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/cart/CartItems.js",
-                lineNumber: 82,
+                lineNumber: 84,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/cart/CartItems.js",
-        lineNumber: 59,
+        lineNumber: 61,
         columnNumber: 9
     }, undefined);
 };
-_s(CartItems, "d5jcZXvk2vO2YJjErThsCyLEgao=");
+_s(CartItems, "62iVkWl+8xoRU4TLXRbqi4jIf+A=");
 _c = CartItems;
 exports.default = CartItems;
 var _c;
@@ -36703,13 +36711,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _s = $RefreshSig$();
 const CartRestaurantItems = (props)=>{
-    _s();
     let total = 0;
-    (0, _react.useEffect)(()=>{
-        props.calcTotalPrice(total);
-    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: Object.keys(props.menu).map((item, i)=>{
             total += props.menu[item].price * props.menu[item].amount;
@@ -36721,7 +36724,7 @@ const CartRestaurantItems = (props)=>{
                         children: props.menu[item].name
                     }, void 0, false, {
                         fileName: "src/components/cart/CartRestaurantItems.js",
-                        lineNumber: 14,
+                        lineNumber: 11,
                         columnNumber: 25
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36733,7 +36736,7 @@ const CartRestaurantItems = (props)=>{
                                 children: "-"
                             }, void 0, false, {
                                 fileName: "src/components/cart/CartRestaurantItems.js",
-                                lineNumber: 19,
+                                lineNumber: 16,
                                 columnNumber: 29
                             }, undefined),
                             props.menu[item].amount,
@@ -36743,13 +36746,13 @@ const CartRestaurantItems = (props)=>{
                                 children: "+"
                             }, void 0, false, {
                                 fileName: "src/components/cart/CartRestaurantItems.js",
-                                lineNumber: 28,
+                                lineNumber: 25,
                                 columnNumber: 29
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/cart/CartRestaurantItems.js",
-                        lineNumber: 18,
+                        lineNumber: 15,
                         columnNumber: 25
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36763,23 +36766,22 @@ const CartRestaurantItems = (props)=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/cart/CartRestaurantItems.js",
-                        lineNumber: 37,
+                        lineNumber: 34,
                         columnNumber: 25
                     }, undefined)
                 ]
             }, i, true, {
                 fileName: "src/components/cart/CartRestaurantItems.js",
-                lineNumber: 13,
+                lineNumber: 10,
                 columnNumber: 21
             }, undefined);
         })
     }, void 0, false, {
         fileName: "src/components/cart/CartRestaurantItems.js",
-        lineNumber: 9,
+        lineNumber: 6,
         columnNumber: 9
     }, undefined);
 };
-_s(CartRestaurantItems, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = CartRestaurantItems;
 exports.default = CartRestaurantItems;
 var _c;
@@ -36818,11 +36820,11 @@ const Order = ()=>{
     const [validAddress, setValidAddress] = (0, _react.useState)(false);
     const [validPayment, setValidPayment] = (0, _react.useState)(false);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "order ",
+        className: "order",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 onClick: ()=>setAddressInput(!addressInput),
-                className: "addressBanner",
+                className: "addressBanner orderModal",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: "address"
@@ -36869,7 +36871,7 @@ const Order = ()=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 onClick: ()=>setPaymentInput(!paymentInput),
-                className: "addressBanner",
+                className: "addressBanner orderModal",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: "payment"
@@ -36914,7 +36916,7 @@ const Order = ()=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 onClick: ()=>setOrderConfirmInput(!orderConfirmInput),
-                className: "addressBanner",
+                className: "addressBanner orderModal",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: "order/redirect to login page"
@@ -37036,7 +37038,7 @@ const AddressInput = (props)=>{
         }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: `addressInput ${!props.display ? "hidden" : ""}`,
+        className: `addressInput orderModal ${!props.display ? "hidden" : ""}`,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 className: nameError ? "error" : "",
@@ -37048,7 +37050,7 @@ const AddressInput = (props)=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 57,
+                lineNumber: 61,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37062,7 +37064,7 @@ const AddressInput = (props)=>{
                 ref: phoneRef
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 66,
+                lineNumber: 70,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37075,7 +37077,7 @@ const AddressInput = (props)=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 76,
+                lineNumber: 80,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37088,7 +37090,7 @@ const AddressInput = (props)=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 85,
+                lineNumber: 89,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -37102,7 +37104,7 @@ const AddressInput = (props)=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 94,
+                lineNumber: 98,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -37111,7 +37113,7 @@ const AddressInput = (props)=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/cart/AddressInput.js",
-                lineNumber: 104,
+                lineNumber: 108,
                 columnNumber: 13
             }, undefined)
         ]
@@ -42257,9 +42259,10 @@ const PaymentInput = (props)=>{
         }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "paymentInput",
+        className: "paymentInput orderModal",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "orderModal",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "checkbox",
@@ -42307,6 +42310,7 @@ const PaymentInput = (props)=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "orderModal",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "checkbox",
@@ -42339,6 +42343,7 @@ const PaymentInput = (props)=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "orderModal",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "checkbox",
@@ -42413,10 +42418,14 @@ var _cartContextProvider = require("../utils/CartContextProvider");
 var _reactRouterDom = require("react-router-dom");
 var _reactRedux = require("react-redux");
 var _const = require("../utils/const");
+var _orderCompleteModal = require("./OrderCompleteModal");
+var _orderCompleteModalDefault = parcelHelpers.interopDefault(_orderCompleteModal);
 var _s = $RefreshSig$();
 const ConfirmOrderInput = (props)=>{
     _s();
-    const { user, cartItems } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
+    const [orderCompleteModal, setOrderCompleteModal] = (0, _react.useState)(false);
+    const { user, cartItems, setCartItems, setTotalItems } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
+    console.log("rerendered");
     let isDisabled = props.validAddress && props.validPayment;
     const token = localStorage.getItem("token");
     const postOrder = async (order, address, user, token)=>{
@@ -42432,63 +42441,86 @@ const ConfirmOrderInput = (props)=>{
                 token: token
             })
         });
-        if (response.status === 200) console.log("done");
+        if (response.status === 201) {
+            // console.log("done");
+            setOrderCompleteModal(true);
+            setCartItems({});
+            setTotalItems(0);
+        // setTotalPrice(0);
+        }
         const result = await response.json();
-        console.log(result);
+    // console.log(result);
     };
     const address = (0, _reactRedux.useSelector)((store)=>store.user.address);
     const orderConfirmHandler = ()=>{
-        console.log(cartItems);
-        console.log(address);
+        // console.log(cartItems);
+        // console.log(address);
         postOrder(cartItems, address, user, token);
     };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "confirmOrder",
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    color: "red"
-                },
+                className: "confirmOrder orderModal",
                 children: [
-                    !props.validAddress && "invalid address ",
-                    !props.validAddress && !props.validPayment && "and",
-                    !props.validPayment && " invalid payment"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            color: "red"
+                        },
+                        children: [
+                            !props.validAddress && "invalid address ",
+                            !props.validAddress && !props.validPayment && "and",
+                            !props.validPayment && " invalid payment"
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/cart/ConfirmOrderInput.js",
+                        lineNumber: 48,
+                        columnNumber: 17
+                    }, undefined),
+                    user === "Login" ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: "/foodie/login",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            children: "Login"
+                        }, void 0, false, {
+                            fileName: "src/components/cart/ConfirmOrderInput.js",
+                            lineNumber: 55,
+                            columnNumber: 25
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/cart/ConfirmOrderInput.js",
+                        lineNumber: 54,
+                        columnNumber: 21
+                    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        disabled: !isDisabled,
+                        onClick: ()=>orderConfirmHandler(),
+                        children: "confirm your order!"
+                    }, void 0, false, {
+                        fileName: "src/components/cart/ConfirmOrderInput.js",
+                        lineNumber: 58,
+                        columnNumber: 21
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/cart/ConfirmOrderInput.js",
-                lineNumber: 39,
+                lineNumber: 47,
                 columnNumber: 13
             }, undefined),
-            user === "Login" ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                to: "/foodie/login",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    children: "Login"
-                }, void 0, false, {
+            orderCompleteModal && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                className: "overlay",
+                onClick: ()=>setOrderCompleteModal(false),
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderCompleteModalDefault.default), {}, void 0, false, {
                     fileName: "src/components/cart/ConfirmOrderInput.js",
-                    lineNumber: 46,
+                    lineNumber: 71,
                     columnNumber: 21
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/cart/ConfirmOrderInput.js",
-                lineNumber: 45,
-                columnNumber: 17
-            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                disabled: !isDisabled,
-                onClick: ()=>orderConfirmHandler(),
-                children: "confirm your order!"
-            }, void 0, false, {
-                fileName: "src/components/cart/ConfirmOrderInput.js",
-                lineNumber: 49,
+                lineNumber: 67,
                 columnNumber: 17
             }, undefined)
         ]
-    }, void 0, true, {
-        fileName: "src/components/cart/ConfirmOrderInput.js",
-        lineNumber: 38,
-        columnNumber: 9
-    }, undefined);
+    }, void 0, true);
 };
-_s(ConfirmOrderInput, "3bjaD0Y8rNUTGUX8XidtFjEESpA=", false, function() {
+_s(ConfirmOrderInput, "mtjgdict6gB6pDo885p1LWSPtwU=", false, function() {
     return [
         (0, _reactRedux.useSelector)
     ];
@@ -42503,7 +42535,66 @@ $RefreshReg$(_c, "ConfirmOrderInput");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"62sf7","../utils/const":"aTjSe"}],"h0tgG":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-redux":"62sf7","../utils/const":"aTjSe","./OrderCompleteModal":"iLy3O"}],"iLy3O":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$7bfb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$7bfb.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const OrderCompleteModal = ()=>{
+    console.log("completed");
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "orderCompleteModal",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                        d: "M34.5,55.1 C32.9,53.5 30.3,53.5 28.7,55.1 C27.1,56.7 27.1,59.3 28.7,60.9 L47.6,79.8 C48.4,80.6 49.4,81 50.5,81 C50.6,81 50.6,81 50.7,81 C51.8,80.9 52.9,80.4 53.7,79.5 L101,22.8 C102.4,21.1 102.2,18.5 100.5,17 C98.8,15.6 96.2,15.8 94.7,17.5 L50.2,70.8 L34.5,55.1 Z",
+                        fill: "#09ff00",
+                        className: "tick"
+                    }, void 0, false, {
+                        fileName: "src/components/cart/OrderCompleteModal.js",
+                        lineNumber: 6,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                        d: "M89.1,9.3 C66.1,-5.1 36.6,-1.7 17.4,17.5 C-5.2,40.1 -5.2,77 17.4,99.6 C28.7,110.9 43.6,116.6 58.4,116.6 C73.2,116.6 88.1,110.9 99.4,99.6 C118.7,80.3 122,50.7 107.5,27.7 C106.3,25.8 103.8,25.2 101.9,26.4 C100,27.6 99.4,30.1 100.6,32 C113.1,51.8 110.2,77.2 93.6,93.8 C74.2,113.2 42.5,113.2 23.1,93.8 C3.7,74.4 3.7,42.7 23.1,23.3 C39.7,6.8 65,3.9 84.8,16.2 C86.7,17.4 89.2,16.8 90.4,14.9 C91.6,13 91,10.5 89.1,9.3 Z",
+                        fill: "var(--textColor)",
+                        className: "circle"
+                    }, void 0, false, {
+                        fileName: "src/components/cart/OrderCompleteModal.js",
+                        lineNumber: 11,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/cart/OrderCompleteModal.js",
+                lineNumber: 5,
+                columnNumber: 13
+            }, undefined),
+            "order confirmed!!"
+        ]
+    }, void 0, true, {
+        fileName: "src/components/cart/OrderCompleteModal.js",
+        lineNumber: 4,
+        columnNumber: 9
+    }, undefined);
+};
+_c = OrderCompleteModal;
+exports.default = OrderCompleteModal;
+var _c;
+$RefreshReg$(_c, "OrderCompleteModal");
+
+  $parcel$ReactRefreshHelpers$7bfb.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h0tgG":[function(require,module,exports) {
 module.exports = require("b9fa9724bc90031c").getBundleURL("aXMci") + "arrow.411fe32a.png" + "?" + Date.now();
 
 },{"b9fa9724bc90031c":"lgJ39"}],"ejF5b":[function(require,module,exports) {
@@ -42556,7 +42647,7 @@ const Login = ()=>{
             } else {
                 const response = await result.json();
                 setInvalidUser(true);
-                console.log(response);
+            // console.log(response);
             }
         } catch (error) {
             console.log(error);
@@ -42949,18 +43040,22 @@ var _cartContextProvider = require("../utils/CartContextProvider");
 var _reactRouterDom = require("react-router-dom");
 var _getAutoLogin = require("../utils/getAutoLogin");
 var _getAutoLoginDefault = parcelHelpers.interopDefault(_getAutoLogin);
+var _orderHistory = require("./OrderHistory");
+var _orderHistoryDefault = parcelHelpers.interopDefault(_orderHistory);
 var _s = $RefreshSig$();
 const Account = (props)=>{
     _s();
-    const { setUser, user } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
-    const [accountData, setAccountData] = (0, _react.useState)({});
+    const { setUser } = (0, _react.useContext)((0, _cartContextProvider.CartContext));
+    const [accountData, setAccountData] = (0, _react.useState)();
     const navigate = (0, _reactRouterDom.useNavigate)();
     const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
     const getAccountData = async ()=>{
         setAccountData(await (0, _getAutoLoginDefault.default)(user, token));
     };
-    console.log(accountData.orderHistory);
+    console.log(accountData);
     (0, _react.useEffect)(()=>{
+        window.scrollTo(0, 0);
         getAccountData();
     }, []);
     const logoutHandler = ()=>{
@@ -42975,7 +43070,7 @@ const Account = (props)=>{
                 children: accountData.user
             }, void 0, false, {
                 fileName: "src/components/user/Account.js",
-                lineNumber: 29,
+                lineNumber: 32,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -42986,61 +43081,39 @@ const Account = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/user/Account.js",
-                lineNumber: 30,
+                lineNumber: 33,
                 columnNumber: 17
             }, undefined),
-            accountData.orderHistory.map((obj, i)=>{
-                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: obj.address.name
-                        }, void 0, false, {
-                            fileName: "src/components/user/Account.js",
-                            lineNumber: 37,
-                            columnNumber: 29
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: obj.address.address2
-                        }, void 0, false, {
-                            fileName: "src/components/user/Account.js",
-                            lineNumber: 38,
-                            columnNumber: 29
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: obj.date
-                        }, void 0, false, {
-                            fileName: "src/components/user/Account.js",
-                            lineNumber: 39,
-                            columnNumber: 29
-                        }, undefined)
-                    ]
-                }, i, true, {
-                    fileName: "src/components/user/Account.js",
-                    lineNumber: 36,
-                    columnNumber: 25
-                }, undefined);
-            }),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderHistoryDefault.default), {
+                orderHistory: accountData.orderHistory
+            }, void 0, false, {
+                fileName: "src/components/user/Account.js",
+                lineNumber: 37,
+                columnNumber: 17
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: logoutHandler,
                 children: "logout"
             }, void 0, false, {
                 fileName: "src/components/user/Account.js",
-                lineNumber: 43,
+                lineNumber: 38,
                 columnNumber: 17
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/user/Account.js",
-        lineNumber: 28,
+        lineNumber: 31,
         columnNumber: 13
     }, undefined);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "account"
+    }, void 0, false, {
         fileName: "src/components/user/Account.js",
-        lineNumber: 47,
+        lineNumber: 42,
         columnNumber: 12
     }, undefined);
 };
-_s(Account, "n4d8+4m63L7TXPe7cspT9AQJCD4=", false, function() {
+_s(Account, "EML3Se+7brnrIxm/FllCPhC9HCE=", false, function() {
     return [
         (0, _reactRouterDom.useNavigate)
     ];
@@ -43055,7 +43128,127 @@ $RefreshReg$(_c, "Account");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/getAutoLogin":"9Wj3A"}],"k1iL5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/getAutoLogin":"9Wj3A","./OrderHistory":"i8UPJ"}],"i8UPJ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$7094 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$7094.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const OrderHistory = ({ orderHistory })=>{
+    orderHistory.reverse();
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            "order history",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/user/OrderHistory.js",
+                lineNumber: 6,
+                columnNumber: 13
+            }, undefined),
+            orderHistory.map((obj, i)=>{
+                const date = new Date(obj.date);
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            children: date.toLocaleString()
+                        }, void 0, false, {
+                            fileName: "src/components/user/OrderHistory.js",
+                            lineNumber: 11,
+                            columnNumber: 25
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            children: [
+                                obj.address.name,
+                                ", ",
+                                obj.address.address1,
+                                ",",
+                                " ",
+                                obj.address.address2
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/user/OrderHistory.js",
+                            lineNumber: 12,
+                            columnNumber: 25
+                        }, undefined),
+                        Object.values(obj.ordered).map((obj)=>{
+                            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    obj["Restaurant Name"],
+                                    Object.values(obj.menu).map((obj)=>{
+                                        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            style: {
+                                                display: "flex",
+                                                justifyContent: "space-evenly"
+                                            },
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    children: obj.name
+                                                }, void 0, false, {
+                                                    fileName: "src/components/user/OrderHistory.js",
+                                                    lineNumber: 29,
+                                                    columnNumber: 49
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    children: obj.price
+                                                }, void 0, false, {
+                                                    fileName: "src/components/user/OrderHistory.js",
+                                                    lineNumber: 30,
+                                                    columnNumber: 49
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    children: obj.amount
+                                                }, void 0, false, {
+                                                    fileName: "src/components/user/OrderHistory.js",
+                                                    lineNumber: 31,
+                                                    columnNumber: 49
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/components/user/OrderHistory.js",
+                                            lineNumber: 22,
+                                            columnNumber: 45
+                                        }, undefined);
+                                    })
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/user/OrderHistory.js",
+                                lineNumber: 18,
+                                columnNumber: 33
+                            }, undefined);
+                        }),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                            fileName: "src/components/user/OrderHistory.js",
+                            lineNumber: 38,
+                            columnNumber: 25
+                        }, undefined)
+                    ]
+                }, i, true, {
+                    fileName: "src/components/user/OrderHistory.js",
+                    lineNumber: 10,
+                    columnNumber: 21
+                }, undefined);
+            })
+        ]
+    }, void 0, true, {
+        fileName: "src/components/user/OrderHistory.js",
+        lineNumber: 4,
+        columnNumber: 9
+    }, undefined);
+};
+_c = OrderHistory;
+exports.default = OrderHistory;
+var _c;
+$RefreshReg$(_c, "OrderHistory");
+
+  $parcel$ReactRefreshHelpers$7094.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"k1iL5":[function(require,module,exports) {
 /*
 build store
 connect store to app
