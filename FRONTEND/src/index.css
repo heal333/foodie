@@ -18,7 +18,7 @@
     margin: 0;
     padding: 0;
     scrollbar-width: thin;
-    transition: font-size, background-color, 500ms;
+    transition: font-size, background-color, margin, padding, 500ms;
 }
 .body {
     background-color: red;
@@ -480,6 +480,7 @@ button:disabled {
     background-color: var(--bodyBackground);
     color: var(--textColor);
     margin: auto;
+    min-height: 75vh;
     /* width: 5rem; */
     overflow-x: scroll;
     padding: 0 5rem;
@@ -540,7 +541,7 @@ button:disabled {
 
 .account {
     color: var(--textColor);
-    height: 80%;
+    min-height: 70vh;
 }
 
 .cart {
@@ -570,7 +571,14 @@ button:disabled {
 .order button:hover {
     background-color: green;
 }
-.order div {
+/* .order div {
+    background-color: var(--cardBackground);
+    border-radius: 1rem;
+    margin: 0 1rem 1rem 1rem;
+    padding: 1.2rem;
+    animation: expandDown 500ms;
+} */
+.orderModal {
     background-color: var(--cardBackground);
     border-radius: 1rem;
     margin: 0 1rem 1rem 1rem;
@@ -594,8 +602,8 @@ button:disabled {
     flex-grow: 1;
 }
 .paymentInput {
-    padding: 0;
-    margin: 0;
+    margin: 1rem;
+    padding: 0.5rem 1rem 1rem 1rem;
 }
 .paymentInput div {
     padding: 0;
@@ -626,7 +634,7 @@ button:disabled {
     padding: 1rem;
 
     height: 50rem;
-    transition: width 1s;
+    /* transition: width 1s; */
     max-width: 45rem;
     margin: 0 1rem;
     flex-grow: 1;
@@ -669,6 +677,23 @@ button:disabled {
 .cartItemFood .remove:hover {
     background-color: red;
     color: white;
+}
+.orderCompleteModal {
+    display: flex;
+    flex-direction: column;
+    color: red;
+    /* background-color: red; */
+    height: 10rem;
+    width: 10rem;
+    /* font-weight: 500; */
+    font-size: 1.2rem;
+    margin: 15vh auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    color: rgb(0, 192, 0);
+    background-color: var(--bodyBackground);
+    justify-content: center;
+    align-items: center;
 }
 
 .Footer {
@@ -761,4 +786,25 @@ button:disabled {
         opacity: 1;
         translate: 0 0;
     }
+}
+@keyframes expandDownPrime {
+    0% {
+        opacity: 0.8;
+        translate: 0 -5rem;
+    }
+    100% {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+svg {
+    scale: 0.7;
+    width: 120px;
+    margin: auto auto;
+}
+svg .tick {
+    animation: expandDownPrime 1s;
+}
+svg .circle {
+    animation: fadeIn 1.5s ease-out;
 }

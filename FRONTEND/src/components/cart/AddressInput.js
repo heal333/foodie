@@ -53,7 +53,11 @@ const AddressInput = (props) => {
         }
     };
     return (
-        <div className={`addressInput ${!props.display ? "hidden" : ""}`}>
+        <div
+            className={`addressInput orderModal ${
+                !props.display ? "hidden" : ""
+            }`}
+        >
             <input
                 className={nameError ? "error" : ""}
                 placeholder="enter your name"

@@ -12,10 +12,10 @@ const Order = () => {
     const [validAddress, setValidAddress] = useState(false);
     const [validPayment, setValidPayment] = useState(false);
     return (
-        <div className="order ">
+        <div className="order">
             <div
                 onClick={() => setAddressInput(!addressInput)}
-                className="addressBanner"
+                className="addressBanner orderModal"
             >
                 <span>address</span>
                 <span
@@ -33,7 +33,7 @@ const Order = () => {
             />
             <div
                 onClick={() => setPaymentInput(!paymentInput)}
-                className="addressBanner"
+                className="addressBanner orderModal"
             >
                 <span>payment</span>
                 <span
@@ -51,7 +51,7 @@ const Order = () => {
             )}
             <div
                 onClick={() => setOrderConfirmInput(!orderConfirmInput)}
-                className="addressBanner"
+                className="addressBanner orderModal"
             >
                 <span>order/redirect to login page</span>
                 <span

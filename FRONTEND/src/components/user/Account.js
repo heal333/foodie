@@ -2,20 +2,23 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../utils/CartContextProvider";
 import { useNavigate } from "react-router-dom";
 import getAutoLogin from "../utils/getAutoLogin";
+import OrderHistory from "./OrderHistory";
 
 const Account = (props) => {
-    const { setUser, user } = useContext(CartContext);
-    const [accountData, setAccountData] = useState({});
+    const { setUser } = useContext(CartContext);
+    const [accountData, setAccountData] = useState();
     const navigate = useNavigate();
 
     const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
 
     const getAccountData = async () => {
         setAccountData(await getAutoLogin(user, token));
     };
-    console.log(accountData.orderHistory);
 
+    console.log(accountData);
     useEffect(() => {
+        window.scrollTo(0, 0);
         getAccountData();
     }, []);
     const logoutHandler = () => {
@@ -31,20 +34,12 @@ const Account = (props) => {
                     account created on:{" "}
                     {new Date(accountData.created).toDateString()}
                 </div>
-                {accountData.orderHistory.map((obj, i) => {
-                    return (
-                        <div key={i}>
-                            <div>{obj.address.name}</div>
-                            <div>{obj.address.address2}</div>
-                            <div>{obj.date}</div>
-                        </div>
-                    );
-                })}
+                <OrderHistory orderHistory={accountData.orderHistory} />
                 <button onClick={logoutHandler}>logout</button>
             </div>
         );
     }
-    return <div></div>;
+    return <div className="account"></div>;
 };
 
 export default Account;

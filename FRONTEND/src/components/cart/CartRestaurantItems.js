@@ -2,9 +2,6 @@ import { useEffect } from "react";
 
 const CartRestaurantItems = (props) => {
     let total = 0;
-    useEffect(() => {
-        props.calcTotalPrice(total);
-    }, []);
     return (
         <div>
             {Object.keys(props.menu).map((item, i) => {

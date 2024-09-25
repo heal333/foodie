@@ -28,8 +28,8 @@ const PaymentInput = (props) => {
         }
     };
     return (
-        <div className="paymentInput">
-            <div>
+        <div className="paymentInput orderModal">
+            <div className="orderModal">
                 <input
                     type="checkbox"
                     checked={cardCheck}
@@ -54,7 +54,7 @@ const PaymentInput = (props) => {
                     ref={cvvRef}
                 ></input>
             </div>
-            <div>
+            <div className="orderModal">
                 <input
                     type="checkbox"
                     checked={upiCheck}
@@ -72,7 +72,7 @@ const PaymentInput = (props) => {
                     ref={upiRef}
                 ></input>
             </div>
-            <div>
+            <div className="orderModal">
                 <input
                     type="checkbox"
                     checked={codCheck}

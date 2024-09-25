@@ -13,7 +13,7 @@ router.post("/order", async (req, res) => {
         if (user) {
             if (validateJSONToken(data.token)) {
                 addHistory(data);
-                return res.status(201).json({ done: "eheh" });
+                return res.status(200).json({ done: "eheh" });
             }
         }
     } catch (err) {

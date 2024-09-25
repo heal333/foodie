@@ -6,25 +6,28 @@ import OffsetDiv from "../utils/offsetDiv";
 
 const CartItems = () => {
     const { cartItems, setCartItems, setTotalItems } = useContext(CartContext);
-    const [totalPrice, setTotalPrice] = useState(0);
-    let total = 0;
 
-    const calcTotalPrice = (price) => {
-        total += price;
-    };
+    let totalPrice = 0;
+    // total price
+    Object.values(cartItems).map((obj) => {
+        Object.values(obj.menu).map((obj) => {
+            totalPrice += obj.amount * obj.price;
+        });
+    });
+    console.log(totalPrice);
+
     const increaseAmount = (id, item) => {
         setCartItems((prev) => {
             // console.log(prev);
             prev[id]["menu"][item]["amount"] += 1;
 
             setTotalItems((prev) => prev + 1);
-            setTotalPrice(totalPrice + prev[id]["menu"][item]["price"]);
             return prev;
         });
     };
+
     const decreaseAmount = (id, item) => {
         if (cartItems[id]["menu"][item]["amount"] === 1) {
-            setTotalPrice(totalPrice - cartItems[id]["menu"][item]["price"]);
             setTotalItems((prev) => prev - 1);
 
             // console.log(Object.keys(cartItems));
@@ -45,15 +48,14 @@ const CartItems = () => {
         setCartItems((prev) => {
             // console.log(prev);
             prev[id]["menu"][item]["amount"] -= 1;
-
             setTotalItems((prev) => prev - 1);
-            setTotalPrice(totalPrice - prev[id]["menu"][item]["price"]);
             return prev;
         });
     };
-    useEffect(() => {
-        setTotalPrice(total);
-    }, []);
+    const clearCartHandler = () => {
+        setCartItems({});
+        setTotalItems(0);
+    };
 
     return (
         <div className="cartItems">
@@ -69,7 +71,6 @@ const CartItems = () => {
                         </Link>
                         <CartRestaurantItems
                             menu={cartItems[res].menu}
-                            calcTotalPrice={calcTotalPrice}
                             increaseAmount={increaseAmount}
                             decreaseAmount={decreaseAmount}
                             id={res}
@@ -79,6 +80,7 @@ const CartItems = () => {
                 );
             })}
             <hr></hr>
+            <button onClick={clearCartHandler}>clear cart</button>
             <div style={{ textAlign: "end", paddingRight: "1rem" }}>
                 Total price: ₹{totalPrice}
             </div>
