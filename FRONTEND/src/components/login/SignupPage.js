@@ -40,7 +40,7 @@ const SignupPage = () => {
                 const response = await result.json();
                 setUser(response.user.user);
                 localStorage.setItem("token", response.token);
-                localStorage.setItem("user", response.user.email);
+                localStorage.setItem("user", response.user.user);
                 navigate("/foodie");
             } else {
                 const response = await result.json();

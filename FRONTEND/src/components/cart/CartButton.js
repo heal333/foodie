@@ -1,13 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../utils/CartContextProvider";
+import useGetTotalPrice from "../utils/customHooks/useGetTotalPrice";
+import useGetTotalAmount from "../utils/customHooks/useGetTotalAmount";
 const CartButton = () => {
     const [cartAnimation, setCartAnimation] = useState({});
 
-    const { totalItems, setCurrentPage } = useContext(CartContext);
+    const { cartItems } = useContext(CartContext);
+
+    let totalItems = useGetTotalAmount(cartItems);
     useEffect(() => {
         totalItems > 0 && setCartAnimation({ scale: "1.2" });
-        // console.log("wat");
 
         let timer = setTimeout(() => {
             setCartAnimation({});

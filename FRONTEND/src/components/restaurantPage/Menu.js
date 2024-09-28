@@ -18,11 +18,9 @@ const Menu = (props) => {
     // setTimeout(() => {
     //     data.changeData("changed");
     // }, 5000);
-    const { cartItems, setCartItems, totalItems, setTotalItems } =
-        useContext(CartContext);
+    const { cartItems, setCartItems } = useContext(CartContext);
     const addItemHandler = (obj, i) => {
         let copy = { ...cartItems };
-        setTotalItems(totalItems + 1);
 
         if (copy[props.id]) {
             if (copy[props.id]["menu"].hasOwnProperty(i)) {

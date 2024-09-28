@@ -105,7 +105,10 @@ const AddressInput = (props) => {
                     props.setValidAddress(false);
                 }}
             ></input>
-            <button className="submitButton" onClick={addressSubmitHandler}>
+            <button
+                className="submitButton smallGreenButton"
+                onClick={addressSubmitHandler}
+            >
                 Submit
             </button>
         </div>

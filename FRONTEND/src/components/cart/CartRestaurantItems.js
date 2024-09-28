@@ -1,39 +1,57 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { CartContext } from "../utils/CartContextProvider";
 
-const CartRestaurantItems = (props) => {
-    let total = 0;
+const CartRestaurantItems = ({ res }) => {
+    const { cartItems, setCartItems } = useContext(CartContext);
+    const increaseAmount = (item) => {
+        setCartItems((prev) => {
+            prev[res].menu[item].amount += 1;
+            return { ...prev };
+        });
+    };
+    const decreaseAmount = (item) => {
+        if (cartItems[res].menu[item].amount == 1) {
+            setCartItems((prev) => {
+                delete prev[res].menu[item];
+                if (Object.keys(prev[res].menu).length === 0) {
+                    delete prev[res];
+                    return { ...prev };
+                }
+                return { ...prev };
+            });
+        } else {
+            setCartItems((prev) => {
+                prev[res].menu[item].amount -= 1;
+                return { ...prev };
+            });
+        }
+    };
     return (
         <div>
-            {Object.keys(props.menu).map((item, i) => {
-                total += props.menu[item].price * props.menu[item].amount;
+            {Object.keys(cartItems[res].menu).map((item) => {
                 return (
-                    <div className="cartItemFood" key={i}>
+                    <div className="cartItemFood" key={item}>
                         <div className="cartPageItemName">
-                            {props.menu[item].name}
+                            {cartItems[res].menu[item].name}
                         </div>
-
                         <div className="cartPageItemAmount">
                             <button
                                 className="remove"
-                                onClick={() =>
-                                    props.decreaseAmount(props.id, item)
-                                }
+                                onClick={() => decreaseAmount(item)}
                             >
                                 -
                             </button>
-                            {props.menu[item].amount}
+                            {cartItems[res].menu[item].amount}
                             <button
                                 className="add"
-                                onClick={() =>
-                                    props.increaseAmount(props.id, item)
-                                }
+                                onClick={() => increaseAmount(item)}
                             >
                                 +
                             </button>
                         </div>
                         <div className="cartPageItemPrice">
-                            ₹{props.menu[item].price} x{" "}
-                            {props.menu[item].amount}
+                            ₹{cartItems[res].menu[item].price} x{" "}
+                            {cartItems[res].menu[item].amount}
                         </div>
                     </div>
                 );

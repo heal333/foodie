@@ -8,14 +8,12 @@ import OrderCompleteModal from "./OrderCompleteModal";
 
 const ConfirmOrderInput = (props) => {
     const [orderCompleteModal, setOrderCompleteModal] = useState(false);
-    const { user, cartItems, setCartItems, setTotalItems } =
-        useContext(CartContext);
-    console.log("rerendered");
+    const { user, cartItems, setCartItems } = useContext(CartContext);
     let isDisabled = props.validAddress && props.validPayment;
     const token = localStorage.getItem("token");
 
     const postOrder = async (order, address, user, token) => {
-        response = await fetch(`${API}/order`, {
+        const response = await fetch(`${API}/order`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -29,7 +27,6 @@ const ConfirmOrderInput = (props) => {
             // console.log("done");
             setOrderCompleteModal(true);
             setCartItems({});
-            setTotalItems(0);
             // setTotalPrice(0);
         }
         const result = await response.json();
@@ -52,10 +49,11 @@ const ConfirmOrderInput = (props) => {
                 </div>
                 {user === "Login" ? (
                     <Link to="/foodie/login">
-                        <button>Login</button>
+                        <button className="smallGreenButton">Login</button>
                     </Link>
                 ) : (
                     <button
+                        className="smallGreenButton"
                         disabled={!isDisabled}
                         onClick={() => orderConfirmHandler()}
                     >
@@ -64,12 +62,10 @@ const ConfirmOrderInput = (props) => {
                 )}
             </div>
             {orderCompleteModal && (
-                <span
-                    className="overlay"
-                    onClick={() => setOrderCompleteModal(false)}
-                >
-                    <OrderCompleteModal />
-                </span>
+                <OrderCompleteModal
+                    text="Order Confirmed!!"
+                    redirect="/foodie"
+                />
             )}
         </>
     );

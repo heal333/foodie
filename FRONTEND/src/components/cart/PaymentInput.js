@@ -90,7 +90,9 @@ const PaymentInput = (props) => {
                     Cash On Delivery
                 </label>
             </div>
-            <button onClick={paymentSubmitHandler}>submit</button>
+            <button className="smallGreenButton" onClick={paymentSubmitHandler}>
+                submit
+            </button>
         </div>
     );
 };

@@ -5,7 +5,7 @@ import getAutoLogin from "../utils/getAutoLogin";
 import OrderHistory from "./OrderHistory";
 
 const Account = (props) => {
-    const { setUser } = useContext(CartContext);
+    const { setUser, setCurrentPage } = useContext(CartContext);
     const [accountData, setAccountData] = useState();
     const navigate = useNavigate();
 
@@ -16,10 +16,10 @@ const Account = (props) => {
         setAccountData(await getAutoLogin(user, token));
     };
 
-    console.log(accountData);
     useEffect(() => {
         window.scrollTo(0, 0);
         getAccountData();
+        setCurrentPage("/user");
     }, []);
     const logoutHandler = () => {
         localStorage.clear();
@@ -29,13 +29,18 @@ const Account = (props) => {
     if (accountData) {
         return (
             <div className="account">
+                <div className="accountLogo">
+                    {accountData.user[0].toUpperCase()}
+                </div>
                 <div>{accountData.user}</div>
+                <button className="smallRedButton" onClick={logoutHandler}>
+                    logout
+                </button>
                 <div>
                     account created on:{" "}
                     {new Date(accountData.created).toDateString()}
                 </div>
                 <OrderHistory orderHistory={accountData.orderHistory} />
-                <button onClick={logoutHandler}>logout</button>
             </div>
         );
     }

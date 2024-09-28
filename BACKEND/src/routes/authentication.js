@@ -22,7 +22,7 @@ router.post("/signup", async (req, res, next) => {
     } else {
         try {
             const existingUser = await getUser(data.user);
-            console.log(existingUser);
+            // console.log(existingUser);
             if (Object.keys(existingUser).length > 0) {
                 err.user = "username already exists";
             }

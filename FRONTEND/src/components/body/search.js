@@ -8,7 +8,7 @@ const Search = () => {
     const [showModal, setShowModal] = useState(false);
 
     const searchStyle = {
-        width: "80vw",
+        width: "79vw",
         // outlineColor: "var(--theme)",
     };
     const getSearchSuggestions = async (keyword) => {

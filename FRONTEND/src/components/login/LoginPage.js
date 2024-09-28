@@ -5,6 +5,7 @@ import { Link, redirect, useNavigate } from "react-router-dom";
 import { useEffect, useContext, useRef, useState } from "react";
 import { CartContext } from "../utils/CartContextProvider";
 import { API } from "../utils/const";
+import OrderCompleteModal from "../cart/OrderCompleteModal";
 
 const Login = () => {
     const { setCurrentPage, setUser } = useContext(CartContext);
@@ -16,6 +17,7 @@ const Login = () => {
     const [passError, setPassError] = useState(false);
     const [buttonText, setButtonText] = useState("Login!");
     const [invalidUser, setInvalidUser] = useState(false);
+    const [logedInModal, setLogedInModal] = useState(false);
     useEffect(() => {
         setCurrentPage("/login");
     });
@@ -36,7 +38,7 @@ const Login = () => {
                 setUser(response.user);
                 localStorage.setItem("token", response.token);
                 localStorage.setItem("user", response.user);
-                navigate("/foodie");
+                setLogedInModal(true);
             } else {
                 const response = await result.json();
                 setInvalidUser(true);
@@ -45,7 +47,7 @@ const Login = () => {
         } catch (error) {
             console.log(error);
         }
-        setButtonText("Login");
+        setButtonText("Login!");
     };
     const registerHandler = (e) => {
         e.preventDefault();
@@ -68,71 +70,61 @@ const Login = () => {
 
         if (err === 0) {
             postLogin();
+        } else {
+            setButtonText("Login!");
         }
     };
 
     return (
-        <form className="loginPage" onSubmit={registerHandler}>
-            <label>Login</label>
-            <input
-                className={userEror ? "error" : ""}
-                onClick={() => {
-                    setUserError(false);
-                    setInvalidUser(false);
-                }}
-                placeholder={
-                    userEror
-                        ? "*name must be between 3 to 16 chars long"
-                        : "user name or email"
-                }
-                ref={inputUserRef}
-            ></input>
+        <>
+            <form className="loginPage" onSubmit={registerHandler}>
+                <label>Login</label>
+                <input
+                    className={userEror ? "error" : ""}
+                    onClick={() => {
+                        setUserError(false);
+                        setInvalidUser(false);
+                    }}
+                    placeholder={
+                        userEror
+                            ? "*name must be between 3 to 16 chars long"
+                            : "user name or email"
+                    }
+                    ref={inputUserRef}
+                ></input>
 
-            <input
-                placeholder={
-                    passError ? "*password must be atleast 6 chars" : "password"
-                }
-                className={passError ? "error" : ""}
-                onClick={() => {
-                    setPassError(false);
-                    setInvalidUser(false);
-                }}
-                type="password"
-                ref={inputPassRef}
-            ></input>
+                <input
+                    placeholder={
+                        passError
+                            ? "*password must be atleast 6 chars"
+                            : "password"
+                    }
+                    className={passError ? "error" : ""}
+                    onClick={() => {
+                        setPassError(false);
+                        setInvalidUser(false);
+                    }}
+                    type="password"
+                    ref={inputPassRef}
+                ></input>
 
-            <span className="invalidError">
-                {invalidUser && "invalid email or/and password"}
-            </span>
+                <span className="invalidError">
+                    {invalidUser && "invalid email or/and password"}
+                </span>
 
-            <button>{buttonText}</button>
-            <div>
-                dont have an account? go to{" "}
-                <Link to={"/foodie/signup"}>sign up</Link> page.
-            </div>
-        </form>
+                <button disabled={buttonText === "Login!" ? false : true}>
+                    {buttonText}
+                </button>
+                <div>
+                    dont have an account? go to{" "}
+                    <Link to={"/foodie/signup"}>sign up</Link> page.
+                </div>
+            </form>
+            {logedInModal && (
+                <OrderCompleteModal redirect="/foodie" text="Logged In!!!" />
+            )}
+        </>
     );
 };
 
 export default Login;
-
-// const Login = () => {
-//     const { setCurrentPage } = useContext(CartContext);
-//     useEffect(() => {
-//         setCurrentPage("/login");
-//     });
-//     return (
-//         <div className="loginPage">
-//             <label>Login</label>
-//             <input placeholder="user name"></input>
-//             <input type="password" placeholder="password"></input>
-//             <button>login</button>
-//             <div>
-//                 dont have an account? go to{" "}
-//                 <Link to={"/foodie/signup"}>sign up</Link> page.
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Login;
