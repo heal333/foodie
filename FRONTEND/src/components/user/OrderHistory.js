@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useGetTotalPrice from "../utils/customHooks/useGetTotalPrice";
 import OrderHistoryItem from "./OrderHistoryItem";
 
@@ -5,7 +6,7 @@ const OrderHistory = ({ orderHistory }) => {
     orderHistory.reverse();
     return (
         <div>
-            order history:
+            <div className="orderHistoryLabel">-:Order History:-</div>
             {orderHistory.map((obj) => {
                 const date = new Date(obj.date);
                 const totalPrice = useGetTotalPrice(obj.ordered);
@@ -17,12 +18,15 @@ const OrderHistory = ({ orderHistory }) => {
                                 {obj.address.address2}
                             </div>
                             <div>{date.toLocaleString()}</div>
-                            {Object.values(obj.ordered).map((obj) => {
+                            {Object.entries(obj.ordered).map(([resId, obj]) => {
                                 return (
-                                    <div key={obj["Restaurant Name"]}>
-                                        <div className="cartItemsRestaurant">
+                                    <div key={resId}>
+                                        <Link
+                                            to={`/foodie/restaurant/${resId}`}
+                                            className="cartItemsRestaurant"
+                                        >
                                             {obj["Restaurant Name"]}
-                                        </div>
+                                        </Link>
 
                                         {Object.values(obj.menu).map((obj) => {
                                             return (

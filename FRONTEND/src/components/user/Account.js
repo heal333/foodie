@@ -3,6 +3,7 @@ import { CartContext } from "../utils/CartContextProvider";
 import { useNavigate } from "react-router-dom";
 import getAutoLogin from "../utils/getAutoLogin";
 import OrderHistory from "./OrderHistory";
+import UserDetails from "./UserDetails";
 
 const Account = (props) => {
     const { setUser, setCurrentPage } = useContext(CartContext);
@@ -29,17 +30,13 @@ const Account = (props) => {
     if (accountData) {
         return (
             <div className="account">
-                <div className="accountLogo">
-                    {accountData.user[0].toUpperCase()}
+                <UserDetails accountData={accountData} />
+                <div className="logoutButton">
+                    <button className="smallRedButton" onClick={logoutHandler}>
+                        logout
+                    </button>
                 </div>
-                <div>{accountData.user}</div>
-                <button className="smallRedButton" onClick={logoutHandler}>
-                    logout
-                </button>
-                <div>
-                    account created on:{" "}
-                    {new Date(accountData.created).toDateString()}
-                </div>
+
                 <OrderHistory orderHistory={accountData.orderHistory} />
             </div>
         );
