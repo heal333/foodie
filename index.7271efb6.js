@@ -43113,6 +43113,8 @@ var _getAutoLogin = require("../utils/getAutoLogin");
 var _getAutoLoginDefault = parcelHelpers.interopDefault(_getAutoLogin);
 var _orderHistory = require("./OrderHistory");
 var _orderHistoryDefault = parcelHelpers.interopDefault(_orderHistory);
+var _userDetails = require("./UserDetails");
+var _userDetailsDefault = parcelHelpers.interopDefault(_userDetails);
 var _s = $RefreshSig$();
 const Account = (props)=>{
     _s();
@@ -43137,59 +43139,47 @@ const Account = (props)=>{
     if (accountData) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "account",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "accountLogo",
-                children: accountData.user[0].toUpperCase()
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userDetailsDefault.default), {
+                accountData: accountData
             }, void 0, false, {
                 fileName: "src/components/user/Account.js",
-                lineNumber: 32,
+                lineNumber: 33,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: accountData.user
+                className: "logoutButton",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "smallRedButton",
+                    onClick: logoutHandler,
+                    children: "logout"
+                }, void 0, false, {
+                    fileName: "src/components/user/Account.js",
+                    lineNumber: 35,
+                    columnNumber: 21
+                }, undefined)
             }, void 0, false, {
                 fileName: "src/components/user/Account.js",
-                lineNumber: 35,
-                columnNumber: 17
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                className: "smallRedButton",
-                onClick: logoutHandler,
-                children: "logout"
-            }, void 0, false, {
-                fileName: "src/components/user/Account.js",
-                lineNumber: 36,
-                columnNumber: 17
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: [
-                    "account created on:",
-                    " ",
-                    new Date(accountData.created).toDateString()
-                ]
-            }, void 0, true, {
-                fileName: "src/components/user/Account.js",
-                lineNumber: 39,
+                lineNumber: 34,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderHistoryDefault.default), {
                 orderHistory: accountData.orderHistory
             }, void 0, false, {
                 fileName: "src/components/user/Account.js",
-                lineNumber: 43,
+                lineNumber: 40,
                 columnNumber: 17
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/user/Account.js",
-        lineNumber: 31,
+        lineNumber: 32,
         columnNumber: 13
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "account"
     }, void 0, false, {
         fileName: "src/components/user/Account.js",
-        lineNumber: 47,
+        lineNumber: 44,
         columnNumber: 12
     }, undefined);
 };
@@ -43208,7 +43198,7 @@ $RefreshReg$(_c, "Account");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","react-router-dom":"9xmpe","../utils/getAutoLogin":"9Wj3A","./OrderHistory":"i8UPJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"i8UPJ":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/CartContextProvider":"4ENTP","react-router-dom":"9xmpe","../utils/getAutoLogin":"9Wj3A","./OrderHistory":"i8UPJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./UserDetails":"5sZgI"}],"i8UPJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7094 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -43218,6 +43208,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _reactRouterDom = require("react-router-dom");
 var _useGetTotalPrice = require("../utils/customHooks/useGetTotalPrice");
 var _useGetTotalPriceDefault = parcelHelpers.interopDefault(_useGetTotalPrice);
 var _orderHistoryItem = require("./OrderHistoryItem");
@@ -43227,7 +43218,14 @@ const OrderHistory = ({ orderHistory })=>{
     orderHistory.reverse();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
-            "order history:",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "orderHistoryLabel",
+                children: "-:Order History:-"
+            }, void 0, false, {
+                fileName: "src/components/user/OrderHistory.js",
+                lineNumber: 9,
+                columnNumber: 13
+            }, undefined),
             orderHistory.map(_s((obj)=>{
                 _s();
                 const date = new Date(obj.date);
@@ -43248,25 +43246,26 @@ const OrderHistory = ({ orderHistory })=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/user/OrderHistory.js",
-                                    lineNumber: 15,
+                                    lineNumber: 16,
                                     columnNumber: 29
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     children: date.toLocaleString()
                                 }, void 0, false, {
                                     fileName: "src/components/user/OrderHistory.js",
-                                    lineNumber: 19,
+                                    lineNumber: 20,
                                     columnNumber: 29
                                 }, undefined),
-                                Object.values(obj.ordered).map((obj)=>{
+                                Object.entries(obj.ordered).map(([resId, obj])=>{
                                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                         children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                                to: `/foodie/restaurant/${resId}`,
                                                 className: "cartItemsRestaurant",
                                                 children: obj["Restaurant Name"]
                                             }, void 0, false, {
                                                 fileName: "src/components/user/OrderHistory.js",
-                                                lineNumber: 23,
+                                                lineNumber: 24,
                                                 columnNumber: 41
                                             }, undefined),
                                             Object.values(obj.menu).map((obj)=>{
@@ -43274,14 +43273,14 @@ const OrderHistory = ({ orderHistory })=>{
                                                     item: obj
                                                 }, void 0, false, {
                                                     fileName: "src/components/user/OrderHistory.js",
-                                                    lineNumber: 29,
+                                                    lineNumber: 33,
                                                     columnNumber: 49
                                                 }, undefined);
                                             })
                                         ]
-                                    }, obj["Restaurant Name"], true, {
+                                    }, resId, true, {
                                         fileName: "src/components/user/OrderHistory.js",
-                                        lineNumber: 22,
+                                        lineNumber: 23,
                                         columnNumber: 37
                                     }, undefined);
                                 }),
@@ -43293,18 +43292,18 @@ const OrderHistory = ({ orderHistory })=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/user/OrderHistory.js",
-                                    lineNumber: 35,
+                                    lineNumber: 39,
                                     columnNumber: 29
                                 }, undefined)
                             ]
                         }, date, true, {
                             fileName: "src/components/user/OrderHistory.js",
-                            lineNumber: 14,
+                            lineNumber: 15,
                             columnNumber: 25
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                             fileName: "src/components/user/OrderHistory.js",
-                            lineNumber: 39,
+                            lineNumber: 43,
                             columnNumber: 25
                         }, undefined)
                     ]
@@ -43317,7 +43316,7 @@ const OrderHistory = ({ orderHistory })=>{
         ]
     }, void 0, true, {
         fileName: "src/components/user/OrderHistory.js",
-        lineNumber: 7,
+        lineNumber: 8,
         columnNumber: 9
     }, undefined);
 };
@@ -43331,7 +43330,7 @@ $RefreshReg$(_c, "OrderHistory");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../utils/customHooks/useGetTotalPrice":"81EwB","./OrderHistoryItem":"4rVnd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4rVnd":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../utils/customHooks/useGetTotalPrice":"81EwB","./OrderHistoryItem":"4rVnd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"4rVnd":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8906 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -43382,6 +43381,91 @@ var _c;
 $RefreshReg$(_c, "OrderHistoryItem");
 
   $parcel$ReactRefreshHelpers$8906.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5sZgI":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9628 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9628.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const UserDetails = ({ accountData })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "accountUser",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "accountLogoNameContainer",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "accountLogo",
+                        children: accountData.user[0].toUpperCase()
+                    }, void 0, false, {
+                        fileName: "src/components/user/UserDetails.js",
+                        lineNumber: 5,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "accountName",
+                        children: accountData.user
+                    }, void 0, false, {
+                        fileName: "src/components/user/UserDetails.js",
+                        lineNumber: 8,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/user/UserDetails.js",
+                lineNumber: 4,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "accountMailDate",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        children: [
+                            "email: ",
+                            accountData.email
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/user/UserDetails.js",
+                        lineNumber: 12,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        children: [
+                            "created: ",
+                            new Date(accountData.created).toDateString()
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/user/UserDetails.js",
+                        lineNumber: 13,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/user/UserDetails.js",
+                lineNumber: 11,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/user/UserDetails.js",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+};
+_c = UserDetails;
+exports.default = UserDetails;
+var _c;
+$RefreshReg$(_c, "UserDetails");
+
+  $parcel$ReactRefreshHelpers$9628.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
